@@ -1,0 +1,22 @@
+<?php
+return array (
+  'DB_TYPE' => 'mysql',
+  'DB_HOST' => 'localhost',
+  'DB_NAME' => 'mall',
+  'DB_USER' => 'root',
+  'DB_PWD' => '',
+  'DB_PORT' => 3306,
+  'DB_PREFIX' => 'cs_',
+  'DB_CHARSET' => 'utf8',
+  'DOMAIN' => 'htpp://127.0.0.1/carshop1',
+  'TITLE' => '深圳市明芳互联科技有限公司',
+  'KEYWORDS' => '深圳市明芳互联科技有限公司',
+  'DESCRIPTION' => '深圳市明芳互联科技有限公司',
+  'EMAIL' => 'shaojun_d@126.com',
+  'CONTACT' => '石头',
+  'FAX' => '12456585',
+  'PHONE' => '1378165***',
+  'ICP' => '备********号',
+  'COPY' => '版权所有',
+  'ADDRESS' => '深圳',
+); ?>

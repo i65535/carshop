@@ -1,0 +1,68 @@
+<layout name="index_layout" />
+
+<if condition="$full_page">
+<div class="crumb-wrap">
+	<div class="crumb-list"><i class="icon-font"></i><a href="/admin">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">{$ur_here}</span></div>
+</div>
+<div class="search-wrap">
+	<div class="search-content">
+		<form action="" method="post">
+			<table class="search-tab">
+				<tr>
+					<th width="70">{:L('keyword')}:</th>
+					<td><input class="common-text" placeholder="关键字" name="keyword" value="" id="" type="text"></td>
+					<td><input class="btn btn-primary btn2" name="sub" value="{:L('button_search')}" type="submit"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+
+<div class="result-wrap">
+	<form name="myform" id="myform" method="post">
+		<div class="result-content" id="listDiv">
+</if>
+			<table class="result-tab" width="100%">
+				<tr>
+					<th class="tc" width="5%"><input class="allChoose" name="" id='check' type="checkbox"></th>
+					
+					<th><center><a href="javascript:listTable.sort('id'); ">{:L('id')}</a></center></th>
+
+					<th><center><a href="javascript:listTable.sort('name'); ">{:L('name')}</a></center></th>
+
+					<th><center><a href="javascript:listTable.sort('duty'); ">{:L('duty')}</a></center></th>
+
+					<th><center><a href="javascript:listTable.sort('qq'); ">{:L('qq')}</a></center></th>
+
+					<th><center><a href="javascript:listTable.sort('tel'); ">{:L('tel')}</a></center></th>
+
+					<th><center><a href="javascript:listTable.sort('sort'); ">{:L('sort')}</a></center></th>
+					<th>操作</th>
+				</tr>
+				<volist name="list" id="vo">
+				<tr>
+					<td class="tc">
+						<input name="ids[]" value="{$vo.id}" class="check" type="checkbox">
+					</td>
+					<foreach name="tableInfoArray" item="tableInfo">
+					<td>{$vo.id}</td>
+					<td class="text-center"><span onclick="javascript:listTable.edit(this, 'edit_sort', {$vo['id']})">{$vo['sort']}</span></td>
+					</foreach>
+					<td>
+						<a class="link-update" href="/index.php/Mall/Generate/edit/id/id.html">{:L('edit')}</a>
+						<a class="link-del" onclick="return confirm('{:L('remove_confirm')}');" href="/index.php/Mall/Generate/del/id/id.html">{:L('remove')}</a>
+					</td>
+				</tr>
+				</volist>
+			</table>
+<if condition="$full_page">
+			<include file="Common/page" />
+		</div>
+		<div>
+			<a href="{:U('add')}" class="btn btn-primary btn2"><i class="icon-font"></i>{:L('add')}</a>
+			<input name="remove" type="submit" id="btnSubmit" value="{:L('remove')}" class="btn btn-default" disabled="true" onclick="this.form.target = '_self'" />
+			<input name="batch" type="hidden" value="1" />
+		</div>
+	</form>
+</div>
+</if>

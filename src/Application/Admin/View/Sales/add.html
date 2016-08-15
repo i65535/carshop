@@ -1,0 +1,60 @@
+<layout name="add_layout" />
+<div class="crumb-wrap">
+    <div class="crumb-list">
+        <i class="icon-font"></i>
+        <a href="/admin">首页</a><span class="crumb-step">&gt;</span>
+        <a class="crumb-name" href="{:U('index')}">{$ur_here}</a><span class="crumb-step">&gt;</span><span>{:L('add')}</span>
+    </div>
+</div>
+<div class="result-wrap">
+    <div class="result-content">
+        <form action="" method="post" id="myform" name="myform" enctype="multipart/form-data">
+            <table class="insert-tab" width="100%">
+                <tbody>
+                
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('name')}:</th>
+                        <td>
+                            <input class="common-text required" id="title" name="data[name]" size="50" value="" type="text">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('duty')}:</th>
+                        <td>
+                            <input class="common-text required" id="title" name="data[duty]" size="50" value="" type="text">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('qq')}:</th>
+                        <td>
+                            <input class="common-text required" id="title" name="data[qq]" size="50" value="" type="text">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('tel')}:</th>
+                        <td>
+                            <input class="common-text required" id="title" name="data[tel]" size="50" value="" type="text">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('sort')}:</th>
+                        <td>
+                            <input class="common-text required" id="title" name="data[sort]" size="50" value="" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td>
+                            <input class="btn btn-primary btn6 mr10" value="{:L('button_submit')}" type="submit">
+                            <input class="btn btn6" onclick="history.go(-1)" value="{:L('button_return')}" type="button">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
