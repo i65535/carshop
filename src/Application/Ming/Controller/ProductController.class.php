@@ -17,7 +17,15 @@ class ProductController extends Controller
 		$this->display();
 	}
 	
-	public function cloud(){
+	public function lb(){
+		$this->display();
+	}
+	
+	public function ops(){
+		$this->display();
+	}
+	
+	public function line(){
 		$this->display();
 	}
 }

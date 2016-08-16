@@ -21,10 +21,6 @@ class CaseController extends Controller
 		$this->display();
 	}
 	
-	public function app(){
-		$this->display();
-	}
-	
 	public function finance(){
 		$this->display();
 	}

@@ -9,7 +9,7 @@ class AboutController extends Controller
 		$this->display();
 	}
 	
-	public function contacts(){
+	public function contact(){
 		$this->display();
 	}
 	
