@@ -55,14 +55,14 @@ class CommonController extends Controller
     }
     
     protected function add_record($data){
-    	return $this->instance->data($data)->insert();
+    	return $this->instance->create();
     }
     
     protected function update_record($id,$data,$condition=''){
     	if(empty($condition)){
     		$condition = " $this->id='$id'";
     	}
-    	$rlt = $this->instance->data($data)->where($condition)->update();
+    	$rlt = $this->instance->data($data)->where($condition)->save();
     	return $rlt > 0;
     }
     
