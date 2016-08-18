@@ -42,23 +42,31 @@
 				<volist name="list" id="vo">
 				<tr>
 					<td class="tc">
-						<input name="ids[]" value="{$vo.id}" class="check" type="checkbox">
+						<input name="ids[]" value="$vo['id']" class="check" type="checkbox">
 					</td>
-					<foreach name="tableInfoArray" item="tableInfo">
-					<td>{$vo.id}</td>
-					<td class="text-center"><span onclick="javascript:listTable.edit(this, 'edit_sort', {$vo['id']})">{$vo['sort']}</span></td>
-					</foreach>
-					<td>
-						<a class="link-update" href="/index.php/Mall/Generate/edit/id/id.html">{:L('edit')}</a>
-						<a class="link-del" onclick="return confirm('{:L('remove_confirm')}');" href="/index.php/Mall/Generate/del/id/id.html">{:L('remove')}</a>
-					</td>
+					
+					<td><center><span onclick="javascript:listTable.edit(this, 'edit_id', {$vo['id']})">{$vo['id']}</span></center></td>
+
+					<td><center><span onclick="javascript:listTable.edit(this, 'edit_name', {$vo['id']})">{$vo['name']}</span></center></td>
+
+					<td><center><span onclick="javascript:listTable.edit(this, 'edit_duty', {$vo['id']})">{$vo['duty']}</span></center></td>
+
+					<td><center><span onclick="javascript:listTable.edit(this, 'edit_qq', {$vo['id']})">{$vo['qq']}</span></center></td>
+
+					<td><center><span onclick="javascript:listTable.edit(this, 'edit_tel', {$vo['id']})">{$vo['tel']}</span></center></td>
+
+					<td><center><span onclick="javascript:listTable.edit(this, 'edit_sort', {$vo['id']})">{$vo['sort']}</span></center></td>
+					<td><center>
+						<a class="link-update" href="{:U('edit', array('id'=>$vo['id']))}">{:L('edit')}</a>
+						<a class="link-del" onclick="return confirm('{:L('remove_confirm')}');" href="{:U('del', array('id'=>$vo['id']))}">{:L('remove')}</a>
+					</center></td>
 				</tr>
 				</volist>
 			</table>
 <if condition="$full_page">
 			<include file="Common/page" />
 		</div>
-		<div>
+		<div class="list_act_div">
 			<a href="{:U('add')}" class="btn btn-primary btn2"><i class="icon-font"></i>{:L('add')}</a>
 			<input name="remove" type="submit" id="btnSubmit" value="{:L('remove')}" class="btn btn-default" disabled="true" onclick="this.form.target = '_self'" />
 			<input name="batch" type="hidden" value="1" />

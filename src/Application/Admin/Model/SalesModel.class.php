@@ -10,12 +10,29 @@ class SalesModel extends Model {
 	protected $trueTableName = '';
 	protected $table = '';
 
+	/*
 	protected $_validate = array(
 		array('username','require','管理员名称不得为空！',1),  // 都有时间都验证
 		array('username','','管理员名称不得重复！',1,unique,1), 
 		array('username','','管理员名称不得重复！',1,unique,2),
 		array('password','require','管理员密码不得为空！',1),
 		array('verify','verify','验证码错误！',1,'callback',4),
+	);
+	*/
+
+	protected $_validate = array(
+	
+		//array('id', 'require', '{%id_validate}', 2),
+
+		//array('name', 'require', '{%name_validate}', 2),
+
+		//array('duty', 'require', '{%duty_validate}', 2),
+
+		//array('qq', 'require', '{%qq_validate}', 2),
+
+		//array('tel', 'require', '{%tel_validate}', 2),
+
+		//array('sort', 'require', '{%sort_validate}', 2),
 	);
 	
 	public function __construct(){
@@ -46,6 +63,10 @@ class SalesModel extends Model {
 	}
 	
 	function sales_detail($id){
-		return $this->row('select T.* from ' . $this->table_name . " where T.id='$id'");
+		$res = $this->query('select * from ' . $this->trueTableName . " where id='$id'");
+		if (is_array($res)){
+			return $res[0];
+		}
+		return FALSE;
 	}
 }

@@ -51,7 +51,7 @@ class SalesController extends CommonController {
         {
             die('invalid param');
         }
-        $detail = model('Sales')->sales_detail($id);
+        $detail = $this->instance->find($id);
         $this->assign('info', $detail);
     
         /* 模板赋值 */
@@ -108,14 +108,24 @@ class SalesController extends CommonController {
         
         if ($this->update_by_id($data, $id))
         {
-            model('Admin')->admin_log($id, 'edit', 'sales');
+            //model('Admin')->admin_log($id, 'edit', 'sales');
         
             // clear_cache_files();
-            $this->message(L('edit_succee'), U('index'));
+            $this->success(L('edit_succee'), U('index'));
         }
         else
         {
-            $this->message(L('edit_fail'), U('index'));
+            $this->error(L('edit_fail'), U('index'));
+        }
+    }
+
+    public function del(){
+        $id=I('id');
+
+        if($this->instance->delete($id)){
+            $this->success(L('delete_succee'), U('Index'));
+        }else{
+            $this->error(L('delete_fail'), U('index'));
         }
     }
     
@@ -148,7 +158,7 @@ class SalesController extends CommonController {
         elseif('remove' == $act){            
             if ($this->drop($id))
             {
-                model('Admin')->admin_log($id,'remove','sales');
+                //model('Admin')->admin_log($id,'remove','sales');
                 clear_cache_files();
             }
             return $this->query();

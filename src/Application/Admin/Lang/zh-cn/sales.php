@@ -21,6 +21,13 @@ return array(
 	'tel' => 'tel',
 	'sort' => 'sort',
 	
+	'id_validate' => 'id',
+	'name_validate' => 'name',
+	'duty_validate' => 'duty',
+	'qq_validate' => 'qq',
+	'tel_validate' => 'tel',
+	'sort_validate' => 'sort',
+	
 	
 	'js_languages' => array(
 		'remove_confirm' => '确定删除这个活动吗？',

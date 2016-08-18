@@ -33,7 +33,7 @@ class CommonController extends Controller
     }
     
     protected function update_by_id($data, $id){
-    	$rlt = $this->instance->data($data)->where(" $this->id='$id'")->update();
+    	$rlt = $this->instance->data($data)->where(" $this->id='$id'")->save();
     	return $rlt > 0;
     }
     
