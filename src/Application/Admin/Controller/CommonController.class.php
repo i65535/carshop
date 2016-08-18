@@ -55,7 +55,7 @@ class CommonController extends Controller
     }
     
     protected function add_record($data){
-    	return $this->instance->create();
+    	return $this->instance->data($data)->add();
     }
     
     protected function update_record($id,$data,$condition=''){

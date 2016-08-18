@@ -2,7 +2,7 @@
 <ul class="pagination pull-right">
   <li><a href="<empty name="page.page_first">javascript:;<else /> $page['page_first']</empty>" class="glyphicon glyphicon-step-backward"></a></li>
   <li><a href="<empty name="page.page_prev">javascript:;<else /> $page['page_prev']</empty>" class="glyphicon glyphicon-backward"></a></li>
-  <volist name="$page['page_number']" id="vo" key="key" >
+  <volist name="page['page_number']" id="vo" key="key" >
   <li <if condition="$page['page'] eq $key">class="active"</if>><a href="{$vo}">{$key}</a></li>
   </volist>
   <li><a href="<empty name="page.page_next">javascript:;<else /> $page['page_prev']</empty>" class="glyphicon glyphicon-forward"></a></li>
