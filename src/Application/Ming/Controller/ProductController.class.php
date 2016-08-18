@@ -1,9 +1,8 @@
 <?php
 namespace Ming\Controller;
-use Think\Controller;
 
 
-class ProductController extends Controller
+class ProductController extends BaseController
 {
 	public function vpc(){
 		$this->display();

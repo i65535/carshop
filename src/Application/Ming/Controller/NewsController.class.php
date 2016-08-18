@@ -1,9 +1,8 @@
 <?php
 namespace Ming\Controller;
-use Think\Controller;
 
 
-class NewsController extends Controller
+class NewsController extends BaseController
 {
 	public function news(){
 		$this->display();

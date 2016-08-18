@@ -1,9 +1,8 @@
 <?php
 namespace Ming\Controller;
-use Think\Controller;
 
 
-class CaseController extends Controller
+class CaseController extends BaseController
 {
 	public function web(){
 		$this->display();

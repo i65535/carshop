@@ -1,9 +1,7 @@
 <?php
 namespace Ming\Controller;
-use Think\Controller;
 
-
-class ServiceController extends Controller
+class ServiceController extends BaseController
 {
 	public function product(){
 		$this->display();

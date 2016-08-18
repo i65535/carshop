@@ -1,7 +1,7 @@
 <?php
 namespace Ming\Controller;
-use Think\Controller;
-class MessageController extends CommonController {
+
+class MessageController extends BaseController {
     public function index(){
     	$message=D('message');
         if(IS_POST){

@@ -1,9 +1,8 @@
 <?php
 namespace Ming\Controller;
-use Think\Controller;
 
 
-class JobController extends CommonController {
+class JobController extends BaseController {
     public function index(){
         $this->display();
     }
