@@ -61,11 +61,11 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{di
 .require-red{color:#f60;font-family:serif;margin-right:3px;}
 /* common */
 .topbar-wrap{height:50px;line-height:50px;background:#1A1A1A;}
-.topbar-logo-wrap{float:left;}
+.topbar-logo-wrap{float:left; height: 50px;}
 .topbar-inner{font-size:18px;padding:0 20px;}
 .topbar-logo{float:left;width:150px;text-align:center;}
 .navbar-list{float:left;}
-.top-info-wrap{float:right;}
+.top-info-wrap{float:right; height: 50px;}
 .navbar-list{}
 .navbar-list li{float:left;}
 .navbar-list li a{float:left;margin-right:5px;padding:0 25px;text-shadow:1px 1px 1px #000;}
@@ -120,3 +120,5 @@ textarea:focus,input[type="text"]:focus,input[type="password"]:focus,input[type=
 .list-page a{margin:0 5px;padding:2px 7px;border:1px solid #ccc;background:#f3f3f3;}
 .list-page a:hover{background:#e4e4e4;border:1px solid #908f8f;}
 .list-page .current{margin:0 5px;padding:2px 7px;background:#f60;border:1px solid #fe8101;color:#fff;}
+#listDiv .pagination{margin: 10px 0;}
+.list_act_div{margin: 10px 0;}
