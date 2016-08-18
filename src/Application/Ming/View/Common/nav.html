@@ -115,7 +115,18 @@
                                 <div class="top-cart-items">
                                     <div class="top-cart-item clearfix">
                                         <div class="top-cart-item-desc">
-											<div class="col_half nobottommargin">
+											
+
+                                            <volist name="list" id="vo">
+                                            
+                                                <div class="col_half col_last nobottommargin">
+                                                <span>{$vo.name}</span>
+                                                <a href="http://wpa.qq.com/msgrd?v=3&amp;uin={$vo.qq}&amp;site=qq&amp;menu=yes" target="_blank"> <img border="0" title="{$vo.name}" alt="{$vo.name}" src="http://wpa.qq.com/pa?p=2:{$vo.qq}:51"></a>
+                                                </div>
+
+                                            </volist>
+
+                                            <div class="col_half nobottommargin">
 											  <span>售前Jay</span>
 											  <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=3132198060&amp;site=qq&amp;menu=yes" target="_blank"> <img border="0" title="售前Jay" alt="售前Jay" src="http://wpa.qq.com/pa?p=2:3132198060:51"></a>
 											</div>

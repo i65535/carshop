@@ -21,6 +21,7 @@ class SalesController extends CommonController {
         
         
         $list = D('Sales')->get_sales_list($filter, $offset);
+        \Think\Log::record('list========================>'. json_encode($list));
         $this->assign('list', $list);
         $this->assign('filter', $filter['filter']);
         $this->assign('ur_here', L('list'));
