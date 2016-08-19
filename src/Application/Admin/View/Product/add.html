@@ -1,0 +1,130 @@
+<layout name="add_layout" />
+<div class="crumb-wrap">
+    <div class="crumb-list">
+        <i class="icon-font"></i>
+        <a href="/admin">首页</a><span class="crumb-step">&gt;</span>
+        <a class="crumb-name" href="{:U('index')}">{$ur_here}</a><span class="crumb-step">&gt;</span><span>{:L('add')}</span>
+    </div>
+</div>
+<div class="result-wrap">
+    <div class="result-content">
+        <form action="{:U('insert')}" method="post" id="myform" name="myform" enctype="multipart/form-data">
+            <table class="insert-tab" width="100%">
+                <tbody>
+                
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('name')}:</th>
+                        <td>
+                            <input class="common-text required" id="title" name="data[name]" size="50" value="" type="text">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('type')}:</th>
+                        <td>
+                            <input class="common-text required" id="title" name="data[type]" size="50" value="" type="text">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('desc')}:</th>
+                        <td>
+                            <input class="common-text required" id="title" name="data[desc]" size="50" value="" type="text">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('region')}:</th>
+                        <td>
+                            <input class="common-text required" id="title" name="data[region]" size="50" value="" type="text">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('zone')}:</th>
+                        <td>
+                            <input class="common-text required" id="title" name="data[zone]" size="50" value="" type="text">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('location')}:</th>
+                        <td>
+                            <input class="common-text required" id="title" name="data[location]" size="50" value="" type="text">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('price_month')}:</th>
+                        <td>
+                            <input class="common-text required" id="title" name="data[price_month]" size="50" value="" type="text">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('cpu')}:</th>
+                        <td>
+                            <input class="common-text required" id="title" name="data[cpu]" size="50" value="" type="text">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('memory')}:</th>
+                        <td>
+                            <input class="common-text required" id="title" name="data[memory]" size="50" value="" type="text">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('disk')}:</th>
+                        <td>
+                            <input class="common-text required" id="title" name="data[disk]" size="50" value="" type="text">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('suitable')}:</th>
+                        <td>
+                            <input class="common-text required" id="title" name="data[suitable]" size="50" value="" type="text">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('bandwidth')}:</th>
+                        <td>
+                            <input class="common-text required" id="title" name="data[bandwidth]" size="50" value="" type="text">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('price_year')}:</th>
+                        <td>
+                            <input class="common-text required" id="title" name="data[price_year]" size="50" value="" type="text">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('create_time')}:</th>
+                        <td>
+                            <input class="common-text required" id="title" name="data[create_time]" size="50" value="" type="text">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('status')}:</th>
+                        <td>
+                            <input class="common-text required" id="title" name="data[status]" size="50" value="" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td>
+                            <input class="btn btn-primary btn6 mr10" value="{:L('button_submit')}" type="submit">
+                            <input class="btn btn6" onclick="history.go(-1)" value="{:L('button_return')}" type="button">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
