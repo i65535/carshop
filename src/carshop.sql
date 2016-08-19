@@ -367,9 +367,7 @@ CREATE TABLE `cs_product` (
   `name` varchar(64) NOT NULL,
   `type` varchar(64) NOT NULL,
   `desc` varchar(255) NULL,
-  `region` varchar(64) NULL,
-  `zone` varchar(64) NULL,
-  `location` varchar(128) NULL,
+  `idc_id` int(11) NOT NULL,
   `price_month` varchar(64) NULL,
   `price_year` varchar(64) NULL,
   `cpu` varchar(64) NOT NULL,
@@ -377,6 +375,24 @@ CREATE TABLE `cs_product` (
   `disk` varchar(64) NOT NULL,
   `suitable` varchar(64) NULL,
   `bandwidth` varchar(64) NULL,
+  `create_time` int(11) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk AUTO_INCREMENT=1 ;
+
+
+--
+-- 表的结构 `cs_idc`
+--
+
+CREATE TABLE `cs_idc` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `album_id` int(11) NULL,
+  `name` varchar(64) NOT NULL,
+  `desc` text NULL,
+  `region` varchar(64) NULL,
+  `zone` varchar(64) NULL,
+  `location` varchar(128) NULL,
   `create_time` int(11) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)

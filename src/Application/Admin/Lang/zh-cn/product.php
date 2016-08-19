@@ -50,8 +50,20 @@ return array(
 	
 	'status_yes' => '是',
 	'status_no' => '否',
-	'js_languages' => array(
-		'remove_confirm' => '确定删除这个活动吗？',
+	'remove_confirm' => '确定删除这个活动吗？',
+
+	'product_type' => array(
+		'vm' => '虚拟机',
+		'host' => '独立服务器'
+	),
+	'region' => array(
+		'vm' => '虚拟机',
+		'host' => '独立服务器'
+	),
+	'zone' => array(
+		'vm' => '虚拟机',
+		'host' => '独立服务器'
 	)
+
 
 );

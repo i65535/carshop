@@ -24,23 +24,16 @@
 </if>
 			<table class="result-tab" width="100%">
 				<tr>
-					<th class="tc" width="5%"><input class="allChoose" name="" id='check' type="checkbox"></th>
-					
-					<th><center><a href="javascript:listTable.sort('id'); ">{:L('id')}</a></center></th>
+					<th class="tc" width="30"><input class="allChoose" name="" id='check' type="checkbox"></th>
 
 					<th><center><a href="javascript:listTable.sort('name'); ">{:L('name')}</a></center></th>
 
 					<th><center><a href="javascript:listTable.sort('type'); ">{:L('type')}</a></center></th>
 
-					<th><center><a href="javascript:listTable.sort('desc'); ">{:L('desc')}</a></center></th>
-
-					<th><center><a href="javascript:listTable.sort('region'); ">{:L('region')}</a></center></th>
-
-					<th><center><a href="javascript:listTable.sort('zone'); ">{:L('zone')}</a></center></th>
-
-					<th><center><a href="javascript:listTable.sort('location'); ">{:L('location')}</a></center></th>
+					<th><center><a href="javascript:listTable.sort('idc'); ">{:L('idc')}</a></center></th>
 
 					<th><center><a href="javascript:listTable.sort('price_month'); ">{:L('price_month')}</a></center></th>
+					<th><center><a href="javascript:listTable.sort('price_year'); ">{:L('price_year')}</a></center></th>
 
 					<th><center><a href="javascript:listTable.sort('cpu'); ">{:L('cpu')}</a></center></th>
 
@@ -52,34 +45,25 @@
 
 					<th><center><a href="javascript:listTable.sort('bandwidth'); ">{:L('bandwidth')}</a></center></th>
 
-					<th><center><a href="javascript:listTable.sort('price_year'); ">{:L('price_year')}</a></center></th>
-
 					<th><center><a href="javascript:listTable.sort('create_time'); ">{:L('create_time')}</a></center></th>
 
 					<th><center><a href="javascript:listTable.sort('status'); ">{:L('status')}</a></center></th>
-					<th>操作</th>
+					<th><center>操作</center></th>
 				</tr>
 				<volist name="list" id="vo">
 				<tr>
 					<td class="tc">
 						<input name="ids[]" value="$vo['id']" class="check" type="checkbox">
 					</td>
-					
-					<td><center><span onclick="javascript:listTable.edit(this, 'edit_id', {$vo['id']})">{$vo['id']}</span></center></td>
 
 					<td><center><span onclick="javascript:listTable.edit(this, 'edit_name', {$vo['id']})">{$vo['name']}</span></center></td>
 
 					<td><center><span onclick="javascript:listTable.edit(this, 'edit_type', {$vo['id']})">{$vo['type']}</span></center></td>
 
-					<td><center><span onclick="javascript:listTable.edit(this, 'edit_desc', {$vo['id']})">{$vo['desc']}</span></center></td>
-
-					<td><center><span onclick="javascript:listTable.edit(this, 'edit_region', {$vo['id']})">{$vo['region']}</span></center></td>
-
-					<td><center><span onclick="javascript:listTable.edit(this, 'edit_zone', {$vo['id']})">{$vo['zone']}</span></center></td>
-
-					<td><center><span onclick="javascript:listTable.edit(this, 'edit_location', {$vo['id']})">{$vo['location']}</span></center></td>
+					<td><center>{$vo['idc']}</center></td>
 
 					<td><center><span onclick="javascript:listTable.edit(this, 'edit_price_month', {$vo['id']})">{$vo['price_month']}</span></center></td>
+					<td><center><span onclick="javascript:listTable.edit(this, 'edit_price_year', {$vo['id']})">{$vo['price_year']}</span></center></td>
 
 					<td><center><span onclick="javascript:listTable.edit(this, 'edit_cpu', {$vo['id']})">{$vo['cpu']}</span></center></td>
 
@@ -91,9 +75,7 @@
 
 					<td><center><span onclick="javascript:listTable.edit(this, 'edit_bandwidth', {$vo['id']})">{$vo['bandwidth']}</span></center></td>
 
-					<td><center><span onclick="javascript:listTable.edit(this, 'edit_price_year', {$vo['id']})">{$vo['price_year']}</span></center></td>
-
-					<td><center><span onclick="javascript:listTable.edit(this, 'edit_create_time', {$vo['id']})">{$vo['create_time']}</span></center></td>
+					<td><center>{$vo['create_time']}</center></td>
 
 					<td><center><span onclick="javascript:listTable.edit(this, 'edit_status', {$vo['id']})">{$vo['status']}</span></center></td>
 					<td><center>
