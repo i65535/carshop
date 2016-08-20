@@ -1,0 +1,60 @@
+<layout name="add_layout" />
+<div class="crumb-wrap">
+    <div class="crumb-list">
+        <i class="icon-font"></i>
+        <a href="/admin">首页</a><span class="crumb-step">&gt;</span>
+        <a class="crumb-name" href="{:U('index')}">{$ur_here}</a><span class="crumb-step">&gt;</span><span>{:L('add')}</span>
+    </div>
+</div>
+<div class="result-wrap">
+    <div class="result-content">
+        <form action="{:U('insert')}" method="post" id="myform" name="myform" enctype="multipart/form-data">
+            <table class="insert-tab" width="100%">
+                <tbody>
+                
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('album_id')}:</th>
+                        <td>
+                            <div class="col-md-3">
+                              <select name='data[album_id]'>
+                                <volist name="album_arr" id="album" key="key" >
+                                <option value="{$album['id']}" {if $info['id'] == $album['id']}selected="true"{/if}>{$album['album_name_str']}</option>
+                                </volist>
+                              </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('title')}:</th>
+                        <td>
+                            <input class="common-text required" id="title" name="data[title]" size="50" value="" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('select_image')}:</th>
+                        <td>
+                            <div class="col-md-5">
+                                <input type="file" name="image_file" class="form-control input-sm" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="150">{:L('desc')}:</th>
+                        <td>
+                            <div class="col-md-6"><textarea name="data[desc]" cols="50"  rows="7" class="form-control input-sm"></textarea></div>
+                        </td>
+                    </tr>
+
+                    
+                    <tr>
+                        <th></th>
+                        <td>
+                            <input class="btn btn-primary btn6 mr10" value="{:L('button_submit')}" type="submit">
+                            <input class="btn btn6" onclick="history.go(-1)" value="{:L('button_return')}" type="button">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
