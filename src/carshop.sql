@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `cs_admin` (
   `password` char(32) NOT NULL,
   `roleid` mediumint(5) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk AUTO_INCREMENT=14 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
 -- 转存表中的数据 `cs_admin`
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `cs_article` (
   `cateid` mediumint(5) NOT NULL,
   `time` int(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk AUTO_INCREMENT=36 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=36 ;
 
 --
 -- 转存表中的数据 `cs_article`
@@ -122,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `cs_cate` (
   `des` varchar(255) DEFAULT NULL,
   `parentid` mediumint(5) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk AUTO_INCREMENT=99 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=99 ;
 
 --
 -- 转存表中的数据 `cs_cate`
@@ -187,7 +187,7 @@ CREATE TABLE IF NOT EXISTS `cs_job` (
   `slim` varchar(20) NOT NULL COMMENT '可到职日期',
   `content` text NOT NULL COMMENT '备注',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk AUTO_INCREMENT=7 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- 转存表中的数据 `cs_job`
@@ -211,7 +211,7 @@ CREATE TABLE IF NOT EXISTS `cs_link` (
   `des` varchar(255) NOT NULL,
   `sort` mediumint(5) NOT NULL DEFAULT '50',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk AUTO_INCREMENT=8 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- 转存表中的数据 `cs_link`
@@ -237,7 +237,7 @@ CREATE TABLE IF NOT EXISTS `cs_message` (
   `type` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1pc端发布0移动端发布',
   `time` int(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk AUTO_INCREMENT=18 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
 
 --
 -- 转存表中的数据 `cs_message`
@@ -263,7 +263,7 @@ CREATE TABLE IF NOT EXISTS `cs_privilege` (
   `aname` varchar(20) NOT NULL COMMENT '//方法名称',
   `parentid` mediumint(5) NOT NULL DEFAULT '0' COMMENT '//上级权限的id',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk AUTO_INCREMENT=38 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=38 ;
 
 --
 -- 转存表中的数据 `cs_privilege`
@@ -304,7 +304,7 @@ CREATE TABLE IF NOT EXISTS `cs_reply` (
   `mid` mediumint(5) NOT NULL,
   `time` int(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk AUTO_INCREMENT=21 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
 
 --
 -- 转存表中的数据 `cs_reply`
@@ -326,7 +326,7 @@ CREATE TABLE IF NOT EXISTS `cs_role` (
   `rolename` varchar(20) NOT NULL,
   `pri_id_list` varchar(60) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk AUTO_INCREMENT=10 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- 转存表中的数据 `cs_role`
@@ -353,7 +353,7 @@ CREATE TABLE IF NOT EXISTS `cs_sales` (
   `tel` varchar(20) NOT NULL,
   `sort` mediumint(5) NOT NULL DEFAULT '50',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=gbk AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 
 -- --------------------------------------------------------
@@ -378,7 +378,7 @@ CREATE TABLE `cs_product` (
   `create_time` int(11) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=gbk AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 
 --
@@ -393,12 +393,43 @@ CREATE TABLE `cs_idc` (
   `region` varchar(64) NULL,
   `zone` varchar(64) NULL,
   `location` varchar(128) NULL,
+  `is_hot` TINYINT( 1 ) NOT NULL DEFAULT '1',
   `create_time` int(11) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=gbk AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 
+--
+-- 表的结构 `cs_album`
+--
+
+CREATE TABLE IF NOT EXISTS `cs_album` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `album_name` varchar(64) NOT NULL,
+  `image_width` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `image_height` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `album_desc` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='图片资源分组' AUTO_INCREMENT=1 ;
+
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `cs_images`
+--
+
+CREATE TABLE IF NOT EXISTS `cs_images` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `album_id` int(11) unsigned NOT NULL,
+  `title` varchar(64) DEFAULT NULL,
+  `desc` varchar(255) DEFAULT NULL,
+  `path` varchar(255) DEFAULT NULL,
+  `size` int(11) unsigned NULL,
+  `create_time` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='图片资源' AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

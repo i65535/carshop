@@ -30,13 +30,11 @@ class ProductModel extends Model {
 
 		//array('desc', 'require', '{%desc_validate}', 2),
 
-		//array('region', 'require', '{%region_validate}', 2),
-
-		//array('zone', 'require', '{%zone_validate}', 2),
-
-		//array('location', 'require', '{%location_validate}', 2),
+		//array('idc_id', 'require', '{%idc_id_validate}', 2),
 
 		//array('price_month', 'require', '{%price_month_validate}', 2),
+
+		//array('price_year', 'require', '{%price_year_validate}', 2),
 
 		//array('cpu', 'require', '{%cpu_validate}', 2),
 
@@ -47,8 +45,6 @@ class ProductModel extends Model {
 		//array('suitable', 'require', '{%suitable_validate}', 2),
 
 		//array('bandwidth', 'require', '{%bandwidth_validate}', 2),
-
-		//array('price_year', 'require', '{%price_year_validate}', 2),
 
 		//array('create_time', 'require', '{%create_time_validate}', 2),
 
