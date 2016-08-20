@@ -15,7 +15,13 @@
                     <tr>
                         <th width="150"><i class="require-red">*</i>{:L('album_id')}:</th>
                         <td>
-                            <input class="common-text required" id="title" name="data[album_id]" size="50" value="{$info['album_id']}" type="text">
+                            <div class="col-md-3">
+                              <select name='data[album_id]'>
+                                <volist name="album_arr" id="album" key="key" >
+                                <option value="{$album['id']}" {if $info['id'] == $album['id']}selected="true"{/if}>{$album['album_name_str']}</option>
+                                </volist>
+                              </select>
+                            </div>
                         </td>
                     </tr>
 
@@ -27,25 +33,26 @@
                     </tr>
 
                     <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('path')}:</th>
+                        <td>
+                            <div class="col-md-4">
+                                <input type="file" name="image_file" class="form-control input-sm"/>
+                            </div>
+
+                            <div class="col-md-1">
+                                <div> <img src="__UPLOAD__/{$info['path']}" border="0" style="max-width:320px; max-height:320px;" /> </div>
+                            </div>
+
+                        </td>
+                    </tr>
+
+                    <tr>
                         <th width="150"><i class="require-red">*</i>{:L('desc')}:</th>
                         <td>
                             <input class="common-text required" id="title" name="data[desc]" size="50" value="{$info['desc']}" type="text">
                         </td>
                     </tr>
 
-                    <tr>
-                        <th width="150"><i class="require-red">*</i>{:L('path')}:</th>
-                        <td>
-                            <input class="common-text required" id="title" name="data[path]" size="50" value="{$info['path']}" type="text">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <th width="150"><i class="require-red">*</i>{:L('create_time')}:</th>
-                        <td>
-                            <input class="common-text required" id="title" name="data[create_time]" size="50" value="{$info['create_time']}" type="text">
-                        </td>
-                    </tr>
                     <tr>
                         <th></th>
                         <td>

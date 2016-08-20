@@ -53,11 +53,12 @@ class ImagesController extends CommonController {
         }
         $detail = $this->instance->find($id);
         $this->assign('info', $detail);
-    
+
         /* 模板赋值 */
         $this->assign('ur_here', L('list'));
         $this->assign('action_link', array('text' => L('list'), 'href' => U('index')));
-    
+        $this->set_album_arr();
+        
         $this->display('edit');
     }
     
@@ -71,7 +72,7 @@ class ImagesController extends CommonController {
         
         /* 模板赋值 */
         $this->assign('ur_here', L('add'));
-        $this->assign('album_arr', $album_arr);
+        $this->set_album_arr();
         $this->assign('action_link', array('text' => L('list'), 'href' => U('index')));
 
         $this->display('add');
@@ -88,6 +89,8 @@ class ImagesController extends CommonController {
         	$data['path'] = $info['savepath'].$info['savename'];
         	$data['size'] = $info['size'];
         }
+        
+        $data['create_time'] = time();
 
         if ($this->add_record($data) !== false)
         {
@@ -129,9 +132,37 @@ class ImagesController extends CommonController {
     	}
     }
     
+    private function get_image_path($id){
+    	$data = $this->instance->where("id=$id")->field('path')->find();
+    	\Think\Log::record('=====get_image_path=================>'. json_encode($data));
+    	return $data['path'];
+    }
+    
     public function update(){
         $data = I('data');
         $id = $_POST['id'];
+        
+        if ($_FILES['image_file']['name']) {
+        	//得到原先的图片路径 删除
+        	$img = $this->get_image_path($id);
+        	//排除远程图片
+        	if ($img && strpos($img, 'http://') === false && strpos($img, 'https://') === false){
+        		$filename = './Public/Uploads/' . $img;
+        		@unlink($filename);
+        	}
+        
+        	/* ad_img广告图片 */
+        	$info = $this->upload('image_file');
+	        if($info === FALSE){
+	        	$this->error(L('upload_images_fail'), U('index'));
+	        }
+	        else{
+	        	$data['path'] = $info['savepath'].$info['savename'];
+	        	$data['size'] = $info['size'];
+	        }
+        }
+        
+        $data['create_time'] = time();
         
         if ($this->update_by_id($data, $id))
         {
@@ -207,6 +238,11 @@ class ImagesController extends CommonController {
             
             make_json_result($val);
         }
+    }
+    
+    function set_album_arr(){
+    	$album_arr = $this->get_album_name_str();
+    	$this->assign('album_arr', $album_arr);
     }
     
     function set_xxxx_option($selected=0){

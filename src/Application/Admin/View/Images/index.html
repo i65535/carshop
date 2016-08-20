@@ -48,9 +48,8 @@
 					<td><center><span onclick="javascript:listTable.edit(this, 'edit_title', {$vo['id']})">{$vo['title']}</span></center></td>
 
 					<td><center>{$vo['path']}</center></td>
-
-					<td><center>{$vo['create_time']}</center></td>
 					<td><center>{$vo['size']}</center></td>
+					<td><center>{$vo['create_time']}</center></td>
 					<td><center>
 						<a class="link-update" href="{:U('edit', array('id'=>$vo['id']))}">{:L('edit')}</a>
 						<a class="link-del" onclick="return confirm('{:L('remove_confirm')}');" href="{:U('del', array('id'=>$vo['id']))}">{:L('remove')}</a>

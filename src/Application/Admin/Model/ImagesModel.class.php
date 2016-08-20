@@ -56,11 +56,10 @@ class ImagesModel extends Model {
 		$sql .= " limit $offset";
 
 		$res = $this->query($sql);
-		/*
+
 		foreach ($res as $key=>$row){
-			$res[$key]['start_time'] = date(C('date_format'), $row['start_time']);
-			$res[$key]['end_time']   = date(C('date_format'), $row['end_time']);
-		}*/
+			$res[$key]['create_time'] = date('Y-m-d H:i:s', $row['create_time']);
+		}
 		return $res;
 	}
 	
