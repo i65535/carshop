@@ -1,107 +1,123 @@
 <layout name="tab_edit_layout" />
 <div class="crumb-wrap">
-	<div class="crumb-list">
-		<i class="icon-font"></i>
-		<a href="/jscss/admin/design/">首页</a><span class="crumb-step">&gt;</span>
-		<a class="crumb-name" href="{:U('index')}">{$ur_here}</a><span class="crumb-step">&gt;</span><span>{:L('edit')}</span>
-	</div>
+    <div class="crumb-list">
+        <i class="icon-font"></i>
+        <a href="/jscss/admin/design/">首页</a><span class="crumb-step">&gt;</span>
+        <a class="crumb-name" href="{:U('index')}">{$ur_here}</a><span class="crumb-step">&gt;</span><span>{:L('edit')}</span>
+    </div>
 </div>
 <div class="result-wrap">
-	<div class="result-content">
-		<ul class="nav nav-tabs" role="tablist" id="myTab">
-			<li class="active"><a href="#general" role="tab" data-toggle="tab">{:L('tab_general')}</a></li>
-			<li><a href="#detail" role="tab" data-toggle="tab">{:L('tab_content')}</a></li>
-		</ul>
+    <div class="result-content">
+        <ul class="nav nav-tabs" role="tablist" id="myTab" style="height:40px;">
+            <li class="active"><a href="#general" role="tab" data-toggle="tab">{:L('tab_general')}</a></li>
+            <li><a href="#detail" role="tab" data-toggle="tab">{:L('tab_content')}</a></li>
+        </ul>
 
 
-		<form action="{:U('update')}" method="post" id="myform" name="myform" enctype="multipart/form-data">
-		<div class="tab-content">
-			<div class="tab-pane active" id="general">
-				<table class="insert-tab" width="100%">
-					<tbody>
+        <form action="{:U('update')}" method="post" id="myform" name="myform" enctype="multipart/form-data">
+        <div class="tab-content">
+            <div class="tab-pane active" id="general">
+                <table class="insert-tab" width="100%">
+                    <tbody>
+                        <tr>
+                            <th width="150"><i class="require-red">*</i>{:L('name')}:</th>
+                            <td>
+                                <input class="common-text required" id="title" name="data[name]" size="50" value="{$info['name']}" type="text">
+                            </td>
+                        </tr>
 
-						<tr>
-							<th width="150"><i class="require-red">*</i>{:L('album_id')}:</th>
-							<td>
-								<input class="common-text required" id="title" name="data[album_id]" size="50" value="{$info['album_id']}" type="text">
-							</td>
-						</tr>
+                        <tr>
+                            <th width="150"><i class="require-red">*</i>{:L('album_id')}:</th>
+                            <td>
+                                <div class="col-md-3">
+                              <select name='data[album_id]'>
+                                <volist name="album_arr" id="album" key="key" >
+                                <option value="{$album['id']}" {if $info['id'] == $album['id']}selected="true"{/if}>{$album['album_name_str']}</option>
+                                </volist>
+                              </select>
+                            </div>
+                            </td>
+                        </tr>
 
-						<tr>
-							<th width="150"><i class="require-red">*</i>{:L('name')}:</th>
-							<td>
-								<input class="common-text required" id="title" name="data[name]" size="50" value="{$info['name']}" type="text">
-							</td>
-						</tr>
+                        
 
-						<tr>
-							<th width="150"><i class="require-red">*</i>{:L('desc')}:</th>
-							<td>
-								<input class="common-text required" id="title" name="data[desc]" size="50" value="{$info['desc']}" type="text">
-							</td>
-						</tr>
+                        <tr>
+                            <th width="150"><i class="require-red">*</i>{:L('desc')}:</th>
+                            <td>
+                                <input class="input-sm" name="data[desc]" maxlength="20" size="50" value="{$info['desc']}" type="text" />
+                            </td>
+                        </tr>
 
-						<tr>
-							<th width="150"><i class="require-red">*</i>{:L('region')}:</th>
-							<td>
-								<input class="common-text required" id="title" name="data[region]" size="50" value="{$info['region']}" type="text">
-							</td>
-						</tr>
+                        <tr>
+                            <th width="150"><i class="require-red">*</i>{:L('region')}:</th>
+                            <td>
+                                <input class="input-sm" name="data[region]" maxlength="20" size="50" value="{$info['region']}" type="text" />
+                            </td>
+                        </tr>
 
-						<tr>
-							<th width="150"><i class="require-red">*</i>{:L('zone')}:</th>
-							<td>
-								<input class="common-text required" id="title" name="data[zone]" size="50" value="{$info['zone']}" type="text">
-							</td>
-						</tr>
+                        <tr>
+                            <th width="150"><i class="require-red">*</i>{:L('zone')}:</th>
+                            <td>
+                                <input class="input-sm" name="data[zone]" maxlength="20" size="50" value="{$info['zone']}" type="text" />
+                            </td>
+                        </tr>
 
-						<tr>
-							<th width="150"><i class="require-red">*</i>{:L('location')}:</th>
-							<td>
-								<input class="common-text required" id="title" name="data[location]" size="50" value="{$info['location']}" type="text">
-							</td>
-						</tr>
+                        <tr>
+                            <th width="150"><i class="require-red">*</i>{:L('location')}:</th>
+                            <td>
+                                <input class="input-sm" name="data[location]" maxlength="20" size="50" value="{$info['location']}" type="text" />
+                            </td>
+                        </tr>
 
-						<tr>
-							<th width="150"><i class="require-red">*</i>{:L('is_hot')}:</th>
-							<td>
-								<input class="common-text required" id="title" name="data[is_hot]" size="50" value="{$info['is_hot']}" type="text">
-							</td>
-						</tr>
+                        <tr>
+                            <th width="150"><i class="require-red">*</i>{:L('is_hot')}:</th>
+                            <td>
+                                    <div class="make-switch" data-on="primary" data-off="info" data-on-label="{:L('is_hot_yes')}" data-off-label="{:L('is_hot_no')}" >
+                                        <input name="data[is_hot]" type="checkbox" <notempty name="info['is_hot']">checked</empty> />
+                                    </div>
+                            </td>
+                        </tr>
 
-						<tr>
-							<th width="150"><i class="require-red">*</i>{:L('create_time')}:</th>
-							<td>
-								<input class="common-text required" id="title" name="data[create_time]" size="50" value="{$info['create_time']}" type="text">
-							</td>
-						</tr>
+                        <tr>
+                            <th width="150"><i class="require-red">*</i>{:L('create_time')}:</th>
+                            <td>
+                                <input class="input-sm" name="data[create_time]" maxlength="20" size="50" value="{$info['create_time']}" type="text" />
+                            </td>
+                        </tr>
 
-						<tr>
-							<th width="150"><i class="require-red">*</i>{:L('status')}:</th>
-							<td>
-								<input class="common-text required" id="title" name="data[status]" size="50" value="{$info['status']}" type="text">
-							</td>
-						</tr>
-						<tr>
-							<th></th>
-							<td>
-								<input type="hidden" name="id" value="{$info['id']}" />
-								<input class="btn btn-primary btn6 mr10" value="{:L('button_submit')}" type="submit">
-								<input class="btn btn6" onclick="history.go(-1)" value="{:L('button_return')}" type="button">
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="tab-pane" id="detail">
-				<table class="insert-tab" width="90%" id="detail-table">
-					<tr>
-						<td><div class="col-md-9"> 
-							<script id="rich_text_area" name="content" type="text/plain" style="width:810px; height:360px;">{$info['content']}</script> 
-						</div></td>
-					</tr>
-				</table>
-			</div>
-		</form>
-	</div>
+                        <tr>
+                            <th width="150"><i class="require-red">*</i>{:L('status')}:</th>
+                            <td>
+                                    <div class="make-switch" data-on="primary" data-off="info" data-on-label="{:L('status_yes')}" data-off-label="{:L('status_no')}" >
+                                        <input name="data[status]" type="checkbox" <notempty name="info['status']">checked</empty> />
+                                    </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td>
+                                <input type="hidden" name="id" value="{$info['id']}" />
+                                <input class="btn btn-primary btn6 mr10" value="{:L('button_submit')}" type="submit">
+                                <input class="btn btn6" onclick="history.go(-1)" value="{:L('button_return')}" type="button">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane" id="detail">
+                <table class="table table-hover" width="90%" id="detail-table">
+                    <tr>
+                        <td><div class="col-md-9"> 
+                            <script id="rich_text_area" name="content" type="text/plain" style="width:810px; height:360px;">{$info['content']}</script> 
+                        </div></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="button-div">
+                <input type="hidden" name="id" value="{$info['id']}" />
+                <input class="btn btn-primary btn6 mr10" value="{:L('button_submit')}" type="submit">
+                <input class="btn btn6" onclick="history.go(-1)" value="{:L('button_return')}" type="button">
+            </div>
+        </form>
+    </div>
 </div>

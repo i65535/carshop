@@ -8,28 +8,33 @@
 </div>
 <div class="result-wrap">
 	<div class="result-content">
-		<ul class="nav nav-tabs" role="tablist" id="myTab">
+		<ul class="nav nav-tabs" role="tablist" id="myTab" style="height:40px;">
 			<li class="active"><a href="#general" role="tab" data-toggle="tab">{:L('tab_general')}</a></li>
 			<li><a href="#detail" role="tab" data-toggle="tab">{:L('tab_content')}</a></li>
 		</ul>
 
-		<form action="{:U('insert')}/index.php/Mall/Generate/insert.html" method="post" id="myform" name="myform" enctype="multipart/form-data">
+		<form action="{:U('insert')}" method="post" id="myform" name="myform" enctype="multipart/form-data">
 		<div class="tab-content">
 			<div class="tab-pane active" id="general">
 				<table class="insert-tab" width="100%">
 					<tbody>
-
-						<tr>
-							<th width="150"><i class="require-red">*</i>{:L('album_id')}:</th>
-							<td>
-								<input class="common-text required" id="title" name="data[album_id]" size="50" value="" type="text">
-							</td>
-						</tr>
-
 						<tr>
 							<th width="150"><i class="require-red">*</i>{:L('name')}:</th>
 							<td>
 								<input class="common-text required" id="title" name="data[name]" size="50" value="" type="text">
+							</td>
+						</tr>
+
+						<tr>
+							<th width="150"><i class="require-red">*</i>{:L('album_id')}:</th>
+							<td>
+								<div class="col-md-3">
+                              <select name='data[album_id]'>
+                                <volist name="album_arr" id="album" key="key" >
+                                <option value="{$album['id']}" {if $info['id'] == $album['id']}selected="true"{/if}>{$album['album_name_str']}</option>
+                                </volist>
+                              </select>
+                            </div>
 							</td>
 						</tr>
 
@@ -57,14 +62,16 @@
 						<tr>
 							<th width="150"><i class="require-red">*</i>{:L('location')}:</th>
 							<td>
-								<input class="common-text required" id="title" name="data[location]" size="50" value="" type="text">
+                                <input class="input-sm" name="data[location]" maxlength="20" size="50" value="" type="text" />
 							</td>
 						</tr>
 
 						<tr>
 							<th width="150"><i class="require-red">*</i>{:L('is_hot')}:</th>
 							<td>
-								<input class="common-text required" id="title" name="data[is_hot]" size="50" value="" type="text">
+								<div class="make-switch" data-on="primary" data-off="info" data-on-label="{:L('is_hot_yes')}" data-off-label="{:L('is_hot_no')}" >
+		                            <input name="data[is_hot]" type="checkbox" checked>
+		                        </div>
 							</td>
 						</tr>
 
@@ -78,21 +85,16 @@
 						<tr>
 							<th width="150"><i class="require-red">*</i>{:L('status')}:</th>
 							<td>
-								<input class="common-text required" id="title" name="data[status]" size="50" value="" type="text">
-							</td>
-						</tr>
-						<tr>
-							<th></th>
-							<td>
-								<input class="btn btn-primary btn6 mr10" value="{:L('button_submit')}" type="submit">
-								<input class="btn btn6" onclick="history.go(-1)" value="{:L('button_return')}" type="button">
+                                <div class="make-switch" data-on="primary" data-off="info" data-on-label="{:L('status_yes')}" data-off-label="{:L('status_no')}" >
+                                        <input name="data[status]" type="checkbox">
+                                    </div>
 							</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 			<div class="tab-pane" id="detail">
-				<table class="insert-tab" width="90%" id="detail-table">
+				<table class="table table-hover" width="90%" id="detail-table">
 					<tr>
 						<td><div class="col-md-9"> 
 							<script id="rich_text_area" name="content" type="text/plain" style="width:810px; height:360px;"></script> 
@@ -100,6 +102,11 @@
 					</tr>
 				</table>
 			</div>
+
+            <div class="button-div">
+                <input class="btn btn-primary btn6 mr10" value="{:L('button_submit')}" type="submit">
+				<input class="btn btn6" onclick="history.go(-1)" value="{:L('button_return')}" type="button">
+              </div>
 		</form>
 	</div>
 </div>

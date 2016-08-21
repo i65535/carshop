@@ -64,7 +64,7 @@ class IdcModel extends Model {
 		$res = $this->query($sql);
 		/*
 		foreach ($res as $key=>$row){
-			$res[$key]['start_time'] = date(C('date_format'), $row['start_time']);
+			$res[$key]['start_time'] = date('Y-m-d H:i:s', $row['start_time']);
 			$res[$key]['end_time']   = date(C('date_format'), $row['end_time']);
 		}*/
 		return $res;
