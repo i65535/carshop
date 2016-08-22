@@ -31,25 +31,28 @@
                                                                                                                                                      
                         <!-- Posts                                                                                                                   
                         ============================================= -->                                                                            
-                        <div id="posts" class="small-thumbs">                                                                                    
-                                                                                                                                                     
+                        <div id="posts" class="small-thumbs">
+
+                            <volist name="news" id="vo">
                             <div class="entry clearfix">                                                                                           
                                 <div class="entry-image">                                                                                          
-                                    <a href="/data/upload/201608/f_bb027973be393730aecc884dabeb8db7.jpg" data-lightbox="image"><img class="image_fade" src="/data/upload/201608/f_bb027973be393730aecc884dabeb8db7.jpg" style="opacity: 1;"></a> 
+                                    <a href="{$vo.imgUrl}" data-lightbox="image"><img class="image_fade" src="{$vo.imgUrl}" style="opacity: 1;"></a> 
                                 </div>                                                                                                               
                                 <div class="entry-c">                                                                                              
                                     <div class="entry-title">                                                                                      
-                                        <h2><a href="company/182.html">租用托管香港服务器之外的第三种选择</a></h2>                                                         
+                                        <h2><a href="{:U('News/detail',array('id'=>$vo["id"]))}">{$vo.title}</a></h2>                                                         
                                     </div>                                                                                                           
                                     <ul class="entry-meta clearfix">                                                                               
-                                        <li><i class="icon-calendar3"></i> 2016-08-05</li>                                                      
+                                        <li><i class="icon-calendar3"></i> {$vo.date}</li>                                                      
                                     </ul>                                                                                                            
                                     <div class="entry-content">                                                                                    
                                         <p></p>                                                                            
                                                                                                                                                      
                                     </div>                                                                                                           
                                 </div>                                                                                                               
-                            </div>                                                                                                                   
+                            </div>                                                                                     </volist>
+
+
                             <div class="entry clearfix">                                                                                           
                                 <div class="entry-image">                                                                                          
                                     <a href="/data/upload/201608/f_419dbf84cffd602c2a15ef621e76ef55.jpg" data-lightbox="image"><img class="image_fade" src="/data/upload/201608/f_419dbf84cffd602c2a15ef621e76ef55.jpg" style="opacity: 1;"></a> 

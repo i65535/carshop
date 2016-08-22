@@ -49,24 +49,25 @@
                                                                                                                                                      
                                     </div>                                                                                                           
                                 </div>                                                                                                               
-                            </div>                                                                                                                   
+                            </div>                                                                                           <volist name="news" id="vo">                             
                             <div class="entry clearfix">                                                                                           
                                 <div class="entry-image">                                                                                          
-                                    <a href="/data/upload/201607/f_12a1f5b4a2c31e074ad1983c4ca664fa.png" data-lightbox="image"><img class="image_fade" src="/data/upload/201607/f_12a1f5b4a2c31e074ad1983c4ca664fa.png" style="opacity: 1;"></a> 
+                                    <a href="{$vo.imgUrl}" data-lightbox="image"><img class="image_fade" src="{$vo.imgUrl}" style="opacity: 1;"></a> 
                                 </div>                                                                                                               
                                 <div class="entry-c">                                                                                              
                                     <div class="entry-title">                                                                                      
-                                        <h2><a href="posts/164.html">明芳互联：云服务器市场中的专注者</a></h2>                                                         
+                                        <h2><a href="{:U('News/detail',array('id'=>$vo["id"]))}">{$vo.title}</a>                                                         
+
                                     </div>                                                                                                           
                                     <ul class="entry-meta clearfix">                                                                               
-                                        <li><i class="icon-calendar3"></i> 2016-07-21</li>                                                      
+                                        <li><i class="icon-calendar3"></i> {$vo.date}</li>                                                      
                                     </ul>                                                                                                            
                                     <div class="entry-content">                                                                                    
                                         <p></p>                                                                            
                                                                                                                                                      
                                     </div>                                                                                                           
                                 </div>                                                                                                               
-                            </div>                                                                                                                   
+                            </div>                                                                                     </volist>                              
                             <div class="entry clearfix">                                                                                           
                                 <div class="entry-image">                                                                                          
                                     <a href="/data/upload/201607/f_f67de441e74dbede72e625fe497ffd7e.jpg" data-lightbox="image"><img class="image_fade" src="/data/upload/201607/f_f67de441e74dbede72e625fe497ffd7e.jpg" style="opacity: 1;"></a> 

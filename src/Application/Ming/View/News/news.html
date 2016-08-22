@@ -32,24 +32,24 @@
                         <!-- Posts                                                                                                                   
                         ============================================= -->                                                                            
                         <div id="posts" class="small-thumbs">                                                                                    
-                                                                                                                                                     
+                            <volist name="news" id="vo">                                            
                             <div class="entry clearfix">                                                                                           
                                 <div class="entry-image">                                                                                          
-                                    <a href="/data/upload/201608/f_43da4b6171a0b0296e1aecfb73cb55a9.jpg" data-lightbox="image"><img class="image_fade" src="/data/upload/201608/f_43da4b6171a0b0296e1aecfb73cb55a9.jpg" style="opacity: 1;"></a> 
+                                    <a href="{$vo.imgUrl}" data-lightbox="image"><img class="image_fade" src="{$vo.imgUrl}" style="opacity: 1;"></a> 
                                 </div>                                                                                                               
                                 <div class="entry-c">                                                                                              
                                     <div class="entry-title">                                                                                      
-                                        <h2><a href="news/183.html">印孚瑟斯二度投资以色列新成立的云计算公司Cloudyn</a></h2>                                                         
+                                        <h2><a href="{:U('News/detail',array('id'=>$vo["id"]))}">{$vo.title}</a></h2>                                                         
                                     </div>                                                                                                           
                                     <ul class="entry-meta clearfix">                                                                               
-                                        <li><i class="icon-calendar3"></i> 2016-08-05</li>                                                      
+                                        <li><i class="icon-calendar3"></i> {$vo.date}</li>                                                      
                                     </ul>                                                                                                            
                                     <div class="entry-content">                                                                                    
                                         <p></p>                                                                            
                                                                                                                                                      
                                     </div>                                                                                                           
                                 </div>                                                                                                               
-                            </div>                                                                                                                   
+                            </div>                                                                                     </volist>                              
                             <div class="entry clearfix">                                                                                           
                                 <div class="entry-image">                                                                                          
                                     <a href="/data/upload/201608/f_2fb238cd612fc76655dc95eb7ee5db6c.png" data-lightbox="image"><img class="image_fade" src="/data/upload/201608/f_2fb238cd612fc76655dc95eb7ee5db6c.png" style="opacity: 1;"></a> 
