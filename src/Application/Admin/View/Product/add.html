@@ -15,91 +15,89 @@
                     <tr>
                         <th width="150"><i class="require-red">*</i>{:L('name')}:</th>
                         <td>
-                            <input class="common-text required" id="title" name="data[name]" size="50" value="" type="text">
+                            <input class="input-sm" name="data[name]" size="50" value="" type="text">
                         </td>
                     </tr>
 
                     <tr>
                         <th width="150"><i class="require-red">*</i>{:L('type')}:</th>
                         <td>
-                            <input class="common-text required" id="title" name="data[type]" size="50" value="" type="text">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <th width="150"><i class="require-red">*</i>{:L('desc')}:</th>
-                        <td>
-                            <input class="common-text required" id="title" name="data[desc]" size="50" value="" type="text">
+                            <input class="input-sm" name="data[type]" size="50" value="" type="text">
                         </td>
                     </tr>
 
                     <tr>
                         <th width="150"><i class="require-red">*</i>{:L('idc_id')}:</th>
                         <td>
-                            <input class="common-text required" id="title" name="data[idc_id]" size="50" value="" type="text">
+							<div class="col-md-3">
+                              <select name='data[idc_id]' class="form-control">
+                                {$idc_option}
+                              </select>
+                            </div>
                         </td>
                     </tr>
 
                     <tr>
                         <th width="150"><i class="require-red">*</i>{:L('price_month')}:</th>
                         <td>
-                            <input class="common-text required" id="title" name="data[price_month]" size="50" value="" type="text">
+                            <input class="input-sm" name="data[price_month]" size="50" value="" type="text">
                         </td>
                     </tr>
 
                     <tr>
                         <th width="150"><i class="require-red">*</i>{:L('price_year')}:</th>
                         <td>
-                            <input class="common-text required" id="title" name="data[price_year]" size="50" value="" type="text">
+                            <input class="input-sm" name="data[price_year]" size="50" value="" type="text">
                         </td>
                     </tr>
 
                     <tr>
                         <th width="150"><i class="require-red">*</i>{:L('cpu')}:</th>
                         <td>
-                            <input class="common-text required" id="title" name="data[cpu]" size="50" value="" type="text">
+                            <input class="input-sm" name="data[cpu]" size="50" value="" type="text">
                         </td>
                     </tr>
 
                     <tr>
                         <th width="150"><i class="require-red">*</i>{:L('memory')}:</th>
                         <td>
-                            <input class="common-text required" id="title" name="data[memory]" size="50" value="" type="text">
+                            <input class="input-sm" name="data[memory]" size="50" value="" type="text">
                         </td>
                     </tr>
 
                     <tr>
                         <th width="150"><i class="require-red">*</i>{:L('disk')}:</th>
                         <td>
-                            <input class="common-text required" id="title" name="data[disk]" size="50" value="" type="text">
+                            <input class="input-sm" name="data[disk]" size="50" value="" type="text">
                         </td>
                     </tr>
 
                     <tr>
                         <th width="150"><i class="require-red">*</i>{:L('suitable')}:</th>
                         <td>
-                            <input class="common-text required" id="title" name="data[suitable]" size="50" value="" type="text">
+                            <input class="input-sm" name="data[suitable]" size="50" value="" type="text">
                         </td>
                     </tr>
 
                     <tr>
                         <th width="150"><i class="require-red">*</i>{:L('bandwidth')}:</th>
                         <td>
-                            <input class="common-text required" id="title" name="data[bandwidth]" size="50" value="" type="text">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <th width="150"><i class="require-red">*</i>{:L('create_time')}:</th>
-                        <td>
-                            <input class="common-text required" id="title" name="data[create_time]" size="50" value="" type="text">
+                            <input class="input-sm" name="data[bandwidth]" size="50" value="" type="text">
                         </td>
                     </tr>
 
                     <tr>
                         <th width="150"><i class="require-red">*</i>{:L('status')}:</th>
                         <td>
-                            <input class="common-text required" id="title" name="data[status]" size="50" value="" type="text">
+                            <div class="make-switch" data-on="primary" data-off="info" data-on-label="{:L('status_yes')}" data-off-label="{:L('status_no')}" >
+                                <input name="data[status]" type="checkbox" checked />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('desc')}:</th>
+                        <td>
+                            <div class="col-md-6"><textarea name="data[desc]" cols="50"  rows="7" class="form-control input-sm"></textarea></div>
                         </td>
                     </tr>
                     <tr>

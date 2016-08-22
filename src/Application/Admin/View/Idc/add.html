@@ -26,27 +26,6 @@
                         </tr>
 
                         <tr>
-                            <th width="150"><i class="require-red">*</i>{:L('album_id')}:</th>
-                            <td>
-                                <div class="col-md-3">
-                              <select name='data[album_id]'>
-                                <volist name="album_arr" id="album" key="key" >
-                                <option value="{$album['id']}" {if $info['id'] == $album['id']}selected="true"{/if}>{$album['album_name_str']}</option>
-                                </volist>
-                              </select>
-                            </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th width="150"><i class="require-red">*</i>{:L('desc')}:</th>
-                            <td>
-                                
-                                <input class="input-sm" name="data[desc]" maxlength="20" size="50" value="" type="text" />
-                            </td>
-                        </tr>
-
-                        <tr>
                             <th width="150"><i class="require-red">*</i>{:L('region')}:</th>
                             <td>
                                 
@@ -73,27 +52,34 @@
                         <tr>
                             <th width="150"><i class="require-red">*</i>{:L('is_hot')}:</th>
                             <td>
-                                
                                 <div class="make-switch" data-on="primary" data-off="info" data-on-label="{:L('is_hot_yes')}" data-off-label="{:L('is_hot_no')}" >
                                     <input name="data[is_hot]" type="checkbox" checked />
                                 </div>
                             </td>
                         </tr>
-
-                        <tr>
-                            <th width="150"><i class="require-red">*</i>{:L('create_time')}:</th>
-                            <td>
-                                
-                                <input class="input-sm" name="data[create_time]" maxlength="20" size="50" value="" type="text" />
-                            </td>
-                        </tr>
-
                         <tr>
                             <th width="150"><i class="require-red">*</i>{:L('status')}:</th>
                             <td>
                                 <div class="make-switch" data-on="primary" data-off="info" data-on-label="{:L('status_yes')}" data-off-label="{:L('status_no')}" >
                                     <input name="data[status]" type="checkbox" checked />
                                 </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th width="150"><i class="require-red">*</i>{:L('album_id')}:</th>
+                            <td>
+                                <div class="col-md-3">
+                              <select name='data[album_id]' class="form-control">
+                                {$album_option}
+                              </select>
+                            </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th width="150"><i class="require-red">*</i>{:L('desc')}:</th>
+                            <td>
+                                <div class="col-md-6"><textarea name="data[desc]" cols="50"  rows="7" class="form-control input-sm"></textarea></div>
                             </td>
                         </tr>
                     </tbody>

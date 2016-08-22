@@ -28,7 +28,7 @@
                     <tr>
                         <th width="150"><i class="require-red">*</i>{:L('title')}:</th>
                         <td>
-                            <input class="common-text required" id="title" name="data[title]" size="50" value="{$info['title']}" type="text">
+                            <input class="common-text required" name="data[title]" size="50" value="{$info['title']}" type="text">
                         </td>
                     </tr>
 
@@ -49,7 +49,7 @@
                     <tr>
                         <th width="150"><i class="require-red">*</i>{:L('desc')}:</th>
                         <td>
-                            <input class="common-text required" id="title" name="data[desc]" size="50" value="{$info['desc']}" type="text">
+							<div class="col-md-6"><textarea name="data[desc]" cols="50"  rows="7" class="form-control input-sm">{$info['desc']}</textarea></div>
                         </td>
                     </tr>
 

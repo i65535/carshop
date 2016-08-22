@@ -55,6 +55,7 @@ class IdcController extends CommonController {
     
         /* 模板赋值 */
         $this->assign('ur_here', L('list'));
+        $this->set_album_option($detail['album_id']);
         $this->assign('action_link', array('text' => L('list'), 'href' => U('index')));
     
         $this->display('edit');
@@ -68,6 +69,7 @@ class IdcController extends CommonController {
         
         /* 模板赋值 */
         $this->assign('ur_here', L('add'));
+        $this->set_album_option();
         $this->assign('action_link', array('text' => L('list'), 'href' => U('index')));
 
         $this->display('add');
@@ -181,16 +183,30 @@ class IdcController extends CommonController {
         }
     }
     
-    function set_xxxx_option($selected=0){
-        $list = model('xxxx')->get_xxxx_name_list();
-        // $list = L('xxxx');
+    /**
+     * 获取组合式广告位名称
+     * @return [type]   首页banner [ 200x100 ]
+     */
+    private function get_album_name_str(){
+    
+    	$list = D('album')->order('id asc')->field('id,album_name,image_width,image_height')->select();
+    	$album_name_arr = array();
+    	foreach ($list as $key => $value) {
+    		$album_name_arr[$key]['id'] = $value['id'];
+    		$album_name_arr[$key]['album_name_str'] = $value['album_name'] . ' [ ' . $value['image_width'] . ' x ' . $value['image_height'] . ' ] ';
+    	}
+    	return $album_name_arr;
+    }
+    
+    function set_album_option($selected=0){
+        $list = $this->get_album_name_str();
         $select = '';
         foreach ($list as $key=>$value) {
-            $select .= '<option value="' . $key . '" ';
-            $select .= ($selected == $key) ? "selected='true'" : '';
+            $select .= '<option value="' . $value['id'] . '" ';
+            $select .= ($selected == $value['id']) ? "selected='true'" : '';
             $select .= '>';
-            $select .= $value . '</option>';
+            $select .= $value['album_name_str'] . '</option>';
         }
-        $this->assign('xxxx_option', $select);
+        $this->assign('album_option', $select);
     }
 }
