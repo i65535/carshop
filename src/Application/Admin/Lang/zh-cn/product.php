@@ -1,10 +1,10 @@
 <?php
 
 return array(
-	'list'=>'列表',
+	'list'=>'产品列表',
 	'edit'=>'编辑',
 	'remove'=>'删除',
-	'add'=>'新增',
+	'add'=>'添加产品',
 	'goback'=>'返回',
 	'add_success'=>'创建成功',
 	'add_fail'=>'创建失败',
@@ -52,14 +52,6 @@ return array(
 		'vm' => '虚拟机',
 		'host' => '独立服务器'
 	),
-	'region' => array(
-		'vm' => '虚拟机',
-		'host' => '独立服务器'
-	),
-	'zone' => array(
-		'vm' => '虚拟机',
-		'host' => '独立服务器'
-	)
 
 
 );

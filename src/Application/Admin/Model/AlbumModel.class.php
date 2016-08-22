@@ -67,4 +67,19 @@ class AlbumModel extends Model {
 		}
 		return FALSE;
 	}
+	
+	/**
+	 * 获取组合式广告位名称
+	 * @return [type]   首页banner [ 200x100 ]
+	 */
+	function get_album_name_str(){
+	
+		$list = $this->order('id asc')->field('id,album_name,image_width,image_height')->select();
+		$album_name_arr = array();
+		foreach ($list as $key => $value) {
+			$album_name_arr[$key]['id'] = $value['id'];
+			$album_name_arr[$key]['album_name_str'] = $value['album_name'] . ' [ ' . $value['image_width'] . ' x ' . $value['image_height'] . ' ] ';
+		}
+		return $album_name_arr;
+	}
 }

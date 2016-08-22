@@ -20,24 +20,6 @@
                     </tr>
 
                     <tr>
-                        <th width="150"><i class="require-red">*</i>{:L('type')}:</th>
-                        <td>
-                            <input class="input-sm" name="data[type]" size="50" value="" type="text">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <th width="150"><i class="require-red">*</i>{:L('idc_id')}:</th>
-                        <td>
-							<div class="col-md-3">
-                              <select name='data[idc_id]' class="form-control">
-                                {$idc_option}
-                              </select>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
                         <th width="150"><i class="require-red">*</i>{:L('price_month')}:</th>
                         <td>
                             <input class="input-sm" name="data[price_month]" size="50" value="" type="text">
@@ -85,8 +67,7 @@
                             <input class="input-sm" name="data[bandwidth]" size="50" value="" type="text">
                         </td>
                     </tr>
-
-                    <tr>
+					<tr>
                         <th width="150"><i class="require-red">*</i>{:L('status')}:</th>
                         <td>
                             <div class="make-switch" data-on="primary" data-off="info" data-on-label="{:L('status_yes')}" data-off-label="{:L('status_no')}" >
@@ -94,6 +75,28 @@
                             </div>
                         </td>
                     </tr>
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('type')}:</th>
+                        <td>
+                            <div class="col-md-3">
+                              <select name='data[type]' class="form-control">
+                                {$type_option}
+                              </select>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('idc_id')}:</th>
+                        <td>
+							<div class="col-md-3">
+                              <select name='data[idc_id]' class="form-control">
+                                {$idc_option}
+                              </select>
+                            </div>
+                        </td>
+                    </tr>
+                    
                     <tr>
                         <th width="150"><i class="require-red">*</i>{:L('desc')}:</th>
                         <td>

@@ -16,10 +16,8 @@
                         <th width="150"><i class="require-red">*</i>{:L('album_id')}:</th>
                         <td>
                             <div class="col-md-3">
-                              <select name='data[album_id]'>
-                                <volist name="album_arr" id="album" key="key" >
-                                <option value="{$album['id']}" {if $info['id'] == $album['id']}selected="true"{/if}>{$album['album_name_str']}</option>
-                                </volist>
+                              <select name='data[album_id]' class="form-control">
+                                {$album_option}
                               </select>
                             </div>
                         </td>
@@ -28,7 +26,7 @@
                     <tr>
                         <th width="150"><i class="require-red">*</i>{:L('title')}:</th>
                         <td>
-                            <input class="common-text required" name="data[title]" size="50" value="{$info['title']}" type="text">
+                            <input class="input-sm" name="data[title]" size="50" value="{$info['title']}" type="text">
                         </td>
                     </tr>
 

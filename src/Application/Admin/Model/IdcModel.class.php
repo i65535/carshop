@@ -77,4 +77,8 @@ class IdcModel extends Model {
 		}
 		return FALSE;
 	}
+	
+	function get_idc_name_str(){
+		return $this->order('id asc')->field('id,name')->select();
+	}
 }

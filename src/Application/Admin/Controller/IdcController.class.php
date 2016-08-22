@@ -183,23 +183,8 @@ class IdcController extends CommonController {
         }
     }
     
-    /**
-     * 获取组合式广告位名称
-     * @return [type]   首页banner [ 200x100 ]
-     */
-    private function get_album_name_str(){
-    
-    	$list = D('album')->order('id asc')->field('id,album_name,image_width,image_height')->select();
-    	$album_name_arr = array();
-    	foreach ($list as $key => $value) {
-    		$album_name_arr[$key]['id'] = $value['id'];
-    		$album_name_arr[$key]['album_name_str'] = $value['album_name'] . ' [ ' . $value['image_width'] . ' x ' . $value['image_height'] . ' ] ';
-    	}
-    	return $album_name_arr;
-    }
-    
     function set_album_option($selected=0){
-        $list = $this->get_album_name_str();
+        $list = D('album')->get_album_name_str();
         $select = '';
         foreach ($list as $key=>$value) {
             $select .= '<option value="' . $value['id'] . '" ';

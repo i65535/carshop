@@ -56,6 +56,9 @@ class ProductController extends CommonController {
         /* 模板赋值 */
         $this->assign('ur_here', L('list'));
         $this->assign('action_link', array('text' => L('list'), 'href' => U('index')));
+        $this->set_idc_option($detail['idc_id']);
+        $this->set_type_option($detail['type']);
+        
     
         $this->display('edit');
     }
@@ -69,6 +72,8 @@ class ProductController extends CommonController {
         /* 模板赋值 */
         $this->assign('ur_here', L('add'));
         $this->assign('action_link', array('text' => L('list'), 'href' => U('index')));
+        $this->set_idc_option();
+        $this->set_type_option();
 
         $this->display('add');
     }
@@ -181,16 +186,28 @@ class ProductController extends CommonController {
         }
     }
     
-    function set_xxxx_option($selected=0){
-        $list = model('xxxx')->get_xxxx_name_list();
-        // $list = L('xxxx');
-        $select = '';
-        foreach ($list as $key=>$value) {
-            $select .= '<option value="' . $key . '" ';
-            $select .= ($selected == $key) ? "selected='true'" : '';
-            $select .= '>';
-            $select .= $value . '</option>';
-        }
-        $this->assign('xxxx_option', $select);
+    
+    function set_idc_option($selected=0){
+    	$list = D('idc')->get_idc_name_str();
+    	$select = '';
+    	foreach ($list as $key=>$value) {
+    		$select .= '<option value="' . $value['id'] . '" ';
+    		$select .= ($selected == $value['id']) ? "selected='true'" : '';
+    		$select .= '>';
+    		$select .= $value['name'] . '</option>';
+    	}
+    	$this->assign('idc_option', $select);
+    }
+    
+    function set_type_option($selected=0){
+    	$list = L('product_type');
+    	$select = '';
+    	foreach ($list as $key=>$value) {
+    		$select .= '<option value="' . $key . '" ';
+    		$select .= ($selected == $key) ? "selected='true'" : '';
+    		$select .= '>';
+    		$select .= $value . '</option>';
+    	}
+    	$this->assign('type_option', $select);
     }
 }
