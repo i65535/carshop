@@ -42,8 +42,9 @@ return array(
 	'status_no' => '否',
 	'remove_confirm' => '确定删除这个活动吗？',
     'region_list' => array(
-        'status_yes' => '是',
-	    'status_no' => '否',
+	    'Asia' => '亚洲',
+		'Western' => '欧美',
+		'SoutheastAsia ' => '东南亚'
     )
 
 );

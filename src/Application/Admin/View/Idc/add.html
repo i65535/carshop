@@ -28,8 +28,11 @@
                         <tr>
                             <th width="150"><i class="require-red">*</i>{:L('region')}:</th>
                             <td>
-                                
-                                <input class="input-sm" name="data[region]" maxlength="20" size="50" value="" type="text" />
+                                <div class="col-md-3">
+                                    <select name='data[region]' class="form-control">
+                                    {$region_option}
+                                    </select>
+                                </div>
                             </td>
                         </tr>
 

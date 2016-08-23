@@ -56,6 +56,8 @@ class IdcController extends CommonController {
         /* 模板赋值 */
         $this->assign('ur_here', L('list'));
         $this->set_album_option($detail['album_id']);
+        $this->set_region_option($detail['region']);
+        
         $this->assign('action_link', array('text' => L('list'), 'href' => U('index')));
     
         $this->display('edit');
@@ -70,6 +72,7 @@ class IdcController extends CommonController {
         /* 模板赋值 */
         $this->assign('ur_here', L('add'));
         $this->set_album_option();
+        $this->set_region_option();
         $this->assign('action_link', array('text' => L('list'), 'href' => U('index')));
 
         $this->display('add');
@@ -194,4 +197,18 @@ class IdcController extends CommonController {
         }
         $this->assign('album_option', $select);
     }
+    
+    function set_region_option($selected=0){
+    	$list = L('region_list');
+    	$select = '';
+    	foreach ($list as $key=>$value) {
+    		$select .= '<option value="' . $key . '" ';
+    		$select .= ($selected == $key) ? "selected='true'" : '';
+    		$select .= '>';
+    		$select .= $value . '</option>';
+    	}
+    	$this->assign('region_option', $select);
+    }
+    
+    
 }

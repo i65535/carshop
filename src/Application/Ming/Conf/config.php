@@ -4,7 +4,7 @@ return array(
 	'TMPL_PARSE_STRING' =>array(
 		'__PUBLIC__' => '/Theme/static',
 		'__JS__'     => '/Theme/static/js/',
-		'__UPLOAD__' => '/Uploads'
+		'__UPLOAD__' => '/Public/Uploads',
 	),
 	'LANG_SWITCH_ON' => true,
 	'LANG_AUTO_DETECT' => false, // 自动侦测语言 开启多语言功能后有效
