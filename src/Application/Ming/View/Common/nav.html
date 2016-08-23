@@ -19,42 +19,32 @@
                                     <ul>
                                         <li class="mega-menu-title"><a href="{:U('Product/vm')}"><div>热门云服务器</div></a>
                                             <ul>
-                                                <li><a href="{:U('Product/cloud',array('addr'=>'hk'))}" title="香港云主机"><div>香港云服务器</div></a></li>
-                                                <li><a href="/products/cloud/tw.html" title="台湾服务器"><div>台湾云服务器</div></a></li>
-                                                <li><a href="/products/cloud/sg.html" title="新加坡服务器"><div>新加坡云服务器</div></a></li>
-                                                <li><a href="/products/cloud/usa.html" title="美国服务器 "><div>美国云服务器</div></a></li>
+                                                <volist name="hot_idc_list" id="vo">  
+                                                <li><a href="{:U('Product/cloud',array('idc'=>$vo['id']))}" title="{$vo.zone}云服务器"><div>{$vo.zone}云服务器</div></a></li>
+                                                </volist>
                                             </ul>
                                         </li>
                                     </ul>
 
+                                    <volist name="idc_list" id="vo">
+                                    <notempty name="vo.zone_list">
                                     <ul>
-                                        <li class="mega-menu-title"><a href="{:U('Product/vm')}"><div>亚洲云服务器</div></a>
+                                        <li class="mega-menu-title"><a href="{:U('Product/vm')}"><div>{$vo.region}云服务器</div></a>
                                             <ul>
-                        						<li><a href="/products/cloud/my.html"><div>马来西亚云服务器</div></a></li>
-                        						<li><a href="/products/cloud/ph.html"><div>菲律宾云服务器</div></a></li>
-                        						<li><a href="/products/cloud/vn.html"><div>越南云服务器</div></a></li>
-                        						<li><a href="/products/cloud/th.html"><div>泰国云服务器</div></a></li>
-                        						<li><a href="/products/cloud/kh.html"><div>柬埔寨云服务器</div></a></li>
+                                                <volist name="vo.zone_list" id="zone">
+                                                <li><a href="{:U('Product/cloud',array('idc'=>$zone['id']))}"><div>{$zone.zone}服务器</div></a></li>
+                                                </volist>
                                             </ul>
                                         </li>
                                     </ul>
-                                    <ul>
-                                        <li class="mega-menu-title"><a href="{:U('Product/vm')}"><div>欧美云服务器</div></a>
-                                            <ul>
-                                                <li><a href="/products/cloud/usa.html"><div>美国云服务器</div></a></li>
-                                                <li><a href="/products/cloud/ru.html"><div>俄罗斯云服务器</div></a></li>
-                                                <li><a href="/products/cloud/uk.html"><div>英国云服务器</div></a></li>
-                                                <li><a href="/products/cloud/nl.html"><div>荷兰云服务器</div></a></li>
-												<li><a href="/products/cloud/de.html"><div>德国云服务器</div></a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
+                                    </notempty>
+                                    </volist>
                                     <ul>
                                         <li class="mega-menu-title"><a href="{:U('Product/host')}"><div>独立服务器</div></a>
                                             <ul>
-                                                <li><a href="/products/dedicated/hk.html" title="香港服务器"><div>香港独立服务器</div></a></li>
-                                                <li><a href="/products/dedicated/us.html" title="美国服务器"><div>美国独立服务器</div></a></li>
-                                                <li><a href="/products/dedicated/sg.html" title="新加坡服务器"><div>新加坡独立服务器</div></a></li>
+                                                <volist name="host_list" id="vo">
+                                                <li><a href="{:U('Product/host',array('idc'=>$vo['id']))}" title="{$vo.zone}独立服务器"><div>{$vo.zone}独立服务器</div></a></li>
+                                                </volist>
                                             </ul>
                                         </li>
                                     </ul>
@@ -62,9 +52,9 @@
                                         <li class="mega-menu-title"><a href="{:U('Product/vpc')}"><div>增值服务</div></a>
                                             <ul>
                                                 <li><a href="{:U('Product/vpc')}"><div>云专有网络</div></a></li>
-                                                <li><a href="{:U('Product/lb')}/products/lb.html"><div>云负载均衡</div></a></li>
-                                                <li><a href="{:U('Product/ops')}/products/ops.html"><div>云代维</div></a></li>
-												<li><a href="{:U('Product/line')}/products/line.html"><div>跨境专线</div></a></li>
+                                                <li><a href="{:U('Product/lb')}"><div>云负载均衡</div></a></li>
+                                                <li><a href="{:U('Product/ops')}"><div>云代维</div></a></li>
+												<li><a href="{:U('Product/line')}"><div>跨境专线</div></a></li>
                                             </ul>
                                         </li>
                                     </ul>

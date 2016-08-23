@@ -150,6 +150,18 @@ class CommonController extends Controller
     	echo "<script>$alert_msg $gourl</script>";
     	exit();
     }
+    
+    protected function parse_switch_data($data, $keys){
+    	foreach ($keys as $key){
+    		if(empty($data[$key])){
+    			$data[$key] = 0;
+    		}
+    		elseif ($data[$key] == 'on'){
+    			$data[$key] = 1;
+    		}
+    	}
+    	return $data;
+    }
 
 
 

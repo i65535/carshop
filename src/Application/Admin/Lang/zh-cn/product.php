@@ -49,7 +49,7 @@ return array(
 	'remove_confirm' => '确定删除这个活动吗？',
 
 	'product_type' => array(
-		'vm' => '虚拟机',
+		'vm' => '云服务器',
 		'host' => '独立服务器'
 	),
 

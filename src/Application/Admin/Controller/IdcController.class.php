@@ -80,6 +80,8 @@ class IdcController extends CommonController {
 
     public function insert(){
         $data = I('data');
+        $data = $this->parse_switch_data($data, array('is_hot', 'status'));
+        \Think\Log::record('====idc=======>'. json_encode($data));
         
         /*检查是否重复*/
         /*
@@ -109,7 +111,8 @@ class IdcController extends CommonController {
     public function update(){
         $data = I('data');
         $id = $_POST['id'];
-        
+        \Think\Log::record('====idc=update======>'. json_encode($data));
+        $data = $this->parse_switch_data($data, array('is_hot', 'status'));
         if ($this->update_by_id($data, $id))
         {
             //model('Admin')->admin_log($id, 'edit', 'idc');

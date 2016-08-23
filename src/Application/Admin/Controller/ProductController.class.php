@@ -80,7 +80,7 @@ class ProductController extends CommonController {
 
     public function insert(){
         $data = I('data');
-        
+        $data = $this->parse_switch_data($data, array('status'));
         /*检查是否重复*/
         /*
         $goods_id = $_POST['goods_id'];
@@ -109,6 +109,7 @@ class ProductController extends CommonController {
     public function update(){
         $data = I('data');
         $id = $_POST['id'];
+        $data = $this->parse_switch_data($data, array('status'));
         
         if ($this->update_by_id($data, $id))
         {
