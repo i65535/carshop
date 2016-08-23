@@ -22,6 +22,7 @@ return array(
 	'size' => 'size',
 	'create_time' => '创建时间',
     'select_image' => '选择图片',
+    'relate_page' => '相关页面',
 	
 	'id_validate' => 'id',
 	'album_id_validate' => 'album_id',

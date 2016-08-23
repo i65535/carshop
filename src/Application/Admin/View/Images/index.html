@@ -30,6 +30,8 @@
 
 					<th><center><a href="javascript:listTable.sort('title'); ">{:L('title')}</a></center></th>
 
+					<th><center><a href="javascript:listTable.sort('relate_page'); ">{:L('relate_page')}</a></center></th>
+
 					<th><center><a href="javascript:listTable.sort('path'); ">{:L('path')}</a></center></th>
 
 					<th><center><a href="javascript:listTable.sort('size'); ">{:L('size')}</a></center></th>
@@ -47,6 +49,7 @@
 
 					<td><center><span onclick="javascript:listTable.edit(this, 'edit_title', {$vo['id']})">{$vo['title']}</span></center></td>
 
+					<td><center>{$vo['relate_page']}</center></td>
 					<td><center>{$vo['path']}</center></td>
 					<td><center>{$vo['size']}</center></td>
 					<td><center>{$vo['create_time']}</center></td>

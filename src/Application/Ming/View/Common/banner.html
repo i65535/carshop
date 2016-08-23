@@ -9,10 +9,17 @@
 		     </a>
                     </div>
 -->                    
-                    <div class="swiper-slide dark" style="background-image: url('__PUBLIC__/images/slider/banner/b2.jpg');">
-                    </div>
+	                <volist name="data" id="vo">  
+                    <div class="swiper-slide dark" style="background-image: url('__UPLOAD__/{$vo.path}');">
 
-                    <div class="swiper-slide dark" style="background-image: url('__PUBLIC__/images/slider/banner/b3.jpg');">
+                    <a href="{$vo.relate_page}">
+                        <div class="container clearfix"></div>
+                    </a>
+
+                    </div>
+                    </volist>
+
+<!--                     <div class="swiper-slide dark" style="background-image: url('__PUBLIC__/images/slider/banner/b3.jpg');">
                      <a href="products/cloudserver.html">
                         <div class="container clearfix"></div>
                      </a>
@@ -22,7 +29,7 @@
                      <a href="products/lb.html">
                         <div class="container clearfix"></div>
                      </a>
-                    </div>
+                    </div> -->
                     
                 </div>
                 <div id="slider-arrow-left"><i class="icon-angle-left"></i></div>
