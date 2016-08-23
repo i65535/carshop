@@ -14,13 +14,13 @@
                             <li class="current"><a href="/"><div>首页</div></a>
   
                             </li>
-                            <li class="mega-menu "><a href="{:U('Product/vm')}"><div>产品&服务</div></a>
+                            <li class="mega-menu "><a href="{:U('Product/index')}"><div>产品&服务</div></a>
                                 <div class="mega-menu-content style-2 col-5 clearfix">
                                     <ul>
-                                        <li class="mega-menu-title"><a href="{:U('Product/vm')}"><div>热门云服务器</div></a>
+                                        <li class="mega-menu-title"><a href="{:U('Product/index')}"><div>热门云服务器</div></a>
                                             <ul>
                                                 <volist name="hot_idc_list" id="vo">  
-                                                <li><a href="{:U('Product/cloud',array('idc'=>$vo['id']))}" title="{$vo.zone}云服务器"><div>{$vo.zone}云服务器</div></a></li>
+                                                <li><a href="{:U('Product/vm',array('idc'=>$vo['id']))}" title="{$vo.zone}云服务器"><div>{$vo.zone}云服务器</div></a></li>
                                                 </volist>
                                             </ul>
                                         </li>
@@ -29,10 +29,10 @@
                                     <volist name="idc_list" id="vo">
                                     <notempty name="vo.zone_list">
                                     <ul>
-                                        <li class="mega-menu-title"><a href="{:U('Product/vm')}"><div>{$vo.region}云服务器</div></a>
+                                        <li class="mega-menu-title"><a href="{:U('Product/index')}"><div>{$vo.region}云服务器</div></a>
                                             <ul>
                                                 <volist name="vo.zone_list" id="zone">
-                                                <li><a href="{:U('Product/cloud',array('idc'=>$zone['id']))}"><div>{$zone.zone}服务器</div></a></li>
+                                                <li><a href="{:U('Product/vm',array('idc'=>$zone['id']))}"><div>{$zone.zone}服务器</div></a></li>
                                                 </volist>
                                             </ul>
                                         </li>

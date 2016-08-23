@@ -8,6 +8,10 @@ class ProductController extends BaseController
 		$this->display();
 	}
 	
+	public function index(){
+		$this->display();
+	}
+	
 	public function vm(){
 		$this->display();
 	}
