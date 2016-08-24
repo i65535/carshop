@@ -1,6 +1,5 @@
 <?php
 namespace Admin\Controller;
-use Think\Controller;
 
 class ImagesController extends CommonController {
     function __construct(){
