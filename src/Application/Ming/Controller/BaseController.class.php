@@ -40,7 +40,8 @@ class BaseController extends Controller {
     	$this->assign('idc_list', $idc_list);
     	
     	$sql="SELECT I.* from cs_product P left join cs_idc I on I.id=P.idc_id WHERE I.status=1 AND P.status=1 AND P.type='host'";
-    	$this->assign('host_list', $host_list);$host_list = $m->query($sql);
+    	$host_list = $m->query($sql);
+    	$this->assign('host_list', $host_list);
     	
     }
     
