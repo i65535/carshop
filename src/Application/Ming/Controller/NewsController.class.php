@@ -26,7 +26,7 @@ class NewsController extends BaseController
 		$list["date"]=date("Y-m-d ", $list["date"]);
 		$list["content"]=html_out($list["content"]);
 		$this->assign('news', $list);
-		$this->display('178');
+		$this->display('detail');
 	}
 
     public function set_company_news(){
