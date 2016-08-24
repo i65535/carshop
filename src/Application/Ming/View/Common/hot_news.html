@@ -1,16 +1,16 @@
-<div class="widget clearfix">                                                    
-                                             
-    <h4>最新动态</h4>                                                            
-    <div id="post-list-footer">   
+<div class="widget clearfix">
+
+    <h4>最新动态</h4>
+    <div id="post-list-footer">
 
         <volist name="hot_news" id="vo">
         <div class="spost clearfix">
-            <div class="entry-image">                                            
-                <a href="{:U('Base/detail',array('id'=>$vo["id"]))}" class="nobg"><img src="{$vo.imgurl}" alt=""></a>    
+            <div class="entry-image">
+                <a href="{:U('News/detail',array('id'=>$vo["id"]))}" class="nobg"><img src="{$vo.imgurl}" alt=""></a>
             </div>
             <div class="entry-c">
                 <div class="entry-title">
-                    <h4><a href="{:U('Base/detail',array('id'=>$vo["id"]))}">{$vo.title}</a></h4>
+                    <h4><a href="{:U('News/detail',array('id'=>$vo["id"]))}">{$vo.title}</a></h4>
                 </div>
                 <ul class="entry-meta">
                     <li>{$vo.date}</li>

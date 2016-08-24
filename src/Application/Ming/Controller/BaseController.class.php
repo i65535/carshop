@@ -61,13 +61,5 @@ class BaseController extends Controller {
         $this->assign('hot_news', $list);
     }
 
-    public function detail(){
-        $id = I('id');
-        $list = D('News')->where("id=$id")->find();
-        \Think\Log::record('list=====++===>'. json_encode($list));
-        $list["date"]=date("Y-m-d ", $list["date"]);
-        $list["content"]=html_out($list["content"]);
-        $this->assign('news', $list);
-        $this->display('detail');
-    } 
+    
 }
