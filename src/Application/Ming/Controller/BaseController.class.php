@@ -10,6 +10,7 @@ class BaseController extends Controller {
     	$this->set_sales();
         $this->set_banner();
         $this->set_nav();
+        $this->set_hot_news();
     }
     
     public function set_sales(){
@@ -49,4 +50,24 @@ class BaseController extends Controller {
     	$sql="SELECT * FROM cs_idc WHERE region='$region' AND status=1";
     	return M()->query($sql);
     }
+
+    public function set_hot_news(){
+        $list = D('news')->limit(4)->select();
+        \Think\Log::record('list=====+++===>'. json_encode($list));
+        foreach ($list as $key => $value) {
+            $list[$key]["date"]=date("Y-m-d ", $list[$key]["date"]);
+        }
+        
+        $this->assign('hot_news', $list);
+    }
+
+    public function detail(){
+        $id = I('id');
+        $list = D('News')->where("id=$id")->find();
+        \Think\Log::record('list=====++===>'. json_encode($list));
+        $list["date"]=date("Y-m-d ", $list["date"]);
+        $list["content"]=html_out($list["content"]);
+        $this->assign('news', $list);
+        $this->display('detail');
+    } 
 }
