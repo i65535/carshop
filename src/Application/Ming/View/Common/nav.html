@@ -29,7 +29,7 @@
                                     <volist name="idc_list" id="vo">
                                     <notempty name="vo.zone_list">
                                     <ul>
-                                        <li class="mega-menu-title"><a href="{:U('Product/index')}"><div>{$vo.region}云服务器</div></a>
+                                        <li class="mega-menu-title"><a href="{:U('Product/index')}"><div>{:L($vo['region'])}云服务器</div></a>
                                             <ul>
                                                 <volist name="vo.zone_list" id="zone">
                                                 <li><a href="{:U('Product/vm',array('idc'=>$zone['id']))}"><div>{$zone.zone}服务器</div></a></li>

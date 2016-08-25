@@ -44,7 +44,6 @@ return array(
     'region_list' => array(
 	    'Asia' => '亚洲',
 		'Western' => '欧美',
-		'SoutheastAsia ' => '东南亚'
     )
 
 );
