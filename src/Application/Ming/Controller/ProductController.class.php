@@ -9,6 +9,8 @@ class ProductController extends BaseController
 	}
 	
 	public function index(){
+		$list = D('product')->where("type = 'vm'")->select();
+		$this->assign('list', $list);
 		$this->display();
 	}
 	
@@ -17,6 +19,8 @@ class ProductController extends BaseController
 	}
 	
 	public function host(){
+		$list = D('product')->where("type = 'host'")->select();
+		$this->assign('list', $list);
 		$this->display();
 	}
 	

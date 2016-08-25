@@ -78,74 +78,26 @@
 
                           </div>
                             <h3 id="tui">推荐配置</h3>
-                                                        <div class="col_half">
+
+                                                        <volist name="list" id="vo">
+                                                        <div class="col_half col_last">
 
                                                           <div style="float: left;margin: 0 10px 0 0;">
-                                                                <img src="/images/products/pc.jpg" style="width: 130px;">
+                                                                <img src="__PUBLIC__/images/products/pc.jpg" style="width: 130px;">
                                                           </div>
                                                           <div>
                                                           <ul style="list-style: none;">
-                                                          <li>CPU: 1 x E5620</li>
-                                                          <li>内存: 8GB DDR3</li>
-                                                          <li>硬盘: 1TB 企业级SATA</li>
-                                                          <li>带宽: 10Mbps独享国际带宽</li>
-                                                          <li>IP数量: 2</li>
+                                                          <li>CPU: {$vo.cpu} x E5620</li>
+                                                          <li>内存: {$vo.memory}GB DDR3</li>
+                                                          <li>硬盘: {$vo.disk}TB 企业级SATA</li>
+                                                          <li>带宽: {$vo.bandwidth}Mbps独享国际带宽</li>
+                                                          <li>IP数量: {$vo.ip}</li>
                               <li>机房: 香港</li>
-                                                          <li><span style="font-size: 20px;color: #1ABC9C;font-weight: bold;">￥ 1539/月</span></li>
+                                                          <li><span style="font-size: 20px;color: #1ABC9C;font-weight: bold;">￥ {$vo.price_month}/月</span></li>
                                                           </ul>
                                                           </div>
                                                         </div>
-                                                        <div class="col_half col_last">
-
-                                                          <div style="float: left;margin: 0 10px 0 0;">
-                                                                <img src="/images/products/pc.jpg" style="width: 130px;">
-                                                          </div>
-                                                          <div>
-                                                          <ul style="list-style: none;">
-                                                          <li>CPU: 1 x E3-1230</li>
-                                                          <li>内存: 8GB DDR3</li>
-                                                          <li>硬盘: 1TB 企业级SATA</li>
-                                                          <li>带宽: 5Mbps独享国际带宽</li>
-                                                          <li>IP数量: 2</li>
-                                                          <li>机房: 新加坡</li>
-                                                          <li><span style="font-size: 20px;color: #1ABC9C;font-weight: bold;">￥ 2099/月</span></li>
-                                                          </ul>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col_half">
-
-                                                          <div style="float: left;margin: 0 10px 0 0;">
-                                                                <img src="/images/products/pc.jpg" style="width: 130px;">
-                                                          </div>
-                                                          <div>
-                                                          <ul style="list-style: none;">
-                                                          <li>CPU: 1 x E5620</li>
-                                                          <li>内存: 8GB DDR3</li>
-                                                          <li>硬盘: 1TB 企业级SATA</li>
-                                                          <li>带宽: 10Mbps独享国际带宽</li>
-                                                          <li>IP数量: 2</li>
-                                                          <li>机房: 香港</li>
-                                                          <li><span style="font-size: 20px;color: #1ABC9C;font-weight: bold;">￥ 1539/月</span></li>
-                                                          </ul>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col_half col_last">
-
-                                                          <div style="float: left;margin: 0 10px 0 0;">
-                                                                <img src="/images/products/pc.jpg" style="width: 130px;">
-                                                          </div>
-                                                          <div>
-                                                          <ul style="list-style: none;">
-                                                          <li>CPU: 2 x E5620</li>
-                                                          <li>内存: 16GB DDR3</li>
-                                                          <li>硬盘: 500GB 企业级SATA</li>
-                                                          <li>带宽: 100M带宽 10TB月流量</li>
-                                                          <li>IP数量: 5</li>
-                                                          <li>机房: 美国</li>
-                                                          <li><span style="font-size: 20px;color: #1ABC9C;font-weight: bold;">￥ 2299/月</span></li>
-                                                          </ul>
-                                                          </div>
-                                                        </div>
+                                                        </volist>
 
                           
                         </div>

@@ -81,77 +81,28 @@
                             <p>标准7天免费试用时长所要的不仅仅是试网络，试品质，更重要的是试服务，试交流，试信任。用户的信赖是对我们最大的褒奖。</p>
 
                         <h3 id="tui">推荐配置</h3>
-                            <div class="col_half">
-  
-                              <div style="float: left;margin: 0 10px 0 0;">
-                                <img src="/images/products/pc.jpg" style="
-    width: 130px;
-">
-                              </div>
-                              <div>
-                              <ul style="list-style: none;">
-                              <li>CPU: 1核</li>
-                              <li>内存: 1G</li>
-                              <li>带宽: 2M</li>
-                                <li>位置: 香港</li>
-                              <li>适用: 网络游戏，大数据营销</li>
-                              <li><span style="font-size: 20px;color: #1ABC9C;font-weight: bold;">￥ 170/月</span></li>
-                              </ul>
-                              </div>
-                            </div>
+                                                        <volist name="list" id="vo">
                             <div class="col_half col_last">
   
                               <div style="float: left;margin: 0 10px 0 0;">
-                                <img src="/images/products/pc.jpg" style="
-    width: 130px;
-">
+                                <img src="__PUBLIC__/images/products/pc.jpg" style="width: 130px;">
                               </div>
                               <div>
                               <ul style="list-style: none;">
-                              <li>CPU: 2核</li>
-                              <li>内存: 2G</li>
-                              <li>带宽: 3M</li>
-                                <li>位置: 美国</li>
-                              <li>适用: 外贸网站，电商网站</li>
-                              <li><span style="font-size: 20px;color: #1ABC9C;font-weight: bold;">￥ 280/月</span></li>
+                              <li>CPU: {$vo.cpu}核</li>
+                              <li>内存: {$vo.memory}G</li>
+                              <li>带宽: {$vo.bandwidth}M</li>
+                                <li>位置: {$vo.location}</li>
+                              <li>适用: {$vo.suitable}</li>
+                              <li><span style="font-size: 20px;color: #1ABC9C;font-weight: bold;">￥ {$vo.price_month}/月</span></li>
                               </ul>
                               </div>
                             </div>
-                                                        <div class="col_half">
+                            </volist>
 
-                                                          <div style="float: left;margin: 0 10px 0 0;">
-                                                                <img src="/images/products/pc.jpg" style="width: 130px;">
-                                                          </div>
-                                                          <div>
-                                                          <ul style="list-style: none;">
-                                                          <li>CPU: 1核</li>
-                                                          <li>内存: 1G</li>
-                                                          <li>带宽: 2M</li>
-                                                          <li>位置: 新加坡</li>
-                                                          <li>适用: 跨境金融，Saas服务</li>
-                                                          <li><span style="font-size: 20px;color: #1ABC9C;font-weight: bold;">￥ 298/月</span></li>
-                                                          </ul>
-                                                          </div>
-                                                        </div>
-                                                        <div class="col_half col_last">
-
-                                                          <div style="float: left;margin: 0 10px 0 0;">
-                                                                <img src="/images/products/pc.jpg" style="width: 130px;">
-                                                          </div>
-                                                          <div>
-                                                          <ul style="list-style: none;">
-                                                          <li>CPU: 2核</li>
-                                                          <li>内存: 2G</li>
-                                                          <li>带宽: 3M</li>
-                                                          <li>位置: 台湾</li>
-                                                          <li>适用: 手机游戏，移动APP</li>
-                                                          <li><span style="font-size: 20px;color: #1ABC9C;font-weight: bold;">￥ 380/月</span></li>
-                                                          </ul>
-                                                          </div>
-                                                        </div>
-
-                        <h3 id="dui">产品对比</h3>
+                        
                         <div class="col_full">
+                        <h3 id="dui">产品对比</h3>
                                                   <table class="table table-bordered">
                             <thead>
                             <tr>
