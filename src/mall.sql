@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.3.11
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2016-08-25 10:13:53
--- 服务器版本： 5.6.24
--- PHP Version: 5.6.8
+-- Generation Time: 2016-08-26 11:07:55
+-- 服务器版本： 10.1.9-MariaDB
+-- PHP Version: 5.6.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `mall`
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `cs_admin` (
   `username` varchar(20) NOT NULL,
   `password` char(32) NOT NULL,
   `roleid` mediumint(5) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=gbk;
+) ENGINE=MyISAM DEFAULT CHARSET=gbk;
 
 --
 -- 转存表中的数据 `cs_admin`
@@ -50,19 +50,20 @@ INSERT INTO `cs_admin` (`id`, `username`, `password`, `roleid`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `cs_album` (
-  `id` int(11) unsigned NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
   `album_name` varchar(64) NOT NULL,
-  `image_width` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `image_height` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `image_width` smallint(5) UNSIGNED NOT NULL DEFAULT '0',
+  `image_height` smallint(5) UNSIGNED NOT NULL DEFAULT '0',
   `album_desc` varchar(255) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='图片资源分组';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='图片资源分组';
 
 --
 -- 转存表中的数据 `cs_album`
 --
 
 INSERT INTO `cs_album` (`id`, `album_name`, `image_width`, `image_height`, `album_desc`) VALUES
-(2, 'BannerAD', 0, 0, '');
+(1, 'BannerAD', 600, 80, 'sdfsdf'),
+(2, 'test002', 800, 600, 'sdf');
 
 -- --------------------------------------------------------
 
@@ -84,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `cs_article` (
   `rem` tinyint(1) NOT NULL DEFAULT '0',
   `cateid` mediumint(5) NOT NULL,
   `time` int(10) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=gbk;
+) ENGINE=MyISAM DEFAULT CHARSET=gbk;
 
 --
 -- 转存表中的数据 `cs_article`
@@ -120,8 +121,7 @@ INSERT INTO `cs_article` (`id`, `title`, `atype`, `rizu`, `num`, `author`, `pic`
 (32, '车辆展示2', 0, 0, '', '', './Public/Uploads/2016-05-06/572c260d27369.jpg', '&lt;p&gt;车辆展示2车辆展示2车辆展示2车辆展示2&lt;/p&gt;', '', '', 0, 93, 1462511117),
 (33, '车辆展示3', 0, 0, '', '', './Public/Uploads/2016-05-06/572c262a12607.jpg', '&lt;p&gt;车辆展示3车辆展示3&lt;/p&gt;', '', '', 0, 93, 1462511146),
 (34, '车辆展示4', 0, 0, '', '', './Public/Uploads/2016-05-06/572c2644de5d6.jpg', '&lt;p&gt;车辆展示3车辆展示3车辆展示3&lt;/p&gt;', '', '', 0, 93, 1462511172),
-(35, '车辆展示5', 0, 0, '', '', './Public/Uploads/2016-05-06/572c265c62ab5.jpg', '&lt;p&gt;车辆展示5车辆展示5车辆展示5车辆展示5车辆展示5&lt;/p&gt;', '', '', 0, 93, 1471569120),
-(36, '测试', 0, 0, '', 'ceshizuozhe', './Public/Uploads/2016-08-19/57b6662fbb03b.png', '影速科技（Yingsoo）是一家具有海外云计算运营背景的技术型企业，主要向客户提供全球范围内的云服务器、独立服务器租用、云负载均衡、跨境专线等服务。总部位于深圳，研发中心设在美国硅谷。影速科技（Yingsoo）愿景成为客户最受欢迎的海外云服务提供商，并积极推动海外云服务业务健康发展，与合作伙伴共同成长。\r\n\r\n   至今，影速科技（Yingsoo）已在全球建设了15个云服务节点，覆盖了中国香港、台湾、北美、欧洲、以及东南亚地区，为超过1200家企业提供了海外云服务业务，客户群体涉及外贸网站、门户网站、金融网站、网络游戏、社交论坛、移动应用、流媒体等众多类型的互联网企业，帮助中国企业拓展海外市场。运营服务中心设在深圳，实现业务咨询、业务受理、7×24小时即时响应等一站式服务。', '介绍', '', 0, 67, 1471571514);
+(35, '车辆展示5', 0, 0, '', '', './Public/Uploads/2016-05-06/572c265c62ab5.jpg', '&lt;p&gt;车辆展示5车辆展示5车辆展示5车辆展示5车辆展示5&lt;/p&gt;', '', '', 0, 93, 1462511196);
 
 -- --------------------------------------------------------
 
@@ -141,7 +141,7 @@ CREATE TABLE IF NOT EXISTS `cs_cate` (
   `keywords` varchar(60) DEFAULT NULL,
   `des` varchar(255) DEFAULT NULL,
   `parentid` mediumint(5) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=99 DEFAULT CHARSET=gbk;
+) ENGINE=MyISAM DEFAULT CHARSET=gbk;
 
 --
 -- 转存表中的数据 `cs_cate`
@@ -199,6 +199,25 @@ CREATE TABLE IF NOT EXISTS `cs_idc` (
   `status` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 转存表中的数据 `cs_idc`
+--
+
+INSERT INTO `cs_idc` (`id`, `album_id`, `name`, `desc`, `region`, `zone`, `location`, `is_hot`, `create_time`, `status`) VALUES
+(1, 1, '香港', '', 'Asia', '香港', '香港', 1, 1471857664, 1),
+(3, 1, '台湾', '', 'Asia', '台湾', '台湾', 1, 1471857664, 1),
+(4, 1, '新加坡', '', 'Asia', '新加坡', '', 1, 1471857664, 1),
+(5, 1, '马来西亚', '', 'Asia', '马来西亚', '', 0, 1471857664, 1),
+(6, 1, '菲律宾', '', 'Asia', '菲律宾', '', 0, 1471857664, 1),
+(7, 1, '越南', '', 'Asia', '越南', '', 0, 1471857664, 1),
+(8, 1, '泰国', '', 'Asia', '泰国', '', 0, 1471857664, 1),
+(9, 1, '柬埔寨', '', 'Asia', '柬埔寨', '', 0, 1471857664, 1),
+(10, 1, '美国', '', 'Western', '美国', '', 1, 1471857664, 1),
+(11, 1, '英国', '', 'Western', '英国', '', 0, 1471857664, 1),
+(12, 1, '俄罗斯', '', 'Western', '俄罗斯', '', 0, 1471857664, 1),
+(13, 1, '荷兰', '', 'Western', '荷兰', '', 0, 1471857664, 1),
+(14, 1, '德国', '', 'Western', '德国', '', 0, 1471857664, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -206,15 +225,15 @@ CREATE TABLE IF NOT EXISTS `cs_idc` (
 --
 
 CREATE TABLE IF NOT EXISTS `cs_images` (
-  `id` int(11) unsigned NOT NULL,
-  `album_id` int(11) unsigned NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
+  `album_id` int(11) UNSIGNED NOT NULL,
   `title` varchar(64) DEFAULT NULL,
   `desc` varchar(255) DEFAULT NULL,
   `path` varchar(255) DEFAULT NULL,
-  `size` int(11) unsigned DEFAULT NULL,
+  `size` int(11) UNSIGNED DEFAULT NULL,
   `create_time` int(11) DEFAULT NULL,
   `relate_page` varchar(45) DEFAULT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='图片资源';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='图片资源';
 
 --
 -- 转存表中的数据 `cs_images`
@@ -224,7 +243,6 @@ INSERT INTO `cs_images` (`id`, `album_id`, `title`, `desc`, `path`, `size`, `cre
 (1, 2, 'banner1', '', '2016-08-22/57bac4005bee7.jpg', 610181, 1471857664, ''),
 (2, 2, 'banner2', '', '2016-08-22/57bac415d5fca.jpg', 259815, 1471857685, ''),
 (3, 2, 'banner3', '', '2016-08-22/57bac42985968.jpg', 424979, 1471922346, '');
-
 -- --------------------------------------------------------
 
 --
@@ -250,7 +268,7 @@ CREATE TABLE IF NOT EXISTS `cs_job` (
   `address_now` varchar(255) NOT NULL COMMENT '住址',
   `slim` varchar(20) NOT NULL COMMENT '可到职日期',
   `content` text NOT NULL COMMENT '备注'
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=gbk;
+) ENGINE=MyISAM DEFAULT CHARSET=gbk;
 
 --
 -- 转存表中的数据 `cs_job`
@@ -273,7 +291,7 @@ CREATE TABLE IF NOT EXISTS `cs_link` (
   `url` varchar(60) NOT NULL,
   `des` varchar(255) NOT NULL,
   `sort` mediumint(5) NOT NULL DEFAULT '50'
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=gbk;
+) ENGINE=MyISAM DEFAULT CHARSET=gbk;
 
 --
 -- 转存表中的数据 `cs_link`
@@ -298,7 +316,7 @@ CREATE TABLE IF NOT EXISTS `cs_message` (
   `checked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否通过审核',
   `type` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1pc端发布0移动端发布',
   `time` int(10) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=gbk;
+) ENGINE=MyISAM DEFAULT CHARSET=gbk;
 
 --
 -- 转存表中的数据 `cs_message`
@@ -325,22 +343,7 @@ CREATE TABLE IF NOT EXISTS `cs_news` (
   `keywords` varchar(60) DEFAULT NULL,
   `date` int(10) NOT NULL,
   `type` varchar(20) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=utf8;
-
---
--- 转存表中的数据 `cs_news`
---
-
-INSERT INTO `cs_news` (`id`, `title`, `author`, `imgUrl`, `content`, `keywords`, `date`, `type`) VALUES
-(37, '测试', 'yy', 'url', '内容内容内容', '内容', 23444444, 'company'),
-(3, '测试2', 'eee', 'url2', '是打发斯蒂芬', 'keyword', 435345, 'company'),
-(38, '测试3', 'uu', 'url3', '租用香港服务器，顾名思义，就是承租人以一定金额借贷香港服务器，由此获得一段时间内使用该物品权利的经济行为。而托管服务器，则是指用户自己购买服务器，然后委托具有完善的机房、带宽以及经验丰富的服务商来管理其计算机系统，从而能享受服务商带来的专业性服务。租用和托管之间区别好理解，那么它们两者之间各具备什么优劣势呢？', 'keyword', 435345435, 'news'),
-(39, '测试4', 'dd', 'url4', '内容内容内容内容你人呢', '内天', 45435343, 'Internet'),
-(41, '测试5', '', 'url', '\r\n\r\nSAP ERP财务管理系统统一企业财务与控制:从集中化和简化的 IT 布局中获益。\r\n\r\n在全球化业务的今天，优化业务流程和简化数据结构帮助您在应付瞬息万变的市场需求中起着关键的作用。SAP® 咨询部的系统布局优化团队可以帮助您统一 SAP ERP 应用中的财务和控制结构。', '介绍', 0, 'company'),
-(43, '测试7', 'eeer', 'url', '', 'wyzlyw', 0, 'company'),
-(45, '测试8', 'eee', 'url', '', '介绍', 0, 'news'),
-(46, '测试9', 'eee', 'url', '&lt;p&gt;外观方面， 荣威e950的设计风格与950基本保持一致，只是在细节设计上突出其是一辆混动车。前脸利用大量镀铬进行装饰，拿捏有度。格栅造型与“网红”荣威RX5的设计一脉相承。车身尺寸为4995/1857/1500mm，轴距为2837mm。&lt;br/&gt;&lt;br/&gt;　　新车所采用的ADB矩阵式LED大灯，内含多达98颗LED光源，同时配备的视觉模块还能自动识别对向来车和同向跟车，调节甚至熄灭部分LED远光光源，并在对向来车通过后再自动恢复照明，具有较高的科技感。&lt;br/&gt;&lt;br/&gt;　　车内， 荣威e950的内饰风格比较低调，只是线条和布局总能让人想起上一代的别克君威来。空间上大大改善了后排座椅的宽敞度和舒适性，看来荣威e950时刻没有忘记自己的商务车身份啊。&lt;/p&gt;', '我们', 0, 'company'),
-(47, '测试10', 'eee', 'url', '&lt;ul class=&quot;auto list-paddingleft-2&quot;&gt;&lt;li&gt;&lt;p&gt;业务笔记创办于2011年9月，得到新华社、创业家等40余家媒体报道，总部位于上海，在北京，广州设有分公\r\n司。我们致力于提高中小企业B2B业务效率，提供SAAS企业级解决方案。公司秉承一切以用户价值为中心的经营理念，始终坚持“忠于用户，优于体验”的核\r\n心价值观。目前已经获得经纬创投、日本CA创投、Redpoint Ventures风险投资基金及雷军的顺为基金的三轮数千万美金的风险投资。&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;ul class=&quot;txt auto list-paddingleft-2&quot;&gt;&lt;li&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;h1&gt;公司使命&lt;/h1&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;借力移动互联网浪潮，帮助广大中小企业提高B2B管理效率。&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;h1&gt;战略目标&lt;/h1&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;移动互联网时代，为用户提供包括即时通讯、客户关系管理、协同办公等在内的一站式解决方案。通过用户画像帮助客户实现销售过程自动化(SFA)、营销自动化(MA)、客户服务与支持(CSS)流程化管理。&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;h1&gt;团队介绍&lt;/h1&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;由互联网连续创业者陈曦领军的业务笔记团队，深知&amp;quot;人尽其才、物尽其用&amp;quot;的实战之道，精于识人、择人、用人。业务笔记上下都推崇一种极客创业文化，所谓创业文化的背后其实是强烈的上进需求和学习愿望，不断接受新技术、新事物、新理念，追求最快的学习和融合速度。&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;', 'wyzlyw', 0, 'company');
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -355,7 +358,7 @@ CREATE TABLE IF NOT EXISTS `cs_privilege` (
   `cname` varchar(20) NOT NULL COMMENT '//控制器名称',
   `aname` varchar(20) NOT NULL COMMENT '//方法名称',
   `parentid` mediumint(5) NOT NULL DEFAULT '0' COMMENT '//上级权限的id'
-) ENGINE=MyISAM AUTO_INCREMENT=38 DEFAULT CHARSET=gbk;
+) ENGINE=MyISAM DEFAULT CHARSET=gbk;
 
 --
 -- 转存表中的数据 `cs_privilege`
@@ -406,22 +409,82 @@ CREATE TABLE IF NOT EXISTS `cs_product` (
   `bandwidth` varchar(64) DEFAULT NULL,
   `create_time` int(11) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
-  `location` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+  `recommend` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `cs_product`
 --
 
-INSERT INTO `cs_product` (`id`, `name`, `type`, `desc`, `idc_id`, `ip`, `price_month`, `price_year`, `cpu`, `memory`, `disk`, `suitable`, `bandwidth`, `create_time`, `status`, `location`) VALUES
-(1, '', 'vm', NULL, 0, 0, '170 /月', NULL, '1 核', '1G', '', '网络游戏，大数据营销', '2 M', 0, 1, '香港'),
-(2, '', 'vm', NULL, 0, 0, '280 /月', NULL, '2 核', '2 G', '', '外贸网站，电商网站', '3 M', 0, 1, '美国'),
-(3, '', 'vm', NULL, 0, 0, '298 /月', NULL, ' 1 核', '1 G', '', '跨境金融，Saas服务', '2 M', 0, 1, '新加坡'),
-(4, '', 'vm', NULL, 0, 0, '380 /月', NULL, '2  核', '2 G', '', '手机游戏，移动APP', '3 M', 0, 1, '台湾'),
-(5, '', 'host', NULL, 0, 2, '1539 /月', NULL, '1 x E5620', '8 GB DDR3', '1 TB 企业级SATA', NULL, '10 Mbps独享国际带宽', 0, 1, '香港'),
-(6, '', 'host', NULL, 0, 2, '2099 /月', NULL, '1  x E5620', '8 GB DDR3', '1  TB 企业级SATA', NULL, '5 Mbps独享国际带宽', 0, 1, '新加坡'),
-(7, '', 'host', NULL, 0, 2, '1539 /月', NULL, '1  x E5620', '8 GB DDR3', '1 TB 企业级SATA', NULL, '10 Mbps独享国际带宽', 0, 1, '香港'),
-(8, '', 'host', NULL, 0, 5, '2299 /月', NULL, '2  x E5620', '16 GB DDR3', '500 TB 企业级SATA', NULL, '100  Mbps独享国际带宽', 0, 1, '美国');
+INSERT INTO `cs_product` (`id`, `name`, `type`, `desc`, `idc_id`, `ip`, `price_month`, `price_year`, `cpu`, `memory`, `disk`, `suitable`, `bandwidth`, `create_time`, `status`, `recommend`) VALUES
+(1, '影云A型', 'vm', '', 1, 1, '170 /月', NULL, '1 core', '1 GB', '30 GB', '网络游戏，大数据营销', '2 M', 1471922346, 1, 1),
+(2, '影云S型', 'vm', '最抢手', 1, 1, '280 /月', NULL, '2 core', '2 GB', '60 GB', '外贸网站，电商网站', '3 M', 1471922346, 1, 0),
+(3, '影云X型', 'vm', '', 1, 1, '298 /月', NULL, '4 core', '8 GB', '300 GB', '跨境金融，Saas服务', '5 M', 1471922346, 1, 0),
+(4, '影云Y型', 'vm', '', 1, 1, '380 /月', NULL, '8 core', '16 GB', '500GB', '手机游戏，移动APP', '5 M', 1471922346, 1, 0),
+(5, '影云A型', 'vm', '', 3, 1, '170 /月', NULL, '1 core', '1 GB', '30 GB', '网络游戏，大数据营销', '2 M', 1471922346, 1, 0),
+(6, '影云S型', 'vm', '最抢手', 3, 1, '280 /月', NULL, '2 core', '2 GB', '60 GB', '外贸网站，电商网站', '3 M', 1471922346, 1, 0),
+(7, '影云X型', 'vm', '', 3, 1, '298 /月', NULL, '4 core', '8 GB', '300 GB', '跨境金融，Saas服务', '5 M', 1471922346, 1, 1),
+(8, '影云Y型', 'vm', '', 3, 1, '380 /月', NULL, '8 core', '16 GB', '500GB', '手机游戏，移动APP', '5 M', 1471922346, 1, 0),
+(9, '影云A型', 'vm', '', 4, 1, '170 /月', NULL, '1 core', '1 GB', '30 GB', '网络游戏，大数据营销', '2 M', 1471922346, 1, 1),
+(10, '影云S型', 'vm', '最抢手', 4, 1, '280 /月', NULL, '2 core', '2 GB', '60 GB', '外贸网站，电商网站', '3 M', 1471922346, 1, 0),
+(11, '影云X型', 'vm', '', 4, 1, '298 /月', NULL, '4 core', '8 GB', '300 GB', '跨境金融，Saas服务', '5 M', 1471922346, 1, 0),
+(12, '影云Y型', 'vm', '', 4, 1, '380 /月', NULL, '8 core', '16 GB', '500GB', '手机游戏，移动APP', '5 M', 1471922346, 1, 0),
+(13, '影云A型', 'vm', '', 5, 1, '170 /月', NULL, '1 core', '1 GB', '30 GB', '网络游戏，大数据营销', '2 M', 1471922346, 1, 0),
+(14, '影云S型', 'vm', '最抢手', 5, 1, '280 /月', NULL, '2 core', '2 GB', '60 GB', '外贸网站，电商网站', '3 M', 1471922346, 1, 0),
+(15, '影云X型', 'vm', '', 5, 1, '298 /月', NULL, '4 core', '8 GB', '300 GB', '跨境金融，Saas服务', '5 M', 1471922346, 1, 0),
+(16, '影云Y型', 'vm', '', 5, 1, '380 /月', NULL, '8 core', '16 GB', '500GB', '手机游戏，移动APP', '5 M', 1471922346, 1, 0),
+(17, '影云A型', 'vm', '', 6, 1, '170 /月', NULL, '1 core', '1 GB', '30 GB', '网络游戏，大数据营销', '2 M', 1471922346, 1, 0),
+(18, '影云S型', 'vm', '最抢手', 6, 1, '280 /月', NULL, '2 core', '2 GB', '60 GB', '外贸网站，电商网站', '3 M', 1471922346, 1, 0),
+(19, '影云X型', 'vm', '', 6, 1, '298 /月', NULL, '4 core', '8 GB', '300 GB', '跨境金融，Saas服务', '5 M', 1471922346, 1, 0),
+(20, '影云Y型', 'vm', '', 6, 1, '380 /月', NULL, '8 core', '16 GB', '500GB', '手机游戏，移动APP', '5 M', 1471922346, 1, 0),
+(21, '影云A型', 'vm', '', 7, 1, '170 /月', NULL, '1 core', '1 GB', '30 GB', '网络游戏，大数据营销', '2 M', 1471922347, 1, 0),
+(22, '影云S型', 'vm', '最抢手', 7, 1, '280 /月', NULL, '2 core', '2 GB', '60 GB', '外贸网站，电商网站', '3 M', 1471922347, 1, 0),
+(23, '影云X型', 'vm', '', 7, 1, '298 /月', NULL, '4 core', '8 GB', '300 GB', '跨境金融，Saas服务', '5 M', 1471922347, 1, 0),
+(24, '影云Y型', 'vm', '', 7, 1, '380 /月', NULL, '8 core', '16 GB', '500GB', '手机游戏，移动APP', '5 M', 1471922347, 1, 0),
+(25, '影云A型', 'vm', '', 8, 1, '170 /月', NULL, '1 core', '1 GB', '30 GB', '网络游戏，大数据营销', '2 M', 1471922348, 1, 0),
+(26, '影云S型', 'vm', '最抢手', 8, 1, '280 /月', NULL, '2 core', '2 GB', '60 GB', '外贸网站，电商网站', '3 M', 1471922348, 1, 0),
+(27, '影云X型', 'vm', '', 8, 1, '298 /月', NULL, '4 core', '8 GB', '300 GB', '跨境金融，Saas服务', '5 M', 1471922348, 1, 0),
+(28, '影云Y型', 'vm', '', 8, 1, '380 /月', NULL, '8 core', '16 GB', '500GB', '手机游戏，移动APP', '5 M', 1471922348, 1, 0),
+(29, '影云A型', 'vm', '', 9, 1, '170 /月', NULL, '1 core', '1 GB', '30 GB', '网络游戏，大数据营销', '2 M', 1471922349, 1, 0),
+(30, '影云S型', 'vm', '最抢手', 9, 1, '280 /月', NULL, '2 core', '2 GB', '60 GB', '外贸网站，电商网站', '3 M', 1471922349, 1, 0),
+(31, '影云X型', 'vm', '', 9, 1, '298 /月', NULL, '4 core', '8 GB', '300 GB', '跨境金融，Saas服务', '5 M', 1471922349, 1, 0),
+(32, '影云Y型', 'vm', '', 9, 1, '380 /月', NULL, '8 core', '16 GB', '500GB', '手机游戏，移动APP', '5 M', 1471922349, 1, 0),
+(33, '影云A型', 'vm', '', 10, 1, '170 /月', NULL, '1 core', '1 GB', '30 GB', '网络游戏，大数据营销', '2 M', 1471922349, 1, 0),
+(34, '影云S型', 'vm', '最抢手', 10, 1, '280 /月', NULL, '2 core', '2 GB', '60 GB', '外贸网站，电商网站', '3 M', 1471922349, 1, 2),
+(35, '影云X型', 'vm', '', 10, 1, '298 /月', NULL, '4 core', '8 GB', '300 GB', '跨境金融，Saas服务', '5 M', 1471922349, 1, 0),
+(36, '影云Y型', 'vm', '', 10, 1, '380 /月', NULL, '8 core', '16 GB', '500GB', '手机游戏，移动APP', '5 M', 1471922349, 1, 0),
+(37, '影云A型', 'vm', '', 11, 1, '170 /月', NULL, '1 core', '1 GB', '30 GB', '网络游戏，大数据营销', '2 M', 1471922349, 1, 0),
+(38, '影云S型', 'vm', '最抢手', 11, 1, '280 /月', NULL, '2 core', '2 GB', '60 GB', '外贸网站，电商网站', '3 M', 1471922349, 1, 0),
+(39, '影云X型', 'vm', '', 11, 1, '298 /月', NULL, '4 core', '8 GB', '300 GB', '跨境金融，Saas服务', '5 M', 1471922349, 1, 0),
+(40, '影云Y型', 'vm', '', 11, 1, '380 /月', NULL, '8 core', '16 GB', '500GB', '手机游戏，移动APP', '5 M', 1471922349, 1, 0),
+(41, '影云A型', 'vm', '', 12, 1, '170 /月', NULL, '1 core', '1 GB', '30 GB', '网络游戏，大数据营销', '2 M', 1471922349, 1, 0),
+(42, '影云S型', 'vm', '最抢手', 12, 1, '280 /月', NULL, '2 core', '2 GB', '60 GB', '外贸网站，电商网站', '3 M', 1471922349, 1, 0),
+(43, '影云X型', 'vm', '', 12, 1, '298 /月', NULL, '4 core', '8 GB', '300 GB', '跨境金融，Saas服务', '5 M', 1471922349, 1, 0),
+(44, '影云Y型', 'vm', '', 12, 1, '380 /月', NULL, '8 core', '16 GB', '500GB', '手机游戏，移动APP', '5 M', 1471922349, 1, 0),
+(45, '影云A型', 'vm', '', 13, 1, '170 /月', NULL, '1 core', '1 GB', '30 GB', '网络游戏，大数据营销', '2 M', 1471922349, 1, 0),
+(46, '影云S型', 'vm', '最抢手', 13, 1, '280 /月', NULL, '2 core', '2 GB', '60 GB', '外贸网站，电商网站', '3 M', 1471922349, 1, 0),
+(47, '影云X型', 'vm', '', 13, 1, '298 /月', NULL, '4 core', '8 GB', '300 GB', '跨境金融，Saas服务', '5 M', 1471922349, 1, 0),
+(48, '影云Y型', 'vm', '', 13, 1, '380 /月', NULL, '8 core', '16 GB', '500GB', '手机游戏，移动APP', '5 M', 1471922349, 1, 0),
+(49, '影云A型', 'vm', '', 14, 1, '170 /月', NULL, '1 core', '1 GB', '30 GB', '网络游戏，大数据营销', '2 M', 1471922349, 1, 0),
+(50, '影云S型', 'vm', '最抢手', 14, 1, '280 /月', NULL, '2 core', '2 GB', '60 GB', '外贸网站，电商网站', '3 M', 1471922349, 1, 0),
+(51, '影云X型', 'vm', '', 14, 1, '298 /月', NULL, '4 core', '8 GB', '300 GB', '跨境金融，Saas服务', '5 M', 1471922349, 1, 0),
+(52, '影云Y型', 'vm', '', 14, 1, '380 /月', NULL, '8 core', '16 GB', '500GB', '手机游戏，移动APP', '5 M', 1471922349, 1, 0),
+
+(53, '基础A型', 'host', NULL, 1, 2, '1539 /月', NULL, '1 x E5520', '4GB DDR3', '500GB 企业级SATA', NULL, '3Mbps独享国际带宽', 0, 1, 1),
+(54, '热门B型', 'host', '最抢手', 1, 2, '2099 /月', NULL, '1 x E3-1220 v3', '8GB DDR3', '1  TB 企业级SATA', NULL, '5 Mbps独享国际带宽', 0, 1, 1),
+(55, '超值C型', 'host', NULL, 1, 2, '1539 /月', NULL, '1 x E5620', '8GB DDR3', '1 TB 企业级SATA', NULL, '10 Mbps独享国际带宽', 0, 1, 0),
+(56, '商务D型', 'host', NULL, 1, 2, '2299 /月', NULL, '2 x E5-2620 v3', '32GB DDR3', '2 x 2T 企业级SATA', NULL, '10Mbps独享国际带宽', 0, 1, 0),
+
+(57, '基础A型', 'host', NULL, 4, 2, '1539 /月', NULL, '1 x E5520', '4GB DDR3', '500GB 企业级SATA', NULL, '3Mbps独享国际带宽', 0, 1, 0),
+(58, '热门B型', 'host', '最抢手', 4, 2, '2099 /月', NULL, '1 x E3-1220 v3', '8GB DDR3', '1  TB 企业级SATA', NULL, '5 Mbps独享国际带宽', 0, 1, 1),
+(59, '超值C型', 'host', NULL, 4, 2, '1539 /月', NULL, '1 x E5620', '8GB DDR3', '1 TB 企业级SATA', NULL, '10 Mbps独享国际带宽', 0, 1, 0),
+(60, '商务D型', 'host', NULL, 4, 2, '2299 /月', NULL, '2 x E5-2620 v3', '32GB DDR3', '2 x 2T 企业级SATA', NULL, '10Mbps独享国际带宽', 0, 1, 0),
+
+(61, '基础A型', 'host', NULL, 10, 2, '1539 /月', NULL, '1 x E5520', '4GB DDR3', '500GB 企业级SATA', NULL, '3Mbps独享国际带宽', 0, 1, 0),
+(62, '热门B型', 'host', '最抢手', 10, 2, '2099 /月', NULL, '1 x E3-1220 v3', '8GB DDR3', '1  TB 企业级SATA', NULL, '5 Mbps独享国际带宽', 0, 1, 0),
+(63, '超值C型', 'host', NULL, 10, 2, '1539 /月', NULL, '1 x E5620', '8GB DDR3', '1 TB 企业级SATA', NULL, '10 Mbps独享国际带宽', 0, 1, 0),
+(64, '商务D型', 'host', NULL, 10, 2, '2299 /月', NULL, '2 x E5-2620 v3', '32GB DDR3', '2 x 2T 企业级SATA', NULL, '10Mbps独享国际带宽', 0, 1, 1);
+
 
 -- --------------------------------------------------------
 
@@ -434,7 +497,7 @@ CREATE TABLE IF NOT EXISTS `cs_reply` (
   `content` varchar(255) NOT NULL,
   `mid` mediumint(5) NOT NULL,
   `time` int(10) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=gbk;
+) ENGINE=MyISAM DEFAULT CHARSET=gbk;
 
 --
 -- 转存表中的数据 `cs_reply`
@@ -455,7 +518,7 @@ CREATE TABLE IF NOT EXISTS `cs_role` (
   `id` mediumint(5) NOT NULL,
   `rolename` varchar(20) NOT NULL,
   `pri_id_list` varchar(60) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=gbk;
+) ENGINE=MyISAM DEFAULT CHARSET=gbk;
 
 --
 -- 转存表中的数据 `cs_role`
@@ -481,19 +544,14 @@ CREATE TABLE IF NOT EXISTS `cs_sales` (
   `qq` varchar(30) NOT NULL,
   `tel` varchar(20) NOT NULL,
   `sort` mediumint(5) NOT NULL DEFAULT '50'
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=gbk;
+) ENGINE=MyISAM DEFAULT CHARSET=gbk;
 
 --
 -- 转存表中的数据 `cs_sales`
 --
 
 INSERT INTO `cs_sales` (`id`, `name`, `duty`, `qq`, `tel`, `sort`) VALUES
-(6, '售前jack', '', '2755895843', '', 0),
-(7, '售后Bob', '', '3035133230', '', 0),
-(5, '售前jay', '', '3132198060', '', 0),
-(8, '售后Tom', '', '2693754834', '', 0),
-(9, '客户投诉', '', '3140204255', '', 0),
-(10, '商务合作', '', '3046731477', '', 0);
+(1, 'Martin', ' 商务合作', '136969203', '13188889999', 1);
 
 --
 -- Indexes for dumped tables
@@ -590,84 +648,84 @@ ALTER TABLE `cs_sales`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- 在导出的表使用AUTO_INCREMENT
 --
 
 --
--- AUTO_INCREMENT for table `cs_admin`
+-- 使用表AUTO_INCREMENT `cs_admin`
 --
 ALTER TABLE `cs_admin`
-  MODIFY `id` mediumint(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+  MODIFY `id` mediumint(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
--- AUTO_INCREMENT for table `cs_album`
+-- 使用表AUTO_INCREMENT `cs_album`
 --
 ALTER TABLE `cs_album`
-  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `cs_article`
+-- 使用表AUTO_INCREMENT `cs_article`
 --
 ALTER TABLE `cs_article`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=37;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
--- AUTO_INCREMENT for table `cs_cate`
+-- 使用表AUTO_INCREMENT `cs_cate`
 --
 ALTER TABLE `cs_cate`
-  MODIFY `id` mediumint(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=99;
+  MODIFY `id` mediumint(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 --
--- AUTO_INCREMENT for table `cs_idc`
+-- 使用表AUTO_INCREMENT `cs_idc`
 --
 ALTER TABLE `cs_idc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT for table `cs_images`
+-- 使用表AUTO_INCREMENT `cs_images`
 --
 ALTER TABLE `cs_images`
-  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `cs_job`
+-- 使用表AUTO_INCREMENT `cs_job`
 --
 ALTER TABLE `cs_job`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT for table `cs_link`
+-- 使用表AUTO_INCREMENT `cs_link`
 --
 ALTER TABLE `cs_link`
-  MODIFY `id` smallint(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `id` smallint(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
--- AUTO_INCREMENT for table `cs_message`
+-- 使用表AUTO_INCREMENT `cs_message`
 --
 ALTER TABLE `cs_message`
-  MODIFY `id` mediumint(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+  MODIFY `id` mediumint(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
--- AUTO_INCREMENT for table `cs_news`
+-- 使用表AUTO_INCREMENT `cs_news`
 --
 ALTER TABLE `cs_news`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=48;
+  MODIFY `id` mediumint(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 --
--- AUTO_INCREMENT for table `cs_privilege`
+-- 使用表AUTO_INCREMENT `cs_privilege`
 --
 ALTER TABLE `cs_privilege`
-  MODIFY `id` mediumint(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=38;
+  MODIFY `id` mediumint(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 --
--- AUTO_INCREMENT for table `cs_product`
+-- 使用表AUTO_INCREMENT `cs_product`
 --
 ALTER TABLE `cs_product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `cs_reply`
+-- 使用表AUTO_INCREMENT `cs_reply`
 --
 ALTER TABLE `cs_reply`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
--- AUTO_INCREMENT for table `cs_role`
+-- 使用表AUTO_INCREMENT `cs_role`
 --
 ALTER TABLE `cs_role`
-  MODIFY `id` mediumint(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `id` mediumint(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
--- AUTO_INCREMENT for table `cs_sales`
+-- 使用表AUTO_INCREMENT `cs_sales`
 --
 ALTER TABLE `cs_sales`
-  MODIFY `id` smallint(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `id` smallint(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

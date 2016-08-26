@@ -28,6 +28,7 @@ return array(
 	'bandwidth' => '带宽',
 	'create_time' => '创建时间',
 	'status' => '状态',
+	'recommend' => 'recommend',
 	
 	'id_validate' => 'id',
 	'name_validate' => 'name',
@@ -43,10 +44,13 @@ return array(
 	'bandwidth_validate' => 'bandwidth',
 	'create_time_validate' => 'create_time',
 	'status_validate' => 'status',
+	'recommend_validate' => 'recommend',
 	
 	'status_yes' => '是',
 	'status_no' => '否',
 	'remove_confirm' => '确定删除这个活动吗？',
+	'recommend_yes' => '是',
+	'recommend_no' => '否'
 
 	'product_type' => array(
 		'vm' => '云服务器',

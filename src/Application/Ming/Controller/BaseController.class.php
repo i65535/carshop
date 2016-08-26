@@ -40,7 +40,7 @@ class BaseController extends Controller {
     	//\Think\Log::record('===============idc_list=======>'. json_encode($idc_list));
     	$this->assign('idc_list', $idc_list);
     	
-    	$sql="SELECT I.* from cs_product P left join cs_idc I on I.id=P.idc_id WHERE I.status=1 AND P.status=1 AND P.type='host'";
+    	$sql="SELECT I.* from cs_product P left join cs_idc I on I.id=P.idc_id WHERE I.status=1 AND P.status=1 AND P.type='host' GROUP BY I.zone";
     	$host_list = $m->query($sql);
     	$this->assign('host_list', $host_list);
     	

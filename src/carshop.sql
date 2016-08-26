@@ -359,7 +359,7 @@ CREATE TABLE IF NOT EXISTS `cs_sales` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `cs_vm`
+-- 表的结构 `cs_product`
 --
 
 CREATE TABLE `cs_product` (
@@ -368,6 +368,7 @@ CREATE TABLE `cs_product` (
   `type` varchar(64) NOT NULL,
   `desc` varchar(255) NULL,
   `idc_id` int(11) NOT NULL,
+  `ip` int(11) NOT NULL,
   `price_month` varchar(64) NULL,
   `price_year` varchar(64) NULL,
   `cpu` varchar(64) NOT NULL,
@@ -377,6 +378,7 @@ CREATE TABLE `cs_product` (
   `bandwidth` varchar(64) NULL,
   `create_time` int(11) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
+  `recommend` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 

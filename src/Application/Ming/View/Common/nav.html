@@ -43,7 +43,7 @@
                                         <li class="mega-menu-title"><a href="{:U('Product/host')}"><div>独立服务器</div></a>
                                             <ul>
                                                 <volist name="host_list" id="vo">
-                                                <li><a href="{:U('Product/host',array('idc'=>$vo['id']))}" title="{$vo.zone}独立服务器"><div>{$vo.zone}独立服务器</div></a></li>
+                                                <li><a href="{:U('Product/server',array('idc'=>$vo['id']))}" title="{$vo.zone}独立服务器"><div>{$vo.zone}独立服务器</div></a></li>
                                                 </volist>
                                             </ul>
                                         </li>
@@ -108,7 +108,7 @@
 
                                             <volist name="sales" id="vo">      
                                                 <div class="col_half col_last nobottommargin">
-                                                <span>{$vo.name}</span>
+                                                <span>{$vo.duty}{$vo.name}</span>
                                                 <a href="http://wpa.qq.com/msgrd?v=3&amp;uin={$vo.qq}&amp;site=qq&amp;menu=yes" target="_blank"> <img border="0" title="{$vo.name}" alt="{$vo.name}" src="http://wpa.qq.com/pa?p=2:{$vo.qq}:51"></a>
                                                 </div>
                                             </volist>

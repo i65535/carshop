@@ -16,7 +16,7 @@
                 <ol class="breadcrumb">
                     <li><a href="/">首页</a></li>
                     
-                    <li><a href="{:U(Product/index)}">产品&服务</a></li>
+                    <li><a href="{:U('Product/index')}">产品&服务</a></li>
                     
                     <li class="active">菲律宾云服务器价格</li>
                 
@@ -276,50 +276,5 @@
 
                 </div>
 
-				<div class="divider divider-short divider-center"><i class="icon-circle"></i></div>
-
-
-	
-				<div class="container clearfix">
-					<div class="related-posts clearfix">
-
-							<div class="col_half">
-								<volist name="hot_news" id="vo" mod="2" offset="0" length='2' >
-								<div class="mpost clearfix">
-									<div class="entry-image">
-										<a href="{:U('News/detail',array('id'=>$vo["id"]))}"><img src="__UPLOAD__/{$vo.imgurl}"></a>
-									</div>
-									<div class="entry-c">
-										<div class="entry-title">
-											<h4><a href="{:U('News/detail',array('id'=>$vo["id"]))}">{$vo.title}</a></h4>
-										</div>
-										<ul class="entry-meta clearfix">
-											<li><i class="icon-calendar3"></i> {$vo.date} </li>
-										</ul>
-										<div class="entry-content">{$vo.title}</div>
-									</div>
-								</div>
-								</volist>
-							</div>
-
-							<div class="col_half col_last">
-								<volist name="hot_news" id="vo" mod="2" offset="2" length='2' >
-								<div class="mpost clearfix">
-									<div class="entry-image">
-										<a href="{:U('News/detail',array('id'=>$vo["id"]))}"><img src="__UPLOAD__/{$vo.imgurl}"></a>
-									</div>
-									<div class="entry-c">
-										<div class="entry-title">
-											<h4><a href="{:U('News/detail',array('id'=>$vo["id"]))}">{$vo.title}</a></h4>
-										</div>
-										<ul class="entry-meta clearfix">
-											<li><i class="icon-calendar3"></i> {$vo.date} </li>
-										</ul>
-										<div class="entry-content">{$vo.title}</div>
-									</div>
-								</div>
-								</volist>
-							</div>
-					</div>
-                </div>
+				<include file="Common/hot_news2" />
 

@@ -75,6 +75,14 @@
                             </div>
                         </td>
                     </tr>
+					<tr>
+                        <th width="150"><i class="require-red">*</i>{:L('recommend')}:</th>
+                        <td>
+                            <div class="make-switch" data-on="primary" data-off="info" data-on-label="{:L('recommend_yes')}" data-off-label="{:L('recommend_no')}" >
+		                            <input name="data[recommend]" type="checkbox" <notempty name="info['recommend']">checked</notempty> />
+		                        </div>
+                                                    </td>
+                    </tr>
                     <tr>
                         <th width="150"><i class="require-red">*</i>{:L('type')}:</th>
                         <td>

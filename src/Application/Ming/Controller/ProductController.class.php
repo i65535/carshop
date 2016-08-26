@@ -19,7 +19,13 @@ class ProductController extends BaseController
 	}
 	
 	public function host(){
-		$list = D('product')->where("type = 'host'")->select();
+		$list = D('product')->where("type = 'host' AND recommend=1")->select();
+		$this->assign('list', $list);
+		$this->display();
+	}
+
+	public function server(){
+		$list = D('product')->where("type = 'host' AND recommend=1")->select();
 		$this->assign('list', $list);
 		$this->display();
 	}

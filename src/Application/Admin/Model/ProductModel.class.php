@@ -49,6 +49,8 @@ class ProductModel extends Model {
 		//array('create_time', 'require', '{%create_time_validate}', 2),
 
 		//array('status', 'require', '{%status_validate}', 2),
+
+		//array('recommend', 'require', '{%recommend_validate}', 2),
 	);
 	
 	public function __construct(){
@@ -72,7 +74,7 @@ class ProductModel extends Model {
 		$res = $this->query($sql);
 		/*
 		foreach ($res as $key=>$row){
-			$res[$key]['start_time'] = date(C('date_format'), $row['start_time']);
+			$res[$key]['start_time'] = date('Y-m-d H:i:s', $row['start_time']);
 			$res[$key]['end_time']   = date(C('date_format'), $row['end_time']);
 		}*/
 		return $res;
