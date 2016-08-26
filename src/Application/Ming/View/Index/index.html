@@ -309,9 +309,9 @@
                         
                             <div class="widget widget_links clearfix">
                                 <ul>
-                                    <li><a href="news/company/182.html"><div>[08-05]租用托管香港服务器之外的第三种选择</div></a></li>
-                                    <li><a href="news/company/180.html"><div>[08-04]香港云服务器到底能有多便宜</div></a></li>
-                                    <li><a href="news/company/178.html"><div>[08-03]租用香港服务器PK托管香港服务器</div></a></li>
+                                    <volist name="company_news" id="vo">
+                                    <li><a href="{:U('News/detail',array('id'=>$vo['id']))}"><div>[{$vo.date}]{$vo.title}</div></a></li>
+                                    </volist>
                                 </ul>
                             </div>
                         </div>
@@ -327,9 +327,9 @@
                         
                             <div class="widget widget_links clearfix">
                                 <ul>
-                                    <li><a href="news/posts/143.html"><div>[07-01]“多快好省”的云服务器，就是它！</div></a></li>
-                                    <li><a href="news/posts/121.html"><div>[05-31]明芳互联云服务器 助力企业海外市场拓展之路</div></a></li>
-                                    <li><a href="news/posts/88.html"><div>[01-30]尽显优势！明芳互联新加坡云服务器延迟仅45MS</div></a></li>
+                                    <volist name="internet_news" id="vo">
+                                    <li><a href="{:U('News/detail',array('id'=>$vo['id']))}"><div>[{$vo.date}]{$vo.title}</div></a></li>
+                                    </volist>
                                 </ul>
                             </div>
                         </div>
@@ -346,9 +346,9 @@
                         
                             <div class="widget widget_links clearfix">
                                 <ul>
-                                    <li><a href="news/news/183.html"><div>[08-05]印孚瑟斯二度投资以色列新成立的云计算公司CLOUDYN</div></a></li>
-                                    <li><a href="news/news/181.html"><div>[08-04]360°全方位升级 明芳互联云运维堪称典范</div></a></li>
-                                    <li><a href="news/news/179.html"><div>[08-03]甲骨文巨资收购NETSUITE云服务公司，向云服务行业更加深入一脚</div></a></li>
+                                    <volist name="news" id="vo">
+                                    <li><a href="{:U('News/detail',array('id'=>$vo['id']))}"><div>[{$vo.date}]{$vo.title}</div></a></li>
+                                    </volist>
                                 </ul>
                             </div>
                         </div>
