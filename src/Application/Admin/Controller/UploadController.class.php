@@ -1,7 +1,7 @@
 <?php
 namespace Admin\Controller;
 
-class UploadController extends AdminController {
+class UploadController extends CommonController {
 
     private $conf = array();
 

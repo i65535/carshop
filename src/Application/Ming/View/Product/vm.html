@@ -9,7 +9,7 @@
            
 			<div class="container clearfix">
                 
-                <h1>菲律宾云服务器价格</h1>
+                <h1>{$idc.zone}云服务器价格</h1>
                 
                 <span>Philippines Cloud Server Pricing</span>
                
@@ -18,7 +18,7 @@
                     
                     <li><a href="{:U('Product/index')}">产品&服务</a></li>
                     
-                    <li class="active">菲律宾云服务器价格</li>
+                    <li class="active">{$idc.zone}云服务器价格</li>
                 
                 </ol>
             
@@ -46,49 +46,47 @@
                      -->
 
                     <div class="pricing bottommargin clearfix">
-
+                        <volist name="list" id="vo">
+                        <empty name="vo.desc">
                         <div class="col-md-3">
-
                             <div class="pricing-box">
                                 <div class="pricing-title">
-                                    <h3>影云A型</h3>
+                                    <h3>{$vo.name}</h3>
                                 </div>
                                 <div class="pricing-price">
-                                    <span class="price-unit">&yen;</span>295<span class="price-tenure">/月</span>
+                                    <span class="price-unit">&yen;</span>{$vo.price_month}<span class="price-tenure">/月</span>
                                 </div>
                                 <div class="pricing-features">
                                     <ul>
-                                        <li>CPU ：1 core</li>
-                                        <li>内存：1 GB</li>
-                                        <li>硬盘：30 GB</li>
-                                        <li>带宽：2 M</li>
-                                        <li>IP数量：1  </li>
+                                        <li>CPU ：{$vo.cpu}</li>
+                                        <li>内存：{$vo.memory}</li>
+                                        <li>硬盘：{$vo.disk}</li>
+                                        <li>带宽：{$vo.bandwidth}</li>
+                                        <li>IP数量：{$vo.ip}  </li>
                                     </ul>
                                 </div>
                                 <div class="pricing-action">
                                     <a href="apply.php" class="btn btn-danger btn-block btn-lg">立即申请</a>
                                 </div>
                             </div>
-
                         </div>
-
+                        <else />
                         <div class="col-md-3">
-
                             <div class="pricing-box best-price">
                                 <div class="pricing-title">
-                                    <h3>影云S型</h3>
-                                    <span>最抢手</span>
+                                    <h3>{$vo.name}</h3>
+                                    <span>{$vo.desc}</span>
                                 </div>
                                 <div class="pricing-price">
-                                    <span class="price-unit">&yen;</span>600<span class="price-tenure">/月</span>
+                                    <span class="price-unit">&yen;</span>{$vo.price_month}<span class="price-tenure">/月</span>
                                 </div>
                                 <div class="pricing-features">
                                     <ul>
-                                        <li>CPU ：2 core</li>
-                                        <li>内存：2 GB</li>
-                                        <li>硬盘：60 GB</li>
-                                        <li>带宽：3 M</li>
-                                        <li>IP数量：1  </li>
+                                        <li>CPU ：{$vo.cpu}</li>
+                                        <li>内存：{$vo.memory}</li>
+                                        <li>硬盘：{$vo.disk}</li>
+                                        <li>带宽：{$vo.bandwidth}</li>
+                                        <li>IP数量：{$vo.ip}  </li>
                                         <i class="icon-star3"></i>
                                         <i class="icon-star3"></i>
                                         <i class="icon-star3"></i>
@@ -103,60 +101,9 @@
 
                         </div>
 
-                        <div class="col-md-3">
-
-                            <div class="pricing-box">
-                                <div class="pricing-title">
-                                    <h3>影云X型</h3>
-                                </div>
-                                <div class="pricing-price">
-                                    <span class="price-unit">&yen;</span>1615<span class="price-tenure">/月</span>
-                                </div>
-                                <div class="pricing-features">
-                                    <ul>
-                                        <li>CPU ：4 core</li>
-                                        <li>内存：8 GB</li>
-                                        <li>硬盘：300GB</li>
-                                        <li>带宽：5 M</li>
-                                        <li>IP数量：1  </li>
-                                    </ul>
-                                </div>
-                                <div class="pricing-action">
-                                    <a href="apply.php" class="btn btn-danger btn-block btn-lg">立即申请</a>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="col-md-3">
-
-                            <div class="pricing-box">
-                                <div class="pricing-title">
-                                    <h3>影云Y型</h3>
-                                </div>
-                                <div class="pricing-price">
-                                    <span class="price-unit">&yen;</span>2980<span class="price-tenure">/月</span>
-                                </div>
-                                <div class="pricing-features">
-                                    <ul>
-                                        <li>CPU ：8 core</li>
-                                        <li>内存：16 GB</li>
-                                        <li>硬盘：500GB</li>
-                                        <li>带宽：5 M</li>
-                                        <li>IP数量：1  </li>
-                                    </ul>
-                                </div>
-                                <div class="pricing-action">
-                                    <a href="apply.php" class="btn btn-danger btn-block btn-lg">立即申请</a>
-                                </div>
-                            </div>
-
-                        </div>
-
+                        </empty>
+                        </volist>
                     </div>
-
-
-
                 </div>
 
             </div>
@@ -180,7 +127,7 @@
                     <div class="container clear-bottommargin clearfix">
 
                         <div class="heading-block center">
-                            <h2>菲律宾云节点优势</h2>
+                            <h2>{$idc.zone}云节点优势</h2>
                             <span>The advantage of Philippines cloud site</span>
                         </div>
 
@@ -199,7 +146,7 @@
                                             <a href="#"><i class="icon-line-monitor"></i></a>
                                         </div>
                                         <h3>高速度</h3>
-                                        <p>菲律宾云主机节点在首都马尼拉，中立电信机房，数据中心总面积37500平方尺，获得ISO 27001（ISMS）认证，PLDT国际海缆直连东南亚其他国家和地区。</p>
+                                        <p>{$idc.zone}云主机节点在首都马尼拉，中立电信机房，数据中心总面积37500平方尺，获得ISO 27001（ISMS）认证，PLDT国际海缆直连东南亚其他国家和地区。</p>
                                     </div>
 
                                 </div>

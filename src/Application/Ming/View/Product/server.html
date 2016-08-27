@@ -7,12 +7,12 @@
         <section id="page-title">
 
             <div class="container clearfix">
-                <h1>美国服务器价格</h1>
+                <h1>{$idc.zone}服务器价格</h1>
                 <span>America Dedicated Server Pricing</span>
                 <ol class="breadcrumb">
                     <li><a href="/">首页</a></li>
                     <li><a href="/products/dedicatedserver.html">产品&服务</a></li>
-                    <li class="active">美国服务器价格</li>
+                    <li class="active">{$idc.zone}服务器价格</li>
                 </ol>
             </div>
 
@@ -37,23 +37,24 @@
                      -->
 
                     <div class="pricing bottommargin clearfix">
-
+                        <volist name="list" id="vo">
+                        <empty name="vo.desc">
                         <div class="col-md-3">
 
                             <div class="pricing-box">
                                 <div class="pricing-title">
-                                    <h3>基础A型</h3>
+                                    <h3>{$vo.name}</h3>
                                 </div>
                                 <div class="pricing-price">
                                     <span class="price-unit">&yen;</span>1499<span class="price-tenure">/月</span>
                                 </div>
                                 <div class="pricing-features">
                                     <ul>
-                                        <li>CPU ：四核志强E3-1230 v3</li>
-                                        <li>内存：8GB DDR3</li>
-                                        <li>硬盘：1TB 企业级SATA</li>
-                                        <li>带宽：100M带宽 10TB月流量</li>
-                                        <li>IP数量：5  </li>
+                                        <li>CPU ：{$vo.cpu}</li>
+                                        <li>内存：{$vo.memory}</li>
+                                        <li>硬盘：{$vo.disk}</li>
+                                        <li>带宽：{$vo.bandwidth}</li>
+                                        <li>IP数量：{$vo.ip}  </li>
                                     </ul>
                                 </div>
                                 <div class="pricing-action">
@@ -62,24 +63,24 @@
                             </div>
 
                         </div>
-
+                        <else />
                         <div class="col-md-3">
 
                             <div class="pricing-box best-price">
                                 <div class="pricing-title">
-                                    <h3>热门B型</h3>
-                                    <span>最抢手</span>
+                                    <h3>{$vo.name}</h3>
+                                    <span>{$vo.desc}</span>
                                 </div>
                                 <div class="pricing-price">
-                                    <span class="price-unit">&yen;</span>2299<span class="price-tenure">/月</span>
+                                    <span class="price-unit">&yen;</span>{$vo.price_month}<span class="price-tenure">/月</span>
                                 </div>
                                 <div class="pricing-features">
                                     <ul>
-                                        <li>CPU ：2 x E5620</li>
-                                        <li>内存：16GB DDR3</li>
-                                        <li>硬盘：500GB 企业级SATA</li>
-                                        <li>带宽：100M带宽 10TB月流量</li>
-                                        <li>IP数量：5  </li>
+                                        <li>CPU ：{$vo.cpu}</li>
+                                        <li>内存：{$vo.memory}</li>
+                                        <li>硬盘：{$vo.disk}</li>
+                                        <li>带宽：{$vo.bandwidth}</li>
+                                        <li>IP数量：{$vo.ip}  </li>
                                         <i class="icon-star3"></i>
                                         <i class="icon-star3"></i>
                                         <i class="icon-star3"></i>
@@ -93,61 +94,10 @@
                             </div>
 							
                         </div>
-
-                        <div class="col-md-3">
-
-                            <div class="pricing-box">
-                                <div class="pricing-title">
-                                    <h3>超值C型</h3>
-                                </div>
-                                <div class="pricing-price">
-                                    <span class="price-unit">&yen;</span>1649<span class="price-tenure">/月</span>
-                                </div>
-                                <div class="pricing-features">
-                                    <ul>
-                                        <li>CPU ：2 x L5420</li>
-                                        <li>内存：16GB DDR3</li>
-                                        <li>硬盘：500GB 企业级SATA</li>
-                                        <li>带宽：100M带宽 10TB月流量</li>
-                                        <li>IP数量：5  </li>
-                                    </ul>
-                                </div>
-                                <div class="pricing-action">
-                                    <a href="/products/cloud/apply.php" class="btn btn-danger btn-block btn-lg">立即申请</a>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="col-md-3">
-
-                            <div class="pricing-box">
-                                <div class="pricing-title">
-                                    <h3>商务D型</h3>
-                                </div>
-                                <div class="pricing-price">
-                                    <span class="price-unit">&yen;</span>3519<span class="price-tenure">/月</span>
-                                </div>
-                                <div class="pricing-features">
-                                    <ul>
-                                        <li>CPU ：2 x E5606</li>
-                                        <li>内存：16GB DDR3</li>
-                                        <li>硬盘：1T 企业级SATA</li>
-                                        <li>带宽：100Mbps独享不限流</li>
-                                        <li>IP数量：5  </li>
-                                    </ul>
-                                </div>
-                                <div class="pricing-action">
-                                    <a href="/products/cloud/apply.php" class="btn btn-danger btn-block btn-lg">立即申请</a>
-                                </div>
-                            </div>
-
-                        </div>
-
+                        </empty>
+                        </volist>
                     </div>
-
                 </div>
-
 				<div class="promo promo-dark promo-flat promo-full topmargin">
                     <div class="container clearfix">
                     
@@ -228,7 +178,7 @@
 				<div class="container clearfix">
 
 					<div id="section-home" class="heading-block title-center nobottomborder page-section">
-						<h1>明芳互联美国机房特点和服务</h1>
+						<h1>明芳互联{$idc.zone}机房特点和服务</h1>
 						<span>Features and Services of MingFang America's Data Center</span>
 					</div>
 
@@ -242,7 +192,7 @@
 
 					<div class="col_one_third topmargin nobottommargin col_last">
 
-						<p>明芳互联的美国服务器是完全可按客户需求定制的，是由Intel最新的硬件驱动的企业级服务器。每台独立服务器都包括我们业界领先的服务水平协议（SLA），DDoS防护，200 Gbps的网络和24/7技术支持。您的服务器放置在美国最顶尖的数据中心之一，具备最佳的网络环境以应对在激烈的市场竞争中获得先机</p>
+						<p>明芳互联的{$idc.zone}服务器是完全可按客户需求定制的，是由Intel最新的硬件驱动的企业级服务器。每台独立服务器都包括我们业界领先的服务水平协议（SLA），DDoS防护，200 Gbps的网络和24/7技术支持。您的服务器放置在美国最顶尖的数据中心之一，具备最佳的网络环境以应对在激烈的市场竞争中获得先机</p>
 
 						<div class="divider divider-short"><i class="icon-circle"></i></div>
 
@@ -261,7 +211,7 @@
 
 					<div class="divider divider-short divider-center"><i class="icon-circle"></i></div>
 					
-					<h4>美国独立服务器增值服务</h4>
+					<h4>{$idc.zone}独立服务器增值服务</h4>
 					<div class="table-responsive">
 							<table class="table table-bordered table-striped">
 							  <colgroup>
