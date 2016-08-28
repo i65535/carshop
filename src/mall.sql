@@ -337,12 +337,13 @@ INSERT INTO `cs_message` (`id`, `nickname`, `telephone`, `email`, `content`, `ch
 CREATE TABLE IF NOT EXISTS `cs_news` (
   `id` int(5) NOT NULL,
   `title` varchar(40) NOT NULL,
+  `summary` varchar(40) NOT NULL,
+  `category` varchar(40) NOT NULL,
   `author` varchar(20) DEFAULT NULL,
-  `imgUrl` varchar(60) DEFAULT NULL,
+  `imgUrl` varchar(100) DEFAULT NULL,
   `content` text NOT NULL,
   `keywords` varchar(60) DEFAULT NULL,
-  `date` int(10) NOT NULL,
-  `type` varchar(20) NOT NULL
+  `create_time` int(11) NOT NULL  
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------

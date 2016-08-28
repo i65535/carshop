@@ -1,178 +1,196 @@
 <?php
 namespace Admin\Controller;
-use Think\Controller;
-class NewsController extends CommonController 
-{
-    public function lst()
-    {
-        $article=D('news');
-        $where=1;
 
-        $count=$article->where($where)->count();// 查询满足要求的总记录数
-        $Page=new \Think\Page($count,3);// 实例化分页类 传入总记录数和每页显示的记录数(25)
-        $show= $Page->show();// 分页显示输出
-        $list = $article->where($where)->order('id desc')->limit($Page->firstRow.','.$Page->listRows)->select();
-        $this->assign('list',$list);// 赋值数据集
-        $this->assign('page',$show);// 赋值分页输出
-        $cate=D('cate');
-        $cates=$cate->catetree();
-        $this->assign('cates',$cates);
-        $this->display();
+class NewsController extends CommonController {
+    function __construct(){
+        parent::__construct();
+        $this->id = 'id';
+        $this->name = 'xx_name';
+        $this->instance = D('news');
     }
 
-    public function add()
-    {
-        $article=D('news');
-        if(IS_POST)
-       {
-            $data['title']=I('title');
-            $data['rizu']=I('rizu');
-            $data['num']=I('num');
-            $data['type']=I('type');
-            $data['author']=I('author');
-            $data['cateid']=I('cateid');
-            $data['content']=I('content');
-            $data['keywords']=I('keywords');
-            $data['des']=I('des');
-            $data['rem']=I('rem');
-            $data['time']=time();
-            if($_FILES['pic']['tmp_name']!='')
-            {
-                $upload = new \Think\Upload();// 实例化上传类
-                $upload->maxSize   =     3145728 ;// 设置附件上传大小
-                $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
-                $upload->savePath  =      './Public/Uploads/'; // 设置附件上传目录
-                $upload->rootPath='./';
-                // 上传文件 
-                $info=$upload->uploadOne($_FILES['pic']);
-                if(!$info) {// 上传错误提示错误信息
-                    $this->error($upload->getError());
-                 }else{// 上传成功  
-                     $data['pic']=$info['savepath'].$info['savename']; 
-                     }
-            }
-
-            if($article->create($data))
-            {
-                if($article->add())
-                {
-                    $this->success('新增文章成功！',U('lst'));
-                }else
-                {
-                    $this->error('新增失败！');
-                }
-
-            }else
-            {
-                $this->error($article->getError());
-            }
-
-            return;
-        }
-        $cate=D('cate');
-        $cates=$cate->catetree();
-        $this->assign('cates',$cates);
-        $this->display();
+    public function index() {
+        $filter = $this->parse_query_condition();
+        
+        /* 模板赋值 */
+        $this->assign('full_page', 1);
+        $offset = $this->pageLimit(U('index', $filter['page']), 12);
+        $total = $this->get_total_count($filter['where_single']);
+        $this->assign('page', $this->pageShow($total));
+        
+        
+        $list = D('News')->get_news_list($filter, $offset);
+        $this->assign('list', $list);
+        $this->assign('filter', $filter['filter']);
+        $this->assign('ur_here', L('list'));
+        $this->assign('action_link1', array('text' => L('add'), 'href' => U('add')));
+        $this->display('index');
     }
 
-    public function edit($id)
-    {
-        $article=D('news');
-        if(IS_POST)
-       {
-            $data['title']=I('title');
-            $data['id']=I('id');
-            $data['rizu']=I('rizu');
-            $data['num']=I('num');
-            $data['type']=I('type');
-            $data['author']=I('author');
-            $data['cateid']=I('cateid');
-            $data['content']=I('content');
-            $data['keywords']=I('keywords');
-            $data['des']=I('des');
-            $data['rem']=I('rem');
-            $data['time']=time();
-            if($_FILES['pic']['tmp_name']!='')
-            {
-                $upload = new \Think\Upload();// 实例化上传类
-                $upload->maxSize   =     3145728 ;// 设置附件上传大小
-                $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
-                $upload->savePath  =      './Public/Uploads/'; // 设置附件上传目录
-                $upload->rootPath='./';
-                // 上传文件 
-                $info=$upload->uploadOne($_FILES['pic']);
-                if(!$info) {// 上传错误提示错误信息
-                    $this->error($upload->getError());
-                 }else{// 上传成功  
-                     $data['pic']=$info['savepath'].$info['savename']; 
-                     }
-            }
-
-            if($article->create($data))
-            {
-                if($article->save())
-                {
-                    $this->success('修改文章成功！',U('lst'));
-                }else
-                {
-                    $this->error('修改文章失败！');
-                }
-
-            }else
-            {
-                $this->error($article->getError());
-            }
-
-            return;
-        }
-
-        $artres=$article->find($id);
-        $this->assign('artres',$artres);
-
-        $cate=D('cate');
-        $cates=$cate->catetree();
-        $this->assign('cates',$cates);
-        $this->display();
-    }
-
-    public function del($id)
-    {
-        $article=D('news');
-        if($article->delete($id))
+    function parse_query_condition(){
+        /* 过滤条件 */
+        $keyword = empty($_REQUEST['keyword']) ? '' : trim($_REQUEST['keyword']);
+        if (isset($_REQUEST['is_ajax']) && $_REQUEST['is_ajax'] == 1)
         {
-            $this->success('删除文章成功！',U('lst'));
-        }else
+            $keyword = json_str_iconv($keyword);
+        }
+        $filter['sort_by']      = empty($_REQUEST['sort_by']) ? 'T.id' : trim($_REQUEST['sort_by']);
+        $filter['sort_order']   = empty($_REQUEST['sort_order']) ? 'DESC' : trim($_REQUEST['sort_order']);
+        $filter['filter'] = array();
+        
+        $filter['where_single'] = (empty($keyword)) ? '':" goods_name LIKE '%" . mysql_like_quote($keyword) . "%'";
+        $filter['where'] = (empty($keyword)) ? '':" T.goods_name LIKE '%" . mysql_like_quote($keyword) . "%'";
+        $filter['page'] = array('page'=>'{page}','keyword'=>$keyword);
+        return $filter;
+    }
+
+    public function edit(){
+        $id = intval($_GET['id']);
+        if ($id <= 0)
         {
-            $this->error('删除文章失败！');
+            die('invalid param');
+        }
+        $detail = $this->instance->find($id);
+        $this->assign('info', $detail);
+    
+        /* 模板赋值 */
+        $this->assign('ur_here', L('list'));
+        $this->assign('action_link', array('text' => L('list'), 'href' => U('index')));
+    
+        $this->display('edit');
+    }
+    
+    public function add(){
+        $info = array(
+            'id'  => 0
+        );
+        $this->assign('info', $info);
+        
+        /* 模板赋值 */
+        $this->assign('ur_here', L('add'));
+        $this->assign('action_link', array('text' => L('list'), 'href' => U('index')));
+
+        $this->display('add');
+    }
+
+    public function insert(){
+        $data = I('data');
+        
+        /*检查是否重复*/
+        /*
+        $goods_id = $_POST['goods_id'];
+        $is_only = $this->is_only('goods_id', $goods_id, 0, " goods_id ='$goods_id'");
+        if (!$is_only)
+        {
+            $this->error(L('goods_exist'), U('index'));
+        }
+        */
+
+        // $data['cat_name']   = sub_str($_POST['cat_name'], 60);
+
+        if ($this->add_record($data) !== false)
+        {
+            // model('Admin')->admin_log($goods_id, 'add', 'news');
+        
+            // clear_cache_files(); // 清除相关的缓存文件
+            $this->success(L('add_success'), U('index'));
+        }
+        else
+        {
+            $this->error(L('add_fail'), U('index'));
+        }
+    }
+    
+    public function update(){
+        $data = I('data');
+        $id = $_POST['id'];
+        
+        if ($this->update_by_id($data, $id))
+        {
+            //model('Admin')->admin_log($id, 'edit', 'news');
+        
+            // clear_cache_files();
+            $this->success(L('edit_succee'), U('index'));
+        }
+        else
+        {
+            $this->error(L('edit_fail'), U('index'));
         }
     }
 
-    public function bdel()
-    {
-        $article=D('news');
-        $ids=I('ids');
-        $ids=implode(',', $ids);
-        if($ids){
-            if($article->delete($ids)){
-                $this->success('批量删除文章成功！',U('lst'));
-            }else{
-                $this->error('批量删除文章失败！');
-            }
+    public function del(){
+        $id=I('id');
+
+        if($this->instance->delete($id)){
+            $this->success(L('delete_succee'), U('Index'));
         }else{
-            $this->error('未选中任何数据！');
+            $this->error(L('delete_fail'), U('index'));
         }
     }
+    
+    function query(){
+        $filter = $this->parse_query_condition();
+        
+        /* 模板赋值 */
+        $total = $this->get_total_count($filter['where_single']);
+        $page = new \Think\Page($total,15);// 实例化分页类 传入总记录数和每页显示的记录数(15)
+        
+        $list = D('News')->get_news_list($filter, $page->firstRow.','.$page->listRows);
+        $this->assign('list', $list);
+        $this->assign('page', $page->show());   // 分页显示输出
 
+        
+        $sort_flag  = sort_flag($filter);
+        $this->assign($sort_flag['tag'], $sort_flag['img']);
+        
+        make_json_result($this->display('news_index', true), '', array('filter' => $filter['page']));
+    }
 
+    public function operate(){
+        $act = I('act');
+        $id = intval(I('id', 0));
+        
 
-
-
-
-
-
-
-
-
-
-
+        if ('query' == $act){
+            return $this->query();        
+        }
+        elseif('remove' == $act){            
+            if ($this->drop($id))
+            {
+                //model('Admin')->admin_log($id,'remove','news');
+                clear_cache_files();
+            }
+            return $this->query();
+        }
+        elseif('toggle_hot' == $act){
+            $val    = intval($_POST['val']);
+        
+            $this->update_by_id("is_hot = '$val'", $id);
+            clear_cache_files();
+        
+            make_json_result($val);
+        }
+        elseif('edit_total_num' == $act){
+            $val = intval($_POST['val']);
+            
+            $this->update_by_id(array('total_num'=>$val), $id);
+            
+            clear_cache_files();
+            
+            make_json_result($val);
+        }
+    }
+    
+    function set_xxxx_option($selected=0){
+        $list = model('xxxx')->get_xxxx_name_list();
+        // $list = L('xxxx');
+        $select = '';
+        foreach ($list as $key=>$value) {
+            $select .= '<option value="' . $key . '" ';
+            $select .= ($selected == $key) ? "selected='true'" : '';
+            $select .= '>';
+            $select .= $value . '</option>';
+        }
+        $this->assign('xxxx_option', $select);
+    }
 }
