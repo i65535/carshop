@@ -340,7 +340,7 @@ CREATE TABLE IF NOT EXISTS `cs_news` (
   `summary` varchar(40) NOT NULL,
   `category` varchar(40) NOT NULL,
   `author` varchar(20) DEFAULT NULL,
-  `imgUrl` varchar(100) DEFAULT NULL,
+  `imgurl` varchar(100) DEFAULT NULL,
   `content` text NOT NULL,
   `keywords` varchar(60) DEFAULT NULL,
   `create_time` int(11) NOT NULL  

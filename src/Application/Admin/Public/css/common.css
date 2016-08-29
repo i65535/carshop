@@ -122,3 +122,5 @@ textarea:focus,input[type="text"]:focus,input[type="password"]:focus,input[type=
 .list-page .current{margin:0 5px;padding:2px 7px;background:#f60;border:1px solid #fe8101;color:#fff;}
 #listDiv .pagination{margin: 10px 0;}
 .list_act_div{margin: 10px 0;}
+.form-input{width: 300px !important;}
+.from-input-align{padding-left: 0px !important;}

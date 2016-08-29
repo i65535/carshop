@@ -25,20 +25,12 @@
 			<table class="result-tab" width="100%">
 				<tr>
 					<th class="tc" width="5%"><input class="allChoose" name="" id='check' type="checkbox"></th>
-					
-					<th><center><a href="javascript:listTable.sort('id'); ">{:L('id')}</a></center></th>
 
 					<th><center><a href="javascript:listTable.sort('title'); ">{:L('title')}</a></center></th>
-
-					<th><center><a href="javascript:listTable.sort('summary'); ">{:L('summary')}</a></center></th>
 
 					<th><center><a href="javascript:listTable.sort('category'); ">{:L('category')}</a></center></th>
 
 					<th><center><a href="javascript:listTable.sort('author'); ">{:L('author')}</a></center></th>
-
-					<th><center><a href="javascript:listTable.sort('imgUrl'); ">{:L('imgUrl')}</a></center></th>
-
-					<th><center><a href="javascript:listTable.sort('content'); ">{:L('content')}</a></center></th>
 
 					<th><center><a href="javascript:listTable.sort('keywords'); ">{:L('keywords')}</a></center></th>
 
@@ -50,20 +42,12 @@
 					<td class="tc">
 						<input name="ids[]" value="$vo['id']" class="check" type="checkbox">
 					</td>
-					
-					<td><center><span onclick="javascript:listTable.edit(this, 'edit_id', {$vo['id']})">{$vo['id']}</span></center></td>
-
+			
 					<td><center><span onclick="javascript:listTable.edit(this, 'edit_title', {$vo['id']})">{$vo['title']}</span></center></td>
-
-					<td><center><span onclick="javascript:listTable.edit(this, 'edit_summary', {$vo['id']})">{$vo['summary']}</span></center></td>
 
 					<td><center><span onclick="javascript:listTable.edit(this, 'edit_category', {$vo['id']})">{$vo['category']}</span></center></td>
 
 					<td><center><span onclick="javascript:listTable.edit(this, 'edit_author', {$vo['id']})">{$vo['author']}</span></center></td>
-
-					<td><center><span onclick="javascript:listTable.edit(this, 'edit_imgUrl', {$vo['id']})">{$vo['imgUrl']}</span></center></td>
-
-					<td><center><span onclick="javascript:listTable.edit(this, 'edit_content', {$vo['id']})">{$vo['content']}</span></center></td>
 
 					<td><center><span onclick="javascript:listTable.edit(this, 'edit_keywords', {$vo['id']})">{$vo['keywords']}</span></center></td>
 

@@ -55,6 +55,7 @@ class NewsController extends CommonController {
     
         /* 模板赋值 */
         $this->assign('ur_here', L('list'));
+        $this->set_category_option();
         $this->assign('action_link', array('text' => L('list'), 'href' => U('index')));
     
         $this->display('edit');
@@ -68,6 +69,7 @@ class NewsController extends CommonController {
         
         /* 模板赋值 */
         $this->assign('ur_here', L('add'));
+        $this->set_category_option($info['category']);
         $this->assign('action_link', array('text' => L('list'), 'href' => U('index')));
 
         $this->display('add');
@@ -76,17 +78,15 @@ class NewsController extends CommonController {
     public function insert(){
         $data = I('data');
         
-        /*检查是否重复*/
-        /*
-        $goods_id = $_POST['goods_id'];
-        $is_only = $this->is_only('goods_id', $goods_id, 0, " goods_id ='$goods_id'");
-        if (!$is_only)
-        {
-            $this->error(L('goods_exist'), U('index'));
+        $info = $this->upload('image_file');
+        if($info === FALSE){
+        	$this->error(L('upload_images_fail'), U('index'));
         }
-        */
-
-        // $data['cat_name']   = sub_str($_POST['cat_name'], 60);
+        else{
+        	$data['imgurl'] = 'News/'. $info['savepath'].$info['savename'];
+        }
+        
+        $data['create_time'] = time();
 
         if ($this->add_record($data) !== false)
         {
@@ -101,9 +101,36 @@ class NewsController extends CommonController {
         }
     }
     
+    private function get_image_path($id){
+    	$data = $this->instance->where("id=$id")->field('imgurl')->find();
+    	\Think\Log::record('=====get_image_path=================>'. json_encode($data));
+    	return $data['imgurl'];
+    }
+    
     public function update(){
         $data = I('data');
         $id = $_POST['id'];
+        
+        if ($_FILES['image_file']['name']) {
+        	//得到原先的图片路径 删除
+        	$img = $this->get_image_path($id);
+        	//排除远程图片
+        	if ($img && strpos($img, 'http://') === false && strpos($img, 'https://') === false){
+        		$filename = './Public/Uploads/' . $img;
+        		@unlink($filename);
+        	}
+        
+        	/* ad_img广告图片 */
+        	$info = $this->upload('image_file');
+        	if($info === FALSE){
+        		$this->error(L('upload_images_fail'), U('index'));
+        	}
+        	else{
+        		$data['imgurl'] = 'News/'. $info['savepath'].$info['savename'];
+        	}
+        }
+        
+        $data['create_time'] = time();
         
         if ($this->update_by_id($data, $id))
         {
@@ -193,4 +220,35 @@ class NewsController extends CommonController {
         }
         $this->assign('xxxx_option', $select);
     }
+
+    function set_category_option($selected=0){
+        $list = L('category_list');
+        $select = '';
+        foreach ($list as $key=>$value) {
+            $select .= '<option value="' . $key . '" ';
+            $select .= ($selected == $key) ? "selected='true'" : '';
+            $select .= '>';
+            $select .= $value . '</option>';
+        }
+        $this->assign('category_option', $select);
+    }
+    
+    private function upload($image_name){
+    	$upload = new \Think\Upload();// 实例化上传类
+    	$upload->maxSize   =     3145728 ;// 设置附件上传大小
+    	$upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+    	$upload->rootPath  =      './Public/Uploads/News/'; // 设置附件上传根目录
+    	// 上传单个文件
+    	$info   =   $upload->uploadOne($_FILES[$image_name]);
+    	if(!$info) {// 上传错误提示错误信息
+    		\Think\Log::record('=====upload========================>'. $upload->getError());
+    
+    		return FALSE;
+    	}else{// 上传成功 获取上传文件信息
+    		\Think\Log::record('=====upload========================>'. json_encode($info));
+    		return $info;
+    	}
+    }
+
+    
 }

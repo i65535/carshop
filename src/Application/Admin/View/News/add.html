@@ -28,18 +28,11 @@
                         </tr>
 
                         <tr>
-                            <th width="150"><i class="require-red">*</i>{:L('summary')}:</th>
-                            <td>
-                                
-                                <input class="input-sm" name="data[summary]" maxlength="20" size="50" value="" type="text" />
-                            </td>
-                        </tr>
-
-                        <tr>
                             <th width="150"><i class="require-red">*</i>{:L('category')}:</th>
                             <td>
-                                
-                                <input class="input-sm" name="data[category]" maxlength="20" size="50" value="" type="text" />
+                                <select name='data[category]' class="form-control form-input">
+                                {$category_option}
+                                </select>
                             </td>
                         </tr>
 
@@ -52,18 +45,11 @@
                         </tr>
 
                         <tr>
-                            <th width="150"><i class="require-red">*</i>{:L('imgUrl')}:</th>
+                            <th width="150"><i class="require-red">*</i>{:L('imgurl')}:</th>
                             <td>
-                                
-                                <input class="input-sm" name="data[imgUrl]" maxlength="20" size="50" value="" type="text" />
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th width="150"><i class="require-red">*</i>{:L('content')}:</th>
-                            <td>
-                                
-                                <input class="input-sm" name="data[content]" maxlength="20" size="50" value="" type="text" />
+                                <div class="col-md-3 from-input-align">
+                                    <input type="file" name="image_file" class="form-control input-sm" />
+                                </div>
                             </td>
                         </tr>
 
@@ -74,12 +60,10 @@
                                 <input class="input-sm" name="data[keywords]" maxlength="20" size="50" value="" type="text" />
                             </td>
                         </tr>
-
                         <tr>
-                            <th width="150"><i class="require-red">*</i>{:L('create_time')}:</th>
+                            <th width="150"><i class="require-red">*</i>{:L('summary')}:</th>
                             <td>
-                                
-                                <input class="input-sm" name="data[create_time]" maxlength="20" size="50" value="" type="text" />
+                                <textarea name="data[summary]" cols="50"  rows="7" class="form-control input-sm form-input"></textarea>
                             </td>
                         </tr>
                     </tbody>
@@ -89,7 +73,7 @@
                 <table class="table table-hover" width="90%" id="detail-table">
                     <tr>
                         <td><div class="col-md-9"> 
-                            <script id="rich_text_area" name="content" type="text/plain" style="width:810px; height:360px;"></script> 
+                            <script id="rich_text_area" name="data[content]" type="text/plain" style="width:810px; height:360px;"></script> 
                         </div></td>
                     </tr>
                 </table>

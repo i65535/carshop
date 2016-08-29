@@ -27,20 +27,12 @@
                                 <input class="input-sm" name="data[title]" maxlength="20" size="50" value="{$info['title']}" type="text" />
                             </td>
                         </tr>
-
-                        <tr>
-                            <th width="150"><i class="require-red">*</i>{:L('summary')}:</th>
-                            <td>
-                                
-                                <input class="input-sm" name="data[summary]" maxlength="20" size="50" value="{$info['summary']}" type="text" />
-                            </td>
-                        </tr>
-
                         <tr>
                             <th width="150"><i class="require-red">*</i>{:L('category')}:</th>
                             <td>
-                                
-                                <input class="input-sm" name="data[category]" maxlength="20" size="50" value="{$info['category']}" type="text" />
+                                <select name='data[category]' class="form-control form-input">
+                                    {$category_option}
+                                </select>
                             </td>
                         </tr>
 
@@ -53,18 +45,15 @@
                         </tr>
 
                         <tr>
-                            <th width="150"><i class="require-red">*</i>{:L('imgUrl')}:</th>
+                            <th width="150"><i class="require-red">*</i>{:L('imgurl')}:</th>
                             <td>
-                                
-                                <input class="input-sm" name="data[imgUrl]" maxlength="20" size="50" value="{$info['imgUrl']}" type="text" />
-                            </td>
-                        </tr>
+                                <div class="col-md-3 from-input-align">
+                                    <input type="file" name="image_file" class="form-control input-sm"/>
+                                </div>
 
-                        <tr>
-                            <th width="150"><i class="require-red">*</i>{:L('content')}:</th>
-                            <td>
-                                
-                                <input class="input-sm" name="data[content]" maxlength="20" size="50" value="{$info['content']}" type="text" />
+                                <div class="col-md-12 from-input-align">
+                                    <div> <img src="__UPLOAD__/{$info['imgurl']}" border="0" style="max-width:320px; max-height:320px;" /> </div>
+                                </div>
                             </td>
                         </tr>
 
@@ -75,20 +64,11 @@
                                 <input class="input-sm" name="data[keywords]" maxlength="20" size="50" value="{$info['keywords']}" type="text" />
                             </td>
                         </tr>
-
                         <tr>
-                            <th width="150"><i class="require-red">*</i>{:L('create_time')}:</th>
+                            <th width="150"><i class="require-red">*</i>{:L('summary')}:</th>
                             <td>
                                 
-                                <input class="input-sm" name="data[create_time]" maxlength="20" size="50" value="{$info['create_time']}" type="text" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <th></th>
-                            <td>
-                                <input type="hidden" name="id" value="{$info['id']}" />
-                                <input class="btn btn-primary btn6 mr10" value="{:L('button_submit')}" type="submit">
-                                <input class="btn btn6" onclick="history.go(-1)" value="{:L('button_return')}" type="button">
+                                <textarea name="data[summary]" cols="50"  rows="7" class="form-control input-sm form-input">{$info['summary']}</textarea>
                             </td>
                         </tr>
                     </tbody>
@@ -98,7 +78,7 @@
                 <table class="table table-hover" width="90%" id="detail-table">
                     <tr>
                         <td><div class="col-md-9"> 
-                            <script id="rich_text_area" name="content" type="text/plain" style="width:810px; height:360px;">{$info['content']}</script> 
+                            <script id="rich_text_area" name="data[content]" type="text/plain" style="width:810px; height:360px;">{$info['content']}</script> 
                         </div></td>
                     </tr>
                 </table>

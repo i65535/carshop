@@ -10,19 +10,19 @@ class IndexController extends BaseController {
 	
     public function index(){
     	$newsmgr = D('news');
-		$internet_news= $newsmgr->where("type = 'internet'")->order('id desc')->limit(0,3)->select();
+		$internet_news= $newsmgr->where("category = 'internet'")->order('id desc')->limit(0,3)->select();
     	foreach ($internet_news as $key => $value) {
-    		$internet_news[$key]["date"]=date("m-d ", $list[$key]["date"]);
+    		$internet_news[$key]["date"]=date("m-d ", $list[$key]["create_time"]);
     	}
     	
-    	$company_news= $newsmgr->where("type = 'company'")->order('id desc')->limit(0,3)->select();
+    	$company_news= $newsmgr->where("category = 'company'")->order('id desc')->limit(0,3)->select();
     	foreach ($company_news as $key => $value) {
-    		$company_news[$key]["date"]=date("m-d ", $list[$key]["date"]);
+    		$company_news[$key]["date"]=date("m-d ", $list[$key]["create_time"]);
     	}
     	
-    	$news= $newsmgr->where("type = 'news'")->order('id desc')->limit(0,3)->select();
+    	$news= $newsmgr->where("category = 'news'")->order('id desc')->limit(0,3)->select();
     	foreach ($news as $key => $value) {
-    		$news[$key]["date"]=date("m-d ", $list[$key]["date"]);
+    		$news[$key]["date"]=date("m-d ", $list[$key]["create_time"]);
     	}
 
     	$this->assign('company_news', $company_news);

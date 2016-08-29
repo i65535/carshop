@@ -55,7 +55,7 @@ class BaseController extends Controller {
         $list = D('news')->limit(4)->select();
         \Think\Log::record('list=====+++===>'. json_encode($list));
         foreach ($list as $key => $value) {
-            $list[$key]["date"]=date("Y-m-d ", $list[$key]["date"]);
+            $list[$key]["date"]=date("Y-m-d ", $list[$key]["create_time"]);
         }
         
         $this->assign('hot_news', $list);

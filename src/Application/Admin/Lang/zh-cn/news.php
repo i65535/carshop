@@ -14,16 +14,16 @@ return array(
 	'keyword'=>'关键字',
 
 	'tab_general'=>'简要信息',
-	'tab_content'=>'详细信息',
+	'tab_content'=>'新闻正文',
 	'id' => 'id',
-	'title' => 'title',
-	'summary' => 'summary',
-	'category' => 'category',
-	'author' => 'author',
-	'imgUrl' => 'imgUrl',
-	'content' => 'content',
-	'keywords' => 'keywords',
-	'create_time' => 'create_time',
+	'title' => '标题',
+	'summary' => '摘要',
+	'category' => '分类',
+	'author' => '作者',
+	'imgurl' => '封面图片',
+	'content' => '正文',
+	'keywords' => '关键字',
+	'create_time' => '发布时间',
 	
 	'id_validate' => 'id',
 	'title_validate' => 'title',
@@ -37,5 +37,11 @@ return array(
 	
 	
 	'remove_confirm' => '确定删除这个活动吗？',
+
+	'category_list' => array(
+		'company' => '公司新闻',
+		'internet' => '媒体报道',
+		'news' => '行业新闻',
+	),
 
 );
