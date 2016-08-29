@@ -9,7 +9,7 @@
                 <span>Trade news</span>
                 <ol class="breadcrumb">
                     <li><a href="/">首页</a></li>
-                    <li><a href="/news/news.html">最新动态</a></li>
+                    <li><a href="{:U('News/news')}">最新动态</a></li>
                     <li class="active">行业新闻</li>
                 </ol>
             </div>
@@ -17,114 +17,97 @@
         </section><!-- #page-title end -->
 
 
-        <!-- Content                                                                                                                                 
-        ============================================= -->                                                                                            
-        <section id="content">                                                                                                                     
-                                                                                                                                                     
-            <div class="content-wrap">                                                                                                             
-                                                                                                                                                     
-				<div class="container clearfix">                                                                                                     
-                                                                                                                                                     
-                    <!-- Post Content                                                                                                                
-                    ============================================= -->                                                                                
-					<div class="postcontent nobottommargin col_last clearfix">                                                                       
-                                                                                                                                                     
-                        <!-- Posts                                                                                                                   
-                        ============================================= -->                                                                            
-                        <div id="posts" class="small-thumbs">                                                                                    
-                            <volist name="news" id="vo">                                            
-                            <div class="entry clearfix">                                                                                           
-                                <div class="entry-image">                                                                                          
-                                    <a href="{$vo.imgUrl}" data-lightbox="image"><img class="image_fade" src="{$vo.imgUrl}" style="opacity: 1;"></a> 
-                                </div>                                                                                                               
-                                <div class="entry-c">                                                                                              
-                                    <div class="entry-title">                                                                                      
-                                        <h2><a href="{:U('News/detail',array('id'=>$vo["id"]))}">{$vo.title}</a></h2>                                                         
-                                    </div>                                                                                                           
-                                    <ul class="entry-meta clearfix">                                                                               
-                                        <li><i class="icon-calendar3"></i> {$vo.date}</li>                                                      
-                                    </ul>                                                                                                            
-                                    <div class="entry-content">                                                                                    
-                                        <p></p>                                                                            
-                                                                                                                                                     
-                                    </div>                                                                                                           
-                                </div>                                                                                                               
-                            </div>                                                                                     </volist>                              
-                                                                                                                
-                                                                                                                                                     
-							<ul class="pagination">                                                                                                  
-							  <li><a href="news.html">«</a></li>                                                                                             
-                                                  <li class="active"><a href="news.html">1</a></li>                                                                                             
-                                                    <li><a href="news-1.html">2</a></li>                                                                                             
-                                                    <li><a href="news-2.html">3</a></li>                                                                                             
-                                                    <li><a href="news-3.html">4</a></li>                                                                                             
-                                                    <li><a href="news-4.html">5</a></li>                                                                                             
-                                                    <li><a href="news-5.html">6</a></li>                                                                                             
-                                                    <li><a href="news-6.html">7</a></li>                                                                                             
-                                                    <li><a href="news-7.html">8</a></li>                                                                                             
-                                                    <li><a href="news-8.html">9</a></li>                                                                                             
-                                                    <li><a href="news-9.html">10</a></li>                                                                                             
-							  <li><a href="news-9.html">»</a></li>                                                                                             
-							</ul>                                                                                                                      
-                                                                                                                                                     
-                                                                                                                                                     
-                        </div><!-- #posts end -->                                                                                                    
-                                                                                                                                                     
-                                                                                                                                                     
-                                                                                                                                                     
-                    </div>                                                                                                                           
-					<!-- .postcontent end -->                                                                                                          
-                                                                                                                                                     
-                                                                                                                                                     
+        <!-- Content                                             
+        ============================================= -->
+        <section id="content">
+                                                                 
+            <div class="content-wrap">
+                                                                 
+				<div class="container clearfix">
+                                                                 
+                    <!-- Post Content                            
+                    ============================================= -->
+					<div class="postcontent nobottommargin col_last clearfix">
+                                                                 
+                        <!-- Posts                               
+                        ============================================= -->
+                        <div id="posts" class="small-thumbs">
+                            <volist name="news" id="vo">
+                            <div class="entry clearfix">
+                                <div class="entry-image">
+                                    <a href="__UPLOAD__/{$vo.imgurl}" data-lightbox="image"><img class="image_fade" src="{$vo.imgUrl}" style="opacity: 1;"></a>
+                                </div>
+                                <div class="entry-c">
+                                    <div class="entry-title">
+                                        <h2><a href="{:U('News/detail',array('id'=>$vo["id"]))}">{$vo.title}</a></h2>
+                                    </div>
+                                    <ul class="entry-meta clearfix">
+                                        <li><i class="icon-calendar3"></i> {$vo.date}</li>
+                                    </ul>
+                                    <div class="entry-content">
+                                        <p></p>
+                                                                 
+                                    </div>
+                                </div>
+                            </div> </volist>
+                            
+                                                                 
+							<ul class="pagination">
+							  <li><a href="news.html">«</a></li>
+                                                  <li class="active"><a href="news.html">1</a></li>
+                                                    <li><a href="news-1.html">2</a></li>
+                                                    <li><a href="news-2.html">3</a></li>
+                                                    <li><a href="news-3.html">4</a></li>
+                                                    <li><a href="news-4.html">5</a></li>
+                                                    <li><a href="news-5.html">6</a></li>
+                                                    <li><a href="news-6.html">7</a></li>
+                                                    <li><a href="news-7.html">8</a></li>
+                                                    <li><a href="news-8.html">9</a></li>
+                                                    <li><a href="news-9.html">10</a></li>
+							  <li><a href="news-9.html">»</a></li>
+							</ul>
+                                                                 
+                                                                 
+                        </div><!-- #posts end -->
+                                                                 
+                                                                 
+                                                                 
+                    </div>
+					<!-- .postcontent end -->
+                                                                 
+                                                                 
                     <!-- Sidebar                                                                             
-                    ============================================= -->                                        
-                    <div class="sidebar nobottommargin clearfix">                                            
-                        <div class="sidebar-widgets-wrap">                                                   
-                                                                                                             
-                            <div class="widget widget_links clearfix">                                       
-                                                                                                             
-                                <h4>最新动态</h4>                                                            
-                                <ul>                                                                         
-                                    <li><a href="company.html"><div>公司动态</div></a></li>                  
-                                    <li><a href="news.html"><div>行业新闻</div></a></li>                  
-                                    <li><a href="posts.html"><div>媒体报道</div></a></li>                  
-                                                                                                             
-                                </ul>                                                                        
-                                                                                                             
-                            </div>                                                                           
-                                                                                                             
+                    ============================================= -->
+                    <div class="sidebar nobottommargin clearfix">
+                        <div class="sidebar-widgets-wrap">
+                         
+                            <div class="widget widget_links clearfix">
+                         
+                                <h4>最新动态</h4>
+                                <ul>
+                                    <li><a href="{:U('News/company')}"><div>公司动态</div></a></li>
+                                    <li><a href="{:U('News/news')}"><div>行业新闻</div></a></li>
+                                    <li><a href="{:U('News/internet')}"><div>媒体报道</div></a></li>
+                                </ul>
+                         
+                            </div>
+                         
                             <include file="Common/hot_news"/>
-                                                                                                             
-                            <div class="widget clearfix">                                                  
-                                                                                                             
-                                <h4>标签</h4>                                                           
-                                <div class="tagcloud">                                                     
-                                    <a href="#">云主机</a>                                                
-                                    <a href="#">香港云主机</a>                                                
-                                    <a href="#">美国服务器</a>                                                
-                                    <a href="#">新加坡服务器</a>                                                
-                                    <a href="#">台湾云主机</a>                                                
-                                    <a href="#">负载均衡</a>                                                
-                                    <a href="#">CDN</a>                                                
-                                    <a href="#">网路游戏</a>                                                
-                                    <a href="#">跨境电商</a>                                                
-                                    <a href="#">大数据</a>                                                
-                                </div>                                                                       
-                                                                                                             
-                            </div>                                                                           
-                                                                                                             
-                            <div class="widget clearfix">                                                  
-                                                                                                             
-                                                                                                             
-                                                                                                             
-                            </div>                                                                           
-                                                                                                             
-                        </div>                                                                               
-                    </div><!-- .sidebar end -->                                                              
-                                                                                                             
-                </div>                                                                                       
-                                                                                                             
-                  </div>                                                                                     
-        </section><!-- #content end -->                                                                      
-                                                                                                             
-                                                                                                             
+                         
+                            <include file="Common/tag"/>
+                         
+                            <div class="widget clearfix">
+                         
+                         
+                         
+                            </div>
+                         
+                        </div>
+                    </div><!-- .sidebar end -->
+                         
+                </div>
+                         
+                  </div>
+        </section><!-- #content end -->
+                         
+                         
