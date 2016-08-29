@@ -32,10 +32,11 @@
                         <!-- Posts                               
                         ============================================= -->
                         <div id="posts" class="small-thumbs">
+
                             <volist name="news" id="vo">
                             <div class="entry clearfix">
                                 <div class="entry-image">
-                                    <a href="__UPLOAD__/{$vo.imgurl}" data-lightbox="image"><img class="image_fade" src="{$vo.imgUrl}" style="opacity: 1;"></a>
+                                    <a href="__UPLOAD__/{$vo.imgurl}" data-lightbox="image"><img class="image_fade" src="__UPLOAD__/{$vo.imgurl}" style="opacity: 1;"></a>
                                 </div>
                                 <div class="entry-c">
                                     <div class="entry-title">
@@ -52,20 +53,23 @@
                             </div> </volist>
                             
                                                                  
-							<ul class="pagination">
-							  <li><a href="news.html">«</a></li>
-                                                  <li class="active"><a href="news.html">1</a></li>
-                                                    <li><a href="news-1.html">2</a></li>
-                                                    <li><a href="news-2.html">3</a></li>
-                                                    <li><a href="news-3.html">4</a></li>
-                                                    <li><a href="news-4.html">5</a></li>
-                                                    <li><a href="news-5.html">6</a></li>
-                                                    <li><a href="news-6.html">7</a></li>
-                                                    <li><a href="news-7.html">8</a></li>
-                                                    <li><a href="news-8.html">9</a></li>
-                                                    <li><a href="news-9.html">10</a></li>
-							  <li><a href="news-9.html">»</a></li>
-							</ul>
+							<if condition="$page['page_count'] gt 1">
+                            <ul class="pagination">
+                                <notempty name="page.page_prev">
+                                <li><a href="{$page['page_prev']}">«</a></li>
+                                </notempty>
+
+                                <volist name="page['page_number']" id="vo" key="key" >
+                                <li <if condition="$page['page'] eq $key">class="active"</if>><a href="{$vo}">{$key}</a></li>
+                                </volist>
+
+                                <notempty name="page.page_next">
+                                <li><a href="{$page['page_next']}">»</a></li>
+                                </notempty>
+
+                                <li><a href="javascript:;">第{$page['page']}页/共{$page['page_count']}页</a></li>
+                            </ul>
+                            </if>
                                                                  
                                                                  
                         </div><!-- #posts end -->

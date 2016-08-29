@@ -38,7 +38,18 @@
 						</div><!-- .entry end -->
 
 						<!-- Post Navigation                                         
-						============================================= -->
+						============================================= -->            
+						<div class="post-navigation clearfix">                       
+                                                                                    
+							<div class="col_half nobottommargin">                    
+								<a href="{:U('News/detail', array('id'=>$pre['id']))}">{$pre.title}</a>
+							</div>                                                   
+                                                                                    
+							<div class="col_half col_last tright nobottommargin">    
+                                                          <a href="{:U('News/detail', array('id'=>$next['id']))}">{$next.title}</a>     
+							</div>                                                   
+                                                                                    
+						</div><!-- .post-navigation end -->                          
 
 					</div>
 
