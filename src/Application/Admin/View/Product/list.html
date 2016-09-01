@@ -1,15 +1,3 @@
-<layout name="index_layout" />
-
-<if condition="$full_page">
-<div class="crumb-wrap">
-	<div class="crumb-list"><i class="icon-font"></i><a href="/admin">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">{$ur_here}</span></div>
-</div>
-<include file="search" />
-
-<div class="result-wrap">
-	<form name="myform" id="myform" method="post">
-		<div class="result-content" id="listDiv">
-</if>
 			<table class="result-tab" width="100%">
 				<tr>
 					<th class="tc" width="30"><input class="allChoose" name="" id='check' type="checkbox"></th>
@@ -73,14 +61,3 @@
 				</tr>
 				</volist>
 			</table>
-<if condition="$full_page">
-			<include file="Common/page" />
-		</div>
-		<div class="list_act_div">
-			<a href="{:U('add')}" class="btn btn-primary btn2"><i class="icon-font"></i>{:L('add')}</a>
-			<input name="remove" type="submit" id="btnSubmit" value="{:L('remove')}" class="btn btn-default" disabled="true" onclick="this.form.target = '_self'" />
-			<input name="batch" type="hidden" value="1" />
-		</div>
-	</form>
-</div>
-</if>

@@ -547,6 +547,46 @@ INSERT INTO `cs_role` (`id`, `rolename`, `pri_id_list`) VALUES
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `cs_customers`
+--
+
+CREATE TABLE IF NOT EXISTS `cs_customers` (
+  `id` mediumint(5) NOT NULL,
+  `image` varchar(40) NOT NULL,
+  `name` varchar(40) NOT NULL,
+  `category` varchar(40) NOT NULL,
+  `data_loader` varchar(45) DEFAULT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `cs_customers`
+--
+
+INSERT INTO `cs_customers` (`id`, `image`, `name`, `category`, `data_loader`) VALUES
+(1, '/Theme/static/images/cs/1.jpg', 'VNO', '移动应用', '/include/ajax/vno.php'),
+(2, '/Theme/static/images/cs/2.jpg', 'OnDeck', '跨境金融', '/include/ajax/OnDeck.php'),
+(3, '/Theme/static/images/cs/3.jpg', '海尔信息（国际）', '电子商务', '/include/ajax/haier.php'),
+(4, '/Theme/static/images/cs/4.jpg', 'Mobvista', '移动应用', '/include/ajax/Mobvista.php'),
+(5, '/Theme/static/images/cs/5.jpg', 'MasaPay', '跨境金融', '/include/ajax/MasaPay.php'),
+(6, '/Theme/static/images/cs/6.jpg', '完美世界', '网络游戏', '/include/ajax/wanmei.php'),
+(7, '/Theme/static/images/cs/7.jpg', '踏浪者国际', '电子商务', '/include/ajax/Tidebuy.php'),
+(8, '/Theme/static/images/cs/8.jpg', '翰沃德', '电子商务', '/include/ajax/Noitavonne.php'),
+(9, '/Theme/static/images/cs/9.jpg', '名游网络', '网络游戏', '/include/ajax/mingyou.php'),
+(10, '/Theme/static/images/cs/10.jpg', '500万彩票网', '网站', '/include/ajax/500wan.php'),
+(11, '/Theme/static/images/cs/11.jpg', '迅雷游戏', '网络游戏', '/include/ajax/xunlei.php'),
+(12, '/Theme/static/images/cs/12.jpg', 'GirnarSOFT', '移动应用', '/include/ajax/GirnarSOFT.php'),
+(13, '/Theme/static/images/cs/13.jpg', '迈科龙', '大数据&数字营销', '/include/ajax/microprofit.php'),
+(14, '/Theme/static/images/cs/14.jpg', 'TradeEasy', '电子商务', '/include/ajax/TradeEasy.php'),
+(15, '/Theme/static/images/cs/15.jpg', '订单保', '跨境金融', '/include/ajax/dingdanbao.php'),
+(16, '/Theme/static/images/cs/16.jpg', 'Globebill', '跨境金融', '/include/ajax/Globebill.php'),
+(17, '/Theme/static/images/cs/17.jpg', '大乐网络', '网络游戏', '/include/ajax/dale.php'),
+(18, '/Theme/static/images/cs/18.jpg', '飞亚达', '电子商务', '/include/ajax/FIYTA.php'),
+(19, '/Theme/static/images/cs/19.jpg', '点通数据', '大数据&数字营销', '/include/ajax/datum.php'),
+(20, '/Theme/static/images/cs/20.jpg', '芝诺数据', '大数据&数字营销', '/include/ajax/cpda.php'),
+(21, '/Theme/static/images/cs/21.jpg', '无碍互动', '移动应用', '/include/ajax/duangvib.php');
+
+--------------------------------------------------------
+--
 -- 表的结构 `cs_sales`
 --
 

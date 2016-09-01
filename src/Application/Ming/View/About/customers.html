@@ -87,22 +87,24 @@
 										============================================= -->
 										<div id="portfolio" class="portfolio portfolio-ajax clearfix" style="position: relative; height: 885px;">
 
-											<article id="portfolio-item-1" data-loader="/include/ajax/vno.php" class="portfolio-item pf-app" style="position: absolute; left: 0px; top: 0px;">
+											<volist name="news" id="vo" key="k">
+											<article id="portfolio-item-{$k}" data-loader="{$vo.data_loader}" class="portfolio-item pf-app" style="position: absolute; left: 0px; top: 0px;">
 												<div class="portfolio-image">
 													<a href="#">
-														<img src="__PUBLIC__/images/cs/1.jpg" style="visibility: visible; opacity: 1; display: block;">
+														<img src="{$vo.image}" style="visibility: visible; opacity: 1; display: block;">
 													</a>
 													<div class="portfolio-overlay">
 														<a href="#" class="center-icon"><i class="icon-line-expand"></i></a>
 													</div>
 												</div>
 												<div class="portfolio-desc">
-													<h3><a href="#">VNO</a></h3>
-													<span><a href="#">移动应用</a></span>
+													<h3><a href="#">{$vo.name}</a></h3>
+													<span><a href="#">{$vo.category}</a></span>
 												</div>
 											</article>
+											</volist>
 
-											<article id="portfolio-item-2" data-loader="/include/ajax/OnDeck.php" class="portfolio-item pf-finance" style="position: absolute; left: 284px; top: 0px;">
+<!-- 											<article id="portfolio-item-2" data-loader="/include/ajax/OnDeck.php" class="portfolio-item pf-finance" style="position: absolute; left: 284px; top: 0px;">
 												<div class="portfolio-image">
 													<a href="#">
 														<img src="__PUBLIC__/images/cs/2.jpg" alt="OnDeck" style="visibility: visible; opacity: 1; display: block;">
@@ -400,7 +402,7 @@
 													<h3><a href="#">无碍互动</a></h3>
 													<span><a href="#">移动应用</a></span>
 												</div>
-											</article>
+											</article> -->
 											
 										</div><!-- #portfolio end -->
 
