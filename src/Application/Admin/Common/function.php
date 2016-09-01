@@ -15,3 +15,13 @@ function sort_flag($filter)
     return $flag;
 }
 
+/**
+ * 对 MYSQL LIKE 的内容进行转义
+ *
+ * @access      public
+ * @param       string      string  内容
+ * @return      string
+ */
+function mysql_like_quote($str) {
+    return strtr($str, array("\\\\" => "\\\\\\\\", '_' => '\_', '%' => '\%', "\'" => "\\\\\'"));
+}
