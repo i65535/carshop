@@ -149,7 +149,7 @@ class ProductController extends CommonController {
         $sort_flag  = sort_flag($filter);
         $this->assign($sort_flag['tag'], $sort_flag['img']);
         
-        make_json_result($this->display('product_index', true), '', array('filter' => $filter['page']));
+        make_json_result($this->fetch('list'), '', array('filter' => $filter['page']));
     }
 
     public function operate(){
