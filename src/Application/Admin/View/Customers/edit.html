@@ -1,0 +1,61 @@
+<layout name="edit_layout" />
+<div class="crumb-wrap">
+    <div class="crumb-list">
+        <i class="icon-font"></i>
+        <a href="/admin">首页</a><span class="crumb-step">&gt;</span>
+        <a class="crumb-name" href="{:U('index')}">{$ur_here}</a><span class="crumb-step">&gt;</span><span>{:L('edit')}</span>
+    </div>
+</div>
+<div class="result-wrap">
+    <div class="result-content">
+        <form action="{:U('update')}" method="post" id="myform" name="myform" enctype="multipart/form-data">
+            <table class="insert-tab" width="100%">
+                <tbody>
+                
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('image')}:</th>
+                        <td>
+                            <input class="common-text required" id="title" name="data[image]" size="50" value="{$info['image']}" type="text">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('name')}:</th>
+                        <td>
+                            <input class="common-text required" id="title" name="data[name]" size="50" value="{$info['name']}" type="text">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('category')}:</th>
+                        <td>
+                            <input class="common-text required" id="title" name="data[category]" size="50" value="{$info['category']}" type="text">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('data_loader')}:</th>
+                        <td>
+                            <input class="common-text required" id="title" name="data[data_loader]" size="50" value="{$info['data_loader']}" type="text">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th width="150"><i class="require-red">*</i>{:L('type')}:</th>
+                        <td>
+                            <input class="common-text required" id="title" name="data[type]" size="50" value="{$info['type']}" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td>
+                            <input type="hidden" name="id" value="{$info['id']}" />
+                            <input class="btn btn-primary btn6 mr10" value="{:L('button_submit')}" type="submit">
+                            <input class="btn btn6" onclick="history.go(-1)" value="{:L('button_return')}" type="button">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>

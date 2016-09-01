@@ -13,6 +13,8 @@ class AboutController extends BaseController
 	}
 	
 	public function customers(){
+		$list = D('customers')->select();
+    	$this->assign('list', $list);
 		$this->display();
 	}
 	
