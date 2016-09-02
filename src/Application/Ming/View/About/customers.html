@@ -1,0 +1,188 @@
+<layout name="common_layout" />
+
+        <!-- Page Title
+        ============================================= -->
+        <section id="page-title">
+
+            <div class="container clearfix">
+                <h1>客户案例</h1>
+                <span>Customers</span>
+                <ol class="breadcrumb">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="{:U('About/about')}">关于我们</a></li>
+                    <li class="active">客户案例</li>
+                </ol>
+            </div>
+
+        </section><!-- #page-title end -->
+
+
+
+        <!-- Content
+        ============================================= -->
+        <section id="content">
+
+            <div class="content-wrap">
+
+<div class="container clearfix">
+
+                    <!-- Post Content
+                    ============================================= -->
+                    <div class="postcontent nobottommargin col_last clearfix">
+
+
+<div class="postcontent nobottommargin col_last clearfix">
+
+                        <div class="single-post nobottommargin">
+
+                            <!-- Single Post
+                            ============================================= -->
+                            <div class="entry clearfix">
+                                
+                                <!-- Entry Title
+                                ============================================= -->
+                                <div class="fancy-title title-bottom-border">
+                                    <h2>客户案例</h2>
+
+                                </div><!-- .entry-title end -->
+                                
+                                <!-- Entry Meta
+                                ============================================= -->
+                                <ul class="entry-meta clearfix">
+                                    <li></li>
+                                </ul><!-- .entry-meta end -->
+
+								
+                                <!-- Entry Content
+                                ============================================= -->
+                                <div class="entry-content notopmargin">
+
+									<div>
+
+										<div id="portfolio-ajax-wrap">
+											<div id="portfolio-ajax-container"></div>
+										</div>
+
+										<div id="portfolio-ajax-loader"><img src="__PUBLIC__/images/preloader-dark.gif" alt="Preloader"></div>
+
+										<!-- Portfolio Filter
+										============================================= -->
+										<ul id="portfolio-filter" class="clearfix">
+
+											<li class="activeFilter"><a href="#" data-filter=".pf-web">电子商务</a></li>
+											<li><a href="#" data-filter=".pf-game">网络游戏</a></li>
+											<li><a href="#" data-filter=".pf-app">移动应用</a></li>
+											<li><a href="#" data-filter=".pf-finance">跨境金融</a></li>
+											<li><a href="#" data-filter=".pf-data">大数据&数字营销</a></li>
+
+										</ul><!-- #portfolio-filter end -->
+
+										<div id="portfolio-shuffle">
+											<i class="icon-random"></i>
+										</div>
+
+										<div class="clear"></div>
+
+										<!-- Portfolio Items
+										============================================= -->
+										<div id="portfolio" class="portfolio portfolio-ajax clearfix" style="position: relative; height: 885px;">
+
+											<volist name="list" id="vo" key="k">
+											<article id="portfolio-item-{$k}" data-loader="{$vo.data_loader}" class="portfolio-item {$vo.type}" style="position: absolute; left: 0px; top: 0px;">
+												<div class="portfolio-image">
+													<a href="#">
+														<img src="{$vo.image}" style="visibility: visible; opacity: 1; display: block;">
+													</a>
+													<div class="portfolio-overlay">
+														<a href="#" class="center-icon"><i class="icon-line-expand"></i></a>
+													</div>
+												</div>
+												<div class="portfolio-desc">
+													<h3><a href="#">{$vo.name}</a></h3>
+													<span><a href="#">{$vo.category}</a></span>
+												</div>
+											</article>
+											</volist>
+
+											
+										</div><!-- #portfolio end -->
+
+										<!-- Portfolio Script
+										============================================= -->
+										<script type="text/javascript">
+
+											jQuery(window).load(function(){
+
+												var $container = $('#portfolio');
+
+												$container.isotope({ transitionDuration: '0.65s' });
+
+												$('#portfolio-filter a').click(function(){
+													$('#portfolio-filter li').removeClass('activeFilter');
+													$(this).parent('li').addClass('activeFilter');
+													var selector = $(this).attr('data-filter');
+													$container.isotope({ filter: selector });
+													return false;
+												});
+
+												$('#portfolio-shuffle').click(function(){
+													$container.isotope('updateSortData').isotope({
+														sortBy: 'random'
+													});
+												});
+
+												$(window).resize(function() {
+													$container.isotope('layout');
+												});
+
+											});
+
+										</script><!-- Portfolio Script End -->
+
+									</div>									
+								
+                                    <!-- Post Single - Content End -->
+                                    
+                                </div>
+                            </div><!-- .entry end -->
+
+
+                        </div>
+
+                    </div>
+                       
+
+                    </div><!-- .postcontent end -->
+
+              
+                    <!-- Sidebar
+                    ============================================= -->
+                    <div class="sidebar nobottommargin clearfix">
+                        <div class="sidebar-widgets-wrap">
+
+                            <div class="widget widget_links clearfix">
+
+                                <h4>关于我们</h4>
+                                <ul>
+                                    <li><a href="about.html"><div>公司简介</div></a></li>
+                                    <li><a href="contact.html"><div>联系我们</div></a></li>
+                                    <li><a href="customers.html"><div>客户案例</div></a></li>
+                                    <li><a href="jobs.html"><div>人才招聘</div></a></li>
+                                    <li><a href="/products/cloud/apply.php"><div>申请试用</div></a></li>
+
+                                </ul>
+
+                            </div>
+
+ 
+                            <include file="Common/hot_news"/>
+                         
+                            <include file="Common/tag"/>
+                         
+                        </div>
+                    </div><!-- .sidebar end -->
+                         
+                </div>
+                         
+                  </div>
+        </section><!-- #content end -->
