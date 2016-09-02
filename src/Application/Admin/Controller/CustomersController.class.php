@@ -18,11 +18,8 @@ class CustomersController extends CommonController {
         $offset = $this->pageLimit(U('index', $filter['page']), 12);
         $total = $this->get_total_count($filter['where_single']);
         $this->assign('page', $this->pageShow($total));
-        $this->set_category_option();
+        $this->set_category_option(I('search_type'));
         
-        $search_type = I('search_type');
-                if($search_type == 'pf-web' || $search_type == 'pf-game' || $search_type == 'pf-finance' || $search_type == 'pf-app' || $search_type == 'pf-data')
-            $filter['where'] = "T.category = '$search_type'";
         $list = D('Customers')->get_customers_list($filter, $offset);
         $this->assign('list', $list);
         $this->assign('filter', $filter['filter']);
@@ -32,19 +29,15 @@ class CustomersController extends CommonController {
     }
 
     function parse_query_condition(){
-        /* 过滤条件 */
-        $keyword = empty($_REQUEST['keyword']) ? '' : trim($_REQUEST['keyword']);
-        if (isset($_REQUEST['is_ajax']) && $_REQUEST['is_ajax'] == 1)
-        {
-            $keyword = json_str_iconv($keyword);
-        }
+        $search_type = I('search_type');
+
         $filter['sort_by']      = empty($_REQUEST['sort_by']) ? 'T.id' : trim($_REQUEST['sort_by']);
         $filter['sort_order']   = empty($_REQUEST['sort_order']) ? 'ASC' : trim($_REQUEST['sort_order']);
         $filter['filter'] = array();
         
-        $filter['where_single'] = (empty($keyword)) ? '':" goods_name LIKE '%" . mysql_like_quote($keyword) . "%'";
-        $filter['where'] = (empty($keyword)) ? '':" T.goods_name LIKE '%" . mysql_like_quote($keyword) . "%'";
-        $filter['page'] = array('page'=>'{page}','keyword'=>$keyword);
+        $filter['where_single'] = (empty($search_type)) ? '':" category='$search_type'";
+        $filter['where'] = (empty($search_type)) ? '':" T.category='$search_type'";
+        $filter['page'] = array('page'=>'{page}','category'=>$search_type);
         return $filter;
     }
 
