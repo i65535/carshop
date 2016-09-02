@@ -47,7 +47,11 @@ class CustomersController extends CommonController {
         {
             die('invalid param');
         }
+
         $detail = $this->instance->find($id);
+        \Think\Log::record('====detail=======>'. json_encode($detail));
+        $this->set_category_option($detail['category']);
+
         $this->assign('info', $detail);
     
         /* 模板赋值 */
