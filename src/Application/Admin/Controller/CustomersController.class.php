@@ -18,10 +18,11 @@ class CustomersController extends CommonController {
         $offset = $this->pageLimit(U('index', $filter['page']), 12);
         $total = $this->get_total_count($filter['where_single']);
         $this->assign('page', $this->pageShow($total));
+        $this->set_category_option();
         
         $search_type = I('search_type');
-        if($search_type != 'all')
-            $filter['where'] = "T.type = '$search_type'";
+                if($search_type == 'pf-web' || $search_type == 'pf-game' || $search_type == 'pf-finance' || $search_type == 'pf-app' || $search_type == 'pf-data')
+            $filter['where'] = "T.category = '$search_type'";
         $list = D('Customers')->get_customers_list($filter, $offset);
         $this->assign('list', $list);
         $this->assign('filter', $filter['filter']);
@@ -195,5 +196,17 @@ class CustomersController extends CommonController {
             $select .= $value . '</option>';
         }
         $this->assign('xxxx_option', $select);
+    }
+
+    function set_category_option($selected=0){
+        $list = L('category_list');
+        $select = '';
+        foreach ($list as $key=>$value) {
+            $select .= '<option value="' . $key . '" ';
+            $select .= ($selected == $key) ? "selected='true'" : '';
+            $select .= '>';
+            $select .= $value . '</option>';
+        }
+        $this->assign('category_option', $select);
     }
 }

@@ -31,6 +31,15 @@ return array(
 	
 	'js_languages' => array(
 		'remove_confirm' => '确定删除这个活动吗？',
+	),
+
+	'category_list' => array(
+		'all' => '全部',
+		'pf-web' => '电子商务',
+		'pf-game' => '网络游戏',
+		'pf-app' => '移动应用',
+		'pf-finance' => '跨境金融',
+		'pf-data' => '大数据&数字营销',
 	)
 
 );
