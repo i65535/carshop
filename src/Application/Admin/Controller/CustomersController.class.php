@@ -198,12 +198,12 @@ class CustomersController extends CommonController {
         $this->assign('xxxx_option', $select);
     }
 
-    function set_category_option($selected=0){
+    function set_category_option($selected=''){
         $list = L('category_list');
         $select = '';
         foreach ($list as $key=>$value) {
             $select .= '<option value="' . $key . '" ';
-            $select .= ($selected == $key) ? "selected='true'" : '';
+            $select .= ($selected === $key) ? "selected='true'" : '';
             $select .= '>';
             $select .= $value . '</option>';
         }

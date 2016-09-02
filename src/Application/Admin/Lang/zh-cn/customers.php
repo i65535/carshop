@@ -34,7 +34,7 @@ return array(
 	),
 
 	'category_list' => array(
-		'all' => '全部',
+		'' => '全部',
 		'pf-web' => '电子商务',
 		'pf-game' => '网络游戏',
 		'pf-app' => '移动应用',
