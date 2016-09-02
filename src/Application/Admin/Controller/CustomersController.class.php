@@ -32,7 +32,7 @@ class CustomersController extends CommonController {
         $search_type = I('search_type');
 
         $filter['sort_by']      = empty($_REQUEST['sort_by']) ? 'T.id' : trim($_REQUEST['sort_by']);
-        $filter['sort_order']   = empty($_REQUEST['sort_order']) ? 'ASC' : trim($_REQUEST['sort_order']);
+        $filter['sort_order']   = empty($_REQUEST['sort_order']) ? 'DESC' : trim($_REQUEST['sort_order']);
         $filter['filter'] = array();
         
         $filter['where_single'] = (empty($search_type)) ? '':" category='$search_type'";
@@ -66,7 +66,8 @@ class CustomersController extends CommonController {
             'id'  => 0
         );
         $this->assign('info', $info);
-        
+        $this->set_category_option();
+
         /* 模板赋值 */
         $this->assign('ur_here', L('add'));
         $this->assign('action_link', array('text' => L('list'), 'href' => U('index')));

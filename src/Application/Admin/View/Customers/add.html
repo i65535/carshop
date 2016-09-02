@@ -29,7 +29,11 @@
                     <tr>
                         <th width="150"><i class="require-red">*</i>{:L('category')}:</th>
                         <td>
-                            <input class="common-text required" id="title" name="data[category]" size="50" value="" type="text">
+                                <div class="col-md-4">
+                                    <select name='data[region]' class="form-control">
+                                    {$category_option}
+                                    </select>
+                                </div>
                         </td>
                     </tr>
 
