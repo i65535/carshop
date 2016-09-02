@@ -43,7 +43,7 @@ class CustomersController extends CommonController {
 
     public function edit(){
         $id = intval($_GET['id']);
-        if ($id <= 0)
+        if ($id < 0)
         {
             die('invalid param');
         }
