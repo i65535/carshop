@@ -42,7 +42,6 @@
 
 					<th><center><a href="javascript:listTable.sort('data_loader'); ">{:L('data_loader')}</a></center></th>
 
-					<th><center><a href="javascript:listTable.sort('type'); ">{:L('type')}</a></center></th>
 					<th>操作</th>
 				</tr>
 				<volist name="list" id="vo">
@@ -61,7 +60,6 @@
 
 					<td><center><span onclick="javascript:listTable.edit(this, 'edit_data_loader', {$vo['id']})">{$vo['data_loader']}</span></center></td>
 
-					<td><center><span onclick="javascript:listTable.edit(this, 'edit_type', {$vo['id']})">{$vo['type']}</span></center></td>
 					<td><center>
 						<a class="link-update" href="{:U('edit', array('id'=>$vo['id']))}">{:L('edit')}</a>
 						<a class="link-del" onclick="return confirm('{:L('remove_confirm')}');" href="{:U('del', array('id'=>$vo['id']))}">{:L('remove')}</a>
