@@ -47,61 +47,36 @@
 
                     <div class="pricing bottommargin clearfix">
                         <volist name="list" id="vo">
-                        <empty name="vo.desc">
-                        <div class="col-md-3">
-                            <div class="pricing-box">
-                                <div class="pricing-title">
-                                    <h3>{$vo.name}</h3>
-                                </div>
-                                <div class="pricing-price">
-                                    <span class="price-unit">&yen;</span>{$vo.price_month}<span class="price-tenure">/月</span>
-                                </div>
-                                <div class="pricing-features">
-                                    <ul>
-                                        <li>CPU ：{$vo.cpu}</li>
-                                        <li>内存：{$vo.memory}</li>
-                                        <li>硬盘：{$vo.disk}</li>
-                                        <li>带宽：{$vo.bandwidth}</li>
-                                        <li>IP数量：{$vo.ip}  </li>
-                                    </ul>
-                                </div>
-                                <div class="pricing-action">
-                                    <a href="apply.php" class="btn btn-danger btn-block btn-lg">立即申请</a>
-                                </div>
-                            </div>
-                        </div>
-                        <else />
-                        <div class="col-md-3">
-                            <div class="pricing-box best-price">
-                                <div class="pricing-title">
-                                    <h3>{$vo.name}</h3>
-                                    <span>{$vo.desc}</span>
-                                </div>
-                                <div class="pricing-price">
-                                    <span class="price-unit">&yen;</span>{$vo.price_month}<span class="price-tenure">/月</span>
-                                </div>
-                                <div class="pricing-features">
-                                    <ul>
-                                        <li>CPU ：{$vo.cpu}</li>
-                                        <li>内存：{$vo.memory}</li>
-                                        <li>硬盘：{$vo.disk}</li>
-                                        <li>带宽：{$vo.bandwidth}</li>
-                                        <li>IP数量：{$vo.ip}  </li>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i></li>
-                                    </ul>
-                                </div>
-                                <div class="pricing-action">
-                                    <a href="apply.php" class="btn btn-danger btn-block btn-lg bgcolor border-color">立即申请</a>
-                                </div>
-                            </div>
+                <div class="cty-svr-box">
+                <div class="cty-svr-box-top">
+                <img style="vertical-align: middle; width: 59px; height: 36px;" >型号&nbsp;:&nbsp;{$vo.type}
+            </div>
+            <div class="cty-svr-peizhi mt25">
+                <ul>
+                    <li>
+                        <img src="__PUBLIC__/images/lyh-cpu-small-icon.png" alt="CPU">CPU&nbsp;:&nbsp;<span>{$vo.cpu}</span></li>
+                    <li>
+                        <img src="__PUBLIC__/images/lyh-daikuan-small-icon.png" alt="带宽">带宽&nbsp;:&nbsp;<span>{$vo.bandwidth}</span></li>
+                    <li>
+                        <img src="__PUBLIC__/images/lyh-neicun-small-icon.png" alt="内存">内存&nbsp;:&nbsp;<span>{$vo.memory}</span></li>
+                    <!-- <li>
+                        <img src="__PUBLIC__/images/lyh-liuliang-small-icon.png" alt="流量">流量&nbsp;:&nbsp;<span>不限流量</span></li> -->
+                    <li>
+                        <img src="__PUBLIC__/images/lyh-yingpan-small-icon.png" alt="硬盘">硬盘&nbsp;:&nbsp;<span>{$vo.disk}</span></li>
+                    <li>
+                        <img src="__PUBLIC__/images/lyh-ip-small-icon.png" alt="IP">IP&nbsp;:&nbsp;<span>{$vo.ip}</span></li>
+                    <!-- <li>
+                        <img src="__PUBLIC__/images/lyh-xitong-small-icon.png" alt="默认操作系统">默认操作系统&nbsp;:&nbsp;<span>centos6.x 64位</span></li> -->
+                </ul>
+                <div class="cty-svr-price fl">
 
-                        </div>
-
-                        </empty>
+                    
+                    <div class="cty-svr-danjia"><span>￥</span><em>{$vo.price_month}</em>/月</div>
+                    
+                    <a href="" >立即选购</a>
+                </div>
+            </div>
+        </div>
                         </volist>
                     </div>
                 </div>

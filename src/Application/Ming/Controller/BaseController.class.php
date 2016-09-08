@@ -21,6 +21,7 @@ class BaseController extends Controller {
     public function set_banner(){
         $sql="SELECT A.*, I.* from cs_album A left join cs_images I on I.album_id=A.id WHERE A.album_name='BannerAD'";
         $data=M()->query($sql);
+        \Think\Log::record('=========set_banner=====+++===>'. json_encode($data));
         $this->assign('data', $data);
     }
     

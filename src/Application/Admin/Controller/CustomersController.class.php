@@ -12,6 +12,7 @@ class CustomersController extends CommonController {
 
     public function index() {
         $filter = $this->parse_query_condition();
+        \Think\Log::record('====filter=======>'. json_encode($filter));
         
         /* 模板赋值 */
         $this->assign('full_page', 1);
@@ -201,7 +202,8 @@ class CustomersController extends CommonController {
         $select = '';
         foreach ($list as $key=>$value) {
             $select .= '<option value="' . $key . '" ';
-            $select .= ($selected === $key) ? "selected='true'" : '';
+            $select .= ($selected == $key) ? "selected='true'" : '';
+ 
             $select .= '>';
             $select .= $value . '</option>';
         }
